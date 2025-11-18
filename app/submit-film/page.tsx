@@ -84,9 +84,6 @@ export default function SubmitFilmPage() {
       await fetch(scriptUrl, {
         method: "POST",
         mode: "no-cors",
-        headers: {
-          "Content-Type": "application/json",
-        },
         body: JSON.stringify({
           ...formData,
           submittedAt: new Date().toISOString(),
@@ -117,6 +114,16 @@ export default function SubmitFilmPage() {
     } finally {
       setIsSubmitting(false);
     }
+  };
+
+  const handleDownloadGuideline = () => {
+    // Create a temporary anchor element to trigger download
+    const link = document.createElement('a');
+    link.href = '/submission-guidelines.pdf';
+    link.download = 'TBFF-2025-Submission-Guidelines.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -162,9 +169,9 @@ export default function SubmitFilmPage() {
         {/* Main Yellow Content Area */}
         <div className="relative bg-[#FFCE21] px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 pb-0 pt-0 min-h-[calc(100vh-80px)]" style={{ marginLeft: '8px' }}>
           {/* Content with padding to avoid side strips - full width */}
-          <div className="relative z-20 pl-6 sm:pl-8 md:pl-12 lg:pl-16 xl:pl-20 pr-0 pt-0 w-full">
+          <div className="relative z-20 pl-4 sm:pl-6 md:pl-8 lg:pl-12 xl:pl-16 pr-4 sm:pr-6 md:pr-8 lg:pr-12 xl:pr-16 pt-0 w-full max-w-[1600px] mx-auto">
             {/* Title */}
-            <h1 className="font-bebas text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-[#091529] mb-2 sm:mb-3 md:mb-4 lg:mb-5 uppercase tracking-tight mt-6 sm:mt-8 md:mt-10 lg:mt-12 text-left">
+            <h1 className="font-bebas text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-[#091529] mb-1 sm:mb-1 md:mb-2 lg:mb-2 uppercase tracking-tight mt-6 sm:mt-8 md:mt-10 lg:mt-12 text-left">
               SUBMISSION GUIDELINES & ENTRY FORM
             </h1>
 
@@ -342,7 +349,7 @@ export default function SubmitFilmPage() {
         </div>
 
         <div className="relative px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
-          <div className="relative z-20 pl-6 sm:pl-8 md:pl-12 lg:pl-16 xl:pl-20 pr-0 w-full">
+          <div className="relative z-20 pl-4 sm:pl-6 md:pl-8 lg:pl-12 xl:pl-16 pr-4 sm:pr-6 md:pr-8 lg:pr-12 xl:pr-16 w-full max-w-[1600px] mx-auto">
             {/* Form Title */}
             <h2 className="font-bebas text-2xl sm:text-3xl md:text-4xl lg:text-5xl   text-[#091529] mb-6 sm:mb-7 md:mb-8 lg:mb-10 mt-8 sm:mt-10 md:mt-12 lg:mt-16 uppercase tracking-tight text-center md:text-left">
               TBFF 2025 SUBMISSION FORM
@@ -636,10 +643,7 @@ export default function SubmitFilmPage() {
                 </button>
                 <button
                   type="button"
-                  onClick={() => {
-                    // TODO: Add PDF link when available
-                    // window.open('/path/to/submission-guidelines.pdf', '_blank');
-                  }}
+                  onClick={handleDownloadGuideline}
                   className="font-texta w-full md:w-auto px-12 py-3 bg-[#091529] text-white rounded-md text-base md:text-lg uppercase tracking-wide hover:bg-[#0a1a35] transition-all duration-200 shadow-md hover:shadow-lg"
                 >
                   Download Submission Guideline

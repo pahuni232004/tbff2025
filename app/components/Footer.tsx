@@ -67,12 +67,12 @@ export default function Footer() {
                             height={120}
                             className="object-contain brightness-0 invert"
                         />
-                        <h2 className="text-xl font-semibold">Bhopal Film Festival</h2>
+                        <h2 className="font-bebas text-xl font-medium">Bhopal Film Festival</h2>
                     </div>
-                    <p className="text-sm text-white/90 leading-relaxed">
+                    <p className="font-texta text-sm text-white/90 leading-relaxed">
                         Celebrating films and voices from the heart of Madhya Pradesh. Showcasing stories that inspire and connect audiences.
                     </p>
-                    <p className="text-sm text-white/80">
+                    <p className="font-texta text-sm text-white/80">
                         Discover screenings, events, and passes — be part of the festival.
                     </p>
 
@@ -80,24 +80,24 @@ export default function Footer() {
 
                 {/* Middle - Links */}
                 <div className="flex flex-col space-y-3">
-                    <h3 className="text-lg font-semibold mb-3">Quick Links</h3>
-                    <SafeLink href="/submit-film" className="text-white/90 hover:text-white transition">
+                    <h3 className="font-bebas text-lg font-medium mb-3">Quick Links</h3>
+                    <SafeLink href="/submit-film" className="font-texta text-white/90 hover:text-white transition">
                         Submit Film
                     </SafeLink>
-                    <SafeLink href="/about" className="text-white/90 hover:text-white transition">
+                    <SafeLink href="/about" className="font-texta text-white/90 hover:text-white transition">
                         About
                     </SafeLink>
-                    <SafeLink href="/passes" className="text-white/90 hover:text-white transition">
+                    <SafeLink href="/passes" className="font-texta text-white/90 hover:text-white transition">
                         Get Passes
                     </SafeLink>
-                    <a href="mailto:info@bhopalfilmfestival.com" className="text-white/90 hover:text-white transition">
+                    <a href="mailto:info@bhopalfilmfestival.com" className="font-texta text-white/90 hover:text-white transition">
                         Email
                     </a>
                 </div>
 
                 {/* Right - Subscribe */}
                 <div className="space-y-4">
-                    <h3 className="text-lg font-semibold">Stay Updated</h3>
+                    <h3 className="font-bebas text-lg font-medium">Stay Updated</h3>
                     <form onSubmit={handleSubscribe} className="space-y-2">
                         <div className="flex flex-col sm:flex-row items-stretch sm:items-center">
                             <input
@@ -107,18 +107,18 @@ export default function Footer() {
                                 placeholder="Your email"
                                 required
                                 disabled={status === "loading"}
-                                className="w-full px-3 py-2 rounded-t-md sm:rounded-l-md sm:rounded-t-none bg-gray-200 text-black placeholder-gray-600 outline-none text-sm disabled:opacity-50"
+                                className="font-texta w-full px-3 py-2 rounded-t-md sm:rounded-l-md sm:rounded-t-none bg-gray-200 text-black placeholder-gray-600 outline-none text-sm disabled:opacity-50"
                             />
                             <button
                                 type="submit"
                                 disabled={status === "loading"}
-                                className="bg-white text-black px-4 py-2 rounded-b-md sm:rounded-r-md sm:rounded-b-none font-medium hover:bg-gray-100 transition text-sm whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed"
+                                className="font-texta bg-white text-black px-4 py-2 rounded-b-md sm:rounded-r-md sm:rounded-b-none font-medium hover:bg-gray-100 transition text-sm whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed"
                             >
                                 {status === "loading" ? "Subscribing..." : "Subscribe"}
                             </button>
                         </div>
                         {message && (
-                            <p className={`text-xs ${status === "success" ? "text-green-300" : "text-red-300"
+                            <p className={`font-texta text-xs ${status === "success" ? "text-green-300" : "text-red-300"
                                 }`}>
                                 {message}
                             </p>
@@ -141,12 +141,12 @@ export default function Footer() {
 
                     <div className="flex items-center gap-2 text-sm text-white/90">
                         <FaPhone className="text-white/80" size={18} />
-                        <span>+91 90399 15389</span>
+                        <span className="font-texta">+91 90399 15389</span>
                     </div>
 
                     <div className="flex items-center gap-2 text-sm text-white/90">
                         <FaPhone className="text-white/80" size={18} />
-                        <span>+91 88783 76408</span>
+                        <span className="font-texta">+91 88783 76408</span>
                     </div>
 
 
@@ -155,8 +155,8 @@ export default function Footer() {
 
             {/* Bottom Bar */}
             <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center mt-6 text-sm text-white/80">
-                <p>© {year} All rights reserved — Bhopal Film Festival</p>
-                <p>
+                <p className="font-texta">© {year} All rights reserved — Bhopal Film Festival</p>
+                <p className="font-texta">
                     Built by ETWOT and assisted by{" "}
                     <SafeLink
                         href="https://www.devmanish.com/"

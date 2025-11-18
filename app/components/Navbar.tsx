@@ -45,7 +45,7 @@ export default function Navbar() {
                             <li>
                                 <SafeLink
                                     href="/about"
-                                    className="bg-[#FFCE21] text-[#091529] font-bold text-sm uppercase px-4 py-2 rounded-md hover:opacity-90 transition"
+                                    className="font-texta bg-[#FFCE21] text-[#091529] font-bold text-sm uppercase px-4 py-2 rounded-md hover:opacity-90 transition"
                                 >
                                     About
                                 </SafeLink>
@@ -53,7 +53,7 @@ export default function Navbar() {
                             <li>
                                 <SafeLink
                                     href="/terms"
-                                    className="bg-[#FFCE21] text-[#091529] font-bold text-sm uppercase px-4 py-2 rounded-md hover:opacity-90 transition"
+                                    className="font-texta bg-[#FFCE21] text-[#091529] font-bold text-sm uppercase px-4 py-2 rounded-md hover:opacity-90 transition"
                                 >
                                     T&C
                                 </SafeLink>
@@ -61,7 +61,7 @@ export default function Navbar() {
                             <li>
                                 <SafeLink
                                     href="/submit-film"
-                                    className="bg-[#FFCE21] text-[#091529] font-bold text-sm uppercase px-4 py-2 rounded-md hover:opacity-90 transition"
+                                    className="font-texta bg-[#FFCE21] text-[#091529] font-bold text-sm uppercase px-4 py-2 rounded-md hover:opacity-90 transition"
                                 >
                                     Submit Film
                                 </SafeLink>
@@ -69,7 +69,7 @@ export default function Navbar() {
                             <li>
                                 <SafeLink
                                     href="/passes"
-                                    className="bg-[#FFCE21] text-[#091529] font-bold text-sm uppercase px-4 py-2 rounded-md hover:opacity-90 transition"
+                                    className="font-texta bg-[#FFCE21] text-[#091529] font-bold text-sm uppercase px-4 py-2 rounded-md hover:opacity-90 transition"
                                 >
                                     GET PASSES
                                 </SafeLink>
@@ -114,14 +114,14 @@ export default function Navbar() {
 
                         <SafeLink
                             href="/about"
-                            className="bg-[#FFCE21] text-[#091529] font-bold text-lg uppercase px-6 py-3 rounded-md hover:opacity-90 transition w-48 text-center relative z-10"
+                            className="font-texta bg-[#FFCE21] text-[#091529] font-bold text-lg uppercase px-6 py-3 rounded-md hover:opacity-90 transition w-48 text-center relative z-10"
                             onClick={() => setOpen(false)}
                         >
                             ABOUT
                         </SafeLink>
                         <SafeLink
                             href="/terms"
-                            className="bg-[#FFCE21] text-[#091529] font-bold text-lg uppercase px-6 py-3 rounded-md hover:opacity-90 transition w-48 text-center relative z-10"
+                            className="font-texta bg-[#FFCE21] text-[#091529] font-bold text-lg uppercase px-6 py-3 rounded-md hover:opacity-90 transition w-48 text-center relative z-10"
                             onClick={() => setOpen(false)}
                         >
                             T&C
@@ -129,7 +129,7 @@ export default function Navbar() {
 
                         <SafeLink
                             href="/submit-film"
-                            className="bg-[#FFCE21] text-[#091529] font-bold text-lg uppercase px-6 py-3 rounded-md hover:opacity-90 transition w-48 text-center relative z-10"
+                            className="font-texta bg-[#FFCE21] text-[#091529] font-bold text-lg uppercase px-6 py-3 rounded-md hover:opacity-90 transition w-48 text-center relative z-10"
                             onClick={() => setOpen(false)}
                         >
                             SUBMIT FILM
@@ -137,7 +137,7 @@ export default function Navbar() {
 
                         <SafeLink
                             href="/passes"
-                            className="bg-[#FFCE21] text-[#091529] font-bold text-lg uppercase px-6 py-3 rounded-md hover:opacity-90 transition w-48 text-center relative z-10"
+                            className="font-texta bg-[#FFCE21] text-[#091529] font-bold text-lg uppercase px-6 py-3 rounded-md hover:opacity-90 transition w-48 text-center relative z-10"
                             onClick={() => setOpen(false)}
                         >
                             GET PASSES

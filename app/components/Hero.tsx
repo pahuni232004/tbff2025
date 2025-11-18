@@ -72,7 +72,7 @@ export default function Hero({ scrollProgress }: Props) {
       {/* Right: content */}
       <div className="relative ml-auto w-full lg:w-1/2 z-30 px-6 md:px-12">
         <div className="max-w-xl py-16 md:py-28">
-          <h1 className="font-extrabold text-[#091529] leading-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+          <h1 className="font-bebas font-extrabold text-[#091529] leading-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
             CELEBRATING CINEMA
             <br />
             THAT SPEAKS, SINGS,
@@ -80,7 +80,7 @@ export default function Hero({ scrollProgress }: Props) {
             AND REMEMBERS.
           </h1>
 
-          <p className="mt-6 text-[#091529] text-base md:text-lg">
+          <p className="font-texta mt-6 text-[#091529] text-base md:text-lg">
             A day of celebrating films, voices, and live experiences —{" "}
             <strong>1st February 2026, Bhopal</strong>
           </p>

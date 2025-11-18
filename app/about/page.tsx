@@ -136,7 +136,7 @@ export default function AboutPage() {
             {/* Left Side - Character with Spotlight Illustration */}
             <div className="relative flex flex-col items-start justify-start w-[35%] sm:w-[40%] md:w-[38%] lg:w-[45%] xl:w-[48%] h-full z-30 overflow-visible -ml-8 sm:-ml-12 md:-ml-12 lg:-ml-32 xl:-ml-48 2xl:-ml-60">
               {/* Desktop character size reduced further (≈3x smaller on large screens) */}
-              <div className="relative w-full max-w-[150px] sm:max-w-[250px] md:max-w-[300px] lg:max-w-[150px] xl:max-w-[175px] 2xl:max-w-[200px] z-40">
+              <div className="relative w-full max-w-[150px] sm:max-w-[250px] md:max-w-[300px] lg:max-w-[150px] xl:max-w-[175px] 2xl:max-w-[200px] z-40 -ml-[25px] md:ml-0">
                 <Image
                   src="/assets/Copy of 5-01.png"
                   alt="Film spotlight character"
@@ -199,14 +199,14 @@ export default function AboutPage() {
               
               {/* Section 1 - First Paragraph */}
               <div className="relative z-20 mb-3 sm:mb-4 md:mb-5 lg:mb-6 max-w-2xl" style={{ marginBottom: '30px' }}>
-                <p className="font-texta text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed text-left lg:text-center text-[#091529] px-0">
+                <p className="font-texta text-xs sm:text-sm md:text-base lg:text-xl xl:text-2xl leading-[1.4] text-left lg:text-center text-[#091529] px-0">
                   This is a passionate collective of filmmakers, artists, and storytellers who believe in the power of cinema to build connections and spark dialogue. The Bhopal Film Festival was born from the desire to create a space where independent voices can be seen, heard, and celebrated, right here in the heart of Madhya Pradesh.
                 </p>
               </div>
 
               {/* Section 2 - Second Paragraph */}
               <div className="relative z-20 max-w-2xl lg:mt-[30px]">
-                <p className="font-texta text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed text-left lg:text-center text-[#091529] px-0">
+                <p className="font-texta text-xs sm:text-sm md:text-base lg:text-xl xl:text-2xl leading-[1.4] text-left lg:text-center text-[#091529] px-0">
                   Our work grows from collaboration and curiosity. We come from different creative backgrounds, but share a commitment to stories that are honest, rooted, and imaginative. Together, we aim to nurture a community where cinema becomes more than an art form, it becomes a shared experience that brings people closer. We see this festival as a living, evolving platform, one that supports filmmakers, engages audiences, and places Bhopal firmly on the map for independent cinema and cultural dialogue.
                 </p>
               </div>
@@ -218,7 +218,7 @@ export default function AboutPage() {
             {/* MEET THE CREW Image - Above the section */}
             <div className="relative w-full flex justify-center mb-4" style={{ marginTop: '0' }}>
               <Image
-                src="/assets/jurymeet.png"
+                src="/assets/meet.png"
                 alt="Meet the Crew"
                 width={240}
                 height={80}

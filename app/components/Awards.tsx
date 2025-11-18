@@ -61,12 +61,12 @@ export default function Awards() {
             {/* ---------- PAGE 1 ---------- */}
             <section className="relative h-screen w-full flex items-center justify-left">
 
-                {/* Content block (awardboard + categories) - centered on mobile */}
+                {/* Content block (awardboard + categories + winner/runner up) - centered on mobile, vertical stack on desktop */}
                 <aside
-                    className="relative md:absolute md:left-1/2 md:right-auto md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 z-50 w-[calc(100%-2rem)] md:w-[48vw] max-w-[500px] px-4 md:px-0 desktop-awards-center"
+                    className="relative md:absolute md:left-1/2 md:right-auto md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 z-50 w-[calc(100%-2rem)] md:w-[48vw] max-w-[500px] px-4 md:px-0 desktop-awards-center flex flex-col md:flex-col items-center md:items-center gap-6 md:gap-[52px]"
                 >
-                    {/* Award board centered inside the block */}
-                    <div className="flex justify-center">
+                    {/* Section 1: Award board */}
+                    <div className="flex justify-center md:ml-[90px]">
                         <div className="w-full max-w-[240px] sm:max-w-[280px] md:w-[24vw] md:max-w-none mt-[-24] md:mt-0 md:mx-auto relative overflow-hidden">
                             <img
                                 src="/assets/awardboard.png"
@@ -84,8 +84,8 @@ export default function Awards() {
                         </div>
                     </div>
 
-                    {/* Categories + vertical strip */}
-                    <div className="relative flex items-start gap-4 md:gap-6 mt-6 md:mt-12 justify-center md:justify-center pl-0 md:pl-0 md:ml-[130px]">
+                    {/* Section 2: Categories + vertical strip */}
+                    <div className="relative flex items-start gap-4 md:gap-6 mt-6 md:mt-0 justify-center md:justify-center pl-0 md:pl-0 md:ml-[140px] md:mx-auto">
 
                         {/* hhhh.png image on the right - flipped vertically */}
                         <div className="absolute top-1/2 w-[300px] md:w-[400px] lg:w-[500px] h-[300px] md:h-[400px] lg:h-[500px] z-10 pointer-events-none md:hidden" style={{
@@ -105,7 +105,7 @@ export default function Awards() {
                         </div>
 
                         {/* Strip - positioned to align symbols with text */}
-                        <div className="relative right-10 md:right-0 md:block flex-shrink-0" style={{ paddingTop: "8px" }}>
+                        <div className="relative right-10 md:right-0 md:block flex-shrink-0 md:relative" style={{ paddingTop: "8px" }}>
                             <img
                                 src="/assets/strip.png"
                                 alt=""
@@ -127,7 +127,7 @@ export default function Awards() {
                             {[
                                 "Fiction (Under 10 Minutes)",
                                 "Non-Fiction (Under 10 Minutes)",
-                                "Women’s Voices (Under 5 Minutes)",
+                                "Women's Voices (Under 5 Minutes)",
                                 "Heart of India (Under 5 Minutes)"
                             ].map((label) => (
                                 <li
@@ -150,7 +150,7 @@ export default function Awards() {
                             alt=""
                             className="sideleaf absolute md:hidden"
                             style={{
-                                right: "-60px",
+                                right: "-100px",
                                 top: "20px",
                                 width: "140px",
                                 pointerEvents: "none",
@@ -160,6 +160,56 @@ export default function Awards() {
 
 
                     </div>
+
+                    {/* Section 3: Winner and Runner Up - Desktop only, vertical stack */}
+                    <div className="hidden md:flex md:flex-row md:items-center md:justify-center md:gap-10 z-30 mt-4 w-full md:ml-[135px]">
+                        {/* Award 1 - Winner */}
+                        <div
+                            className="award-item desktop-award-item md:mt-0 md:m-4"
+                            style={{
+                                width: "230px",
+                                maxWidth: "300px"
+                            }}
+                        >
+                            <div className="relative w-full overflow-hidden" style={{ aspectRatio: "1/1.2" }}>
+                                <img
+                                    src="/assets/awardFrame1.png"
+                                    className="pointer-events-none w-full h-full object-contain relative z-30"
+                                />
+                                <div className="absolute bg-[#FFCE21] z-20" style={{
+                                    top: "13%",
+                                    bottom: "12%",
+                                    left: "12%",
+                                    right: "12%",
+                                    transform: "translateY(10px)"
+                                }}></div>
+                            </div>
+                        </div>
+
+                        {/* Award 2 - Runner Up */}
+                        <div
+                            className="award-item desktop-award-item md:mt-0 md:m-4"
+                            style={{
+                                width: "230px",
+                                maxWidth: "300px"
+                            }}
+                        >
+                            <div className="relative w-full overflow-hidden" style={{ aspectRatio: "1/1.2" }}>
+                                <img
+                                    src="/assets/awardframe2.png"
+                                    className="pointer-events-none w-full h-full object-contain relative z-30"
+                                />
+                                <div className="absolute bg-[#FFCE21] z-20" style={{
+                                    top: "13%",
+                                    bottom: "12%",
+                                    left: "12%",
+                                    right: "12%",
+                                    transform: "translateY(10px)"
+                                }}></div>
+                            </div>
+                        </div>
+                    </div>
+
                 </aside>
 
             </section>
@@ -167,17 +217,17 @@ export default function Awards() {
             {/* ---------- PAGE 2 ---------- */}
             <section className="relative h-screen w-full ">
                 {/* small decorative awards on the right of page2 - hidden on mobile */}
-                {/* PAGE 2 AWARDS — DESKTOP HORIZONTAL, MOBILE VERTICAL */}
+                {/* PAGE 2 AWARDS — MOBILE ONLY (vertical) */}
                 <div
-                    className="absolute w-full left-20 md:left-200 flex flex-col md:flex-row
-                items-center md:items-start justify-center md:justify-start 
-                gap-20 md:gap-10 z-30 mobile-award-container desktop-award-frames"
+                    className="absolute w-full left-20 flex flex-col
+                items-center justify-center 
+                gap-20 z-30 mobile-award-container md:hidden"
                     style={{ top: "40px" }} // moved down by 40px
                 >
 
                     {/* Award 1 */}
                     <div
-                        className="award-item mobile-award desktop-award-item md:mt-20 md:m-4 mt-[-160] mr-8"
+                        className="award-item mobile-award mt-[-160] mr-8"
                         style={{
                             width: "230px",
                             maxWidth: "300px"
@@ -200,7 +250,7 @@ export default function Awards() {
 
                     {/* Award 2 */}
                     <div
-                        className="award-item mobile-award mobile-award-frame2 desktop-award-item md:mt-20 md:m-4 mb-40 mr-8"
+                        className="award-item mobile-award mobile-award-frame2 mb-40 mr-8"
                         style={{
                             width: "230px",
                             maxWidth: "300px"

@@ -360,10 +360,9 @@ export default function MeetCrew() {
                                             className="absolute bg-[#F5E6D3] z-30 flex flex-col items-center justify-center px-2 py-1"
                                             style={{ bottom: "8%", left: "8%", right: "8%", height: "18%" }}
                                         >
-                                            <p className="font-bebas text-black font-bold uppercase text-[10px]">
-                                                NAME
+                                            <p className="font-bebas text-black font-bold uppercase text-[16px]">
+                                                ANNOUNCING SOON
                                             </p>
-                                            <p className="font-texta text-black text-[8px]">Category</p>
                                         </div>
                                     </div>
                                 </div>
@@ -389,85 +388,170 @@ export default function MeetCrew() {
                        
                     ">
                         {/* Frame 1 */}
-                        <div className="relative w-[160px] sm:w-[200px] md:w-[300px] mx-auto">
+                        <div className="frame-flip-container relative w-[160px] sm:w-[200px] md:w-[300px] mx-auto">
+                            <div className="frame-flip-inner">
+                                <div className="frame-flip-front">
+                                    {/* Frame */}
+                                    <Image
+                                        src="/assets/frame.png"
+                                        alt=""
+                                        width={300}
+                                        height={340}
+                                        className="relative z-10 w-full h-auto"
+                                    />
 
-                            {/* Frame */}
-                            <Image
-                                src="/assets/frame.png"
-                                alt=""
-                                width={300}
-                                height={340}
-                                className="relative z-10 w-full h-auto"
-                            />
+                                    {/* Yellow Background */}
+                                    <div
+                                        className="absolute bg-[#FFCE21] z-15"
+                                        style={{ top: "8%", bottom: "25%", left: "8%", right: "8%" }}
+                                    ></div>
 
-                            {/* Yellow Background */}
-                            <div
-                                className="absolute bg-[#FFCE21] z-15"
-                                style={{ top: "8%", bottom: "25%", left: "8%", right: "8%" }}
-                            ></div>
+                                    {/* Photo inside Frame */}
+                                    <div
+                                        className="absolute inset-0 flex items-center justify-center z-20 overflow-hidden"
+                                        style={{ top: "8%", bottom: "25%", left: "8%", right: "8%" }}
+                                    >
+                                        <Image
+                                            src="/assets/jurry1.png"
+                                            alt="Jury member"
+                                            width={400}
+                                            height={480}
+                                            className="w-full h-full object-cover object-top"
+                                        />
+                                    </div>
 
-                            {/* Photo inside Frame */}
-                            <div
-                                className="absolute inset-0 flex items-center justify-center z-20 overflow-hidden"
-                                style={{ top: "8%", bottom: "25%", left: "8%", right: "8%" }}
-                            >
-                                <Image
-                                    src="/assets/jurry1.png"
-                                    alt="Jury member"
-                                    width={400}
-                                    height={480}
-                                    className="w-full h-full object-cover object-top"
-                                />
+                                    {/* Text Box */}
+                                    <div
+                                        className="absolute bg-[#F5E6D3] px-3 py-2 md:px-4 md:py-3 z-30 flex flex-col items-center justify-center"
+                                        style={{ bottom: "8%", left: "8%", right: "8%", height: "17%" }}
+                                    >
+                                        <p className="font-bebas text-black font-bold text-center uppercase text-xs md:text-xl" style={{ letterSpacing: "1px", lineHeight: "1.2" }}>ANNOUNCING SOON</p>
+                                    </div>
+                                </div>
+                                <div className="frame-flip-back">
+                                    {/* Frame */}
+                                    <Image
+                                        src="/assets/frame.png"
+                                        alt=""
+                                        width={300}
+                                        height={340}
+                                        className="relative z-10 w-full h-auto"
+                                    />
+
+                                    {/* Yellow Background */}
+                                    <div
+                                        className="absolute bg-[#FFCE21] z-15"
+                                        style={{ top: "8%", bottom: "25%", left: "8%", right: "8%" }}
+                                    ></div>
+
+                                    {/* Photo inside Frame */}
+                                    <div
+                                        className="absolute inset-0 flex items-center justify-center z-20 overflow-hidden"
+                                        style={{ top: "8%", bottom: "25%", left: "8%", right: "8%" }}
+                                    >
+                                        <Image
+                                            src="/assets/jurry1.png"
+                                            alt="Jury member"
+                                            width={400}
+                                            height={480}
+                                            className="w-full h-full object-cover object-top"
+                                            style={{ transform: "scaleX(-1)" }}
+                                        />
+                                    </div>
+
+                                    {/* Text Box */}
+                                    <div
+                                        className="absolute bg-[#F5E6D3] px-3 py-2 md:px-4 md:py-3 z-30 flex flex-col items-center justify-center"
+                                        style={{ bottom: "8%", left: "8%", right: "8%", height: "17%" }}
+                                    >
+                                        <p className="font-bebas text-black font-bold text-center uppercase text-xs md:text-xl" style={{ letterSpacing: "1px", lineHeight: "1.2" }}>ANNOUNCING SOON</p>
+                                    </div>
+                                </div>
                             </div>
-
-                            {/* Text Box */}
-                            <div
-                                className="absolute bg-[#F5E6D3] px-3 py-2 md:px-4 md:py-3 z-30 flex flex-col items-center justify-center"
-                                style={{ bottom: "8%", left: "8%", right: "8%", height: "17%" }}
-                            >
-                                <p className="font-bebas text-black font-bold text-center uppercase" style={{ fontSize: "12px", letterSpacing: "1px", lineHeight: "1.2" }}>ANNOUNCING SOON</p>
-                            </div>
-
                         </div>
 
 
                         {/* Frame 2 */}
-                        <div className="relative w-[160px] sm:w-[200px] md:w-[300px] mx-auto">
-                            <Image src="/assets/frame.png" alt="" width={300} height={340} className="relative z-10 w-full h-auto" />
-                            {/* Yellow background box inside the frame */}
-                            <div className="absolute bg-[#FFCE21] z-15" style={{ top: "8%", bottom: "25%", left: "8%", right: "8%" }}></div>
-                            <div className="absolute inset-0 flex items-center justify-center z-20 overflow-hidden" style={{ top: "8%", bottom: "25%", left: "8%", right: "8%" }}>
-                                <Image
-                                    src="/assets/jury char 2.png"
-                                    alt="Jury member"
-                                    width={400}
-                                    height={480}
-                                    className="object-cover"
-                                    style={{ objectPosition: "center 20%", transform: "scale(1.6)" }}
-                                />
-                            </div>
-                            <div className="absolute bg-[#F5E6D3] px-3 py-2 md:px-4 md:py-3 z-30 flex flex-col items-center justify-center" style={{ bottom: "8%", left: "8%", right: "8%", height: "17%" }}>
-                                <p className="font-bebas text-black font-bold text-center uppercase" style={{ fontSize: "12px", letterSpacing: "1px", lineHeight: "1.2" }}>ANNOUNCING SOON</p>
+                        <div className="frame-flip-container relative w-[160px] sm:w-[200px] md:w-[300px] mx-auto">
+                            <div className="frame-flip-inner">
+                                <div className="frame-flip-front">
+                                    <Image src="/assets/frame.png" alt="" width={300} height={340} className="relative z-10 w-full h-auto" />
+                                    {/* Yellow background box inside the frame */}
+                                    <div className="absolute bg-[#FFCE21] z-15" style={{ top: "8%", bottom: "25%", left: "8%", right: "8%" }}></div>
+                                    <div className="absolute inset-0 flex items-center justify-center z-20 overflow-hidden" style={{ top: "8%", bottom: "25%", left: "8%", right: "8%" }}>
+                                        <Image
+                                            src="/assets/jury char 2.png"
+                                            alt="Jury member"
+                                            width={400}
+                                            height={480}
+                                            className="object-cover"
+                                            style={{ objectPosition: "center 20%", transform: "scale(1.6)" }}
+                                        />
+                                    </div>
+                                    <div className="absolute bg-[#F5E6D3] px-3 py-2 md:px-4 md:py-3 z-30 flex flex-col items-center justify-center" style={{ bottom: "8%", left: "8%", right: "8%", height: "17%" }}>
+                                        <p className="font-bebas text-black font-bold text-center uppercase text-xs md:text-xl" style={{ letterSpacing: "1px", lineHeight: "1.2" }}>ANNOUNCING SOON</p>
+                                    </div>
+                                </div>
+                                <div className="frame-flip-back">
+                                    <Image src="/assets/frame.png" alt="" width={300} height={340} className="relative z-10 w-full h-auto" />
+                                    {/* Yellow background box inside the frame */}
+                                    <div className="absolute bg-[#FFCE21] z-15" style={{ top: "8%", bottom: "25%", left: "8%", right: "8%" }}></div>
+                                    <div className="absolute inset-0 flex items-center justify-center z-20 overflow-hidden" style={{ top: "8%", bottom: "25%", left: "8%", right: "8%" }}>
+                                        <Image
+                                            src="/assets/jury char 2.png"
+                                            alt="Jury member"
+                                            width={400}
+                                            height={480}
+                                            className="object-cover"
+                                            style={{ objectPosition: "center 20%", transform: "scale(1.6) scaleX(-1)" }}
+                                        />
+                                    </div>
+                                    <div className="absolute bg-[#F5E6D3] px-3 py-2 md:px-4 md:py-3 z-30 flex flex-col items-center justify-center" style={{ bottom: "8%", left: "8%", right: "8%", height: "17%" }}>
+                                        <p className="font-bebas text-black font-bold text-center uppercase text-xs md:text-xl" style={{ letterSpacing: "1px", lineHeight: "1.2" }}>ANNOUNCING SOON</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
                         {/* Frame 3 */}
-                        <div className="relative w-[160px] sm:w-[200px] md:w-[300px] mx-auto">
-                            <Image src="/assets/frame.png" alt="" width={300} height={340} className="relative z-10 w-full h-auto" />
-                            {/* Yellow background box inside the frame */}
-                            <div className="absolute bg-[#FFCE21] z-15" style={{ top: "8%", bottom: "25%", left: "8%", right: "8%" }}></div>
-                            <div className="absolute inset-0 flex items-center justify-center z-20 overflow-hidden" style={{ top: "8%", bottom: "25%", left: "8%", right: "8%" }}>
-                                <Image
-                                    src="/assets/jurry 3.png"
-                                    alt="Jury member"
-                                    width={400}
-                                    height={480}
-                                    className="object-cover"
-                                    style={{ objectPosition: "center 20%", transform: "scale(1.0)" }}
-                                />
-                            </div>
-                            <div className="absolute bg-[#F5E6D3] px-3 py-2 md:px-4 md:py-3 z-30 flex flex-col items-center justify-center" style={{ bottom: "8%", left: "8%", right: "8%", height: "17%" }}>
-                                <p className="font-bebas text-black font-bold text-center uppercase" style={{ fontSize: "12px", letterSpacing: "1px", lineHeight: "1.2" }}>ANNOUNCING SOON</p>
+                        <div className="frame-flip-container relative w-[160px] sm:w-[200px] md:w-[300px] mx-auto">
+                            <div className="frame-flip-inner">
+                                <div className="frame-flip-front">
+                                    <Image src="/assets/frame.png" alt="" width={300} height={340} className="relative z-10 w-full h-auto" />
+                                    {/* Yellow background box inside the frame */}
+                                    <div className="absolute bg-[#FFCE21] z-15" style={{ top: "8%", bottom: "25%", left: "8%", right: "8%" }}></div>
+                                    <div className="absolute inset-0 flex items-center justify-center z-20 overflow-hidden" style={{ top: "8%", bottom: "25%", left: "8%", right: "8%" }}>
+                                        <Image
+                                            src="/assets/jurry 3.png"
+                                            alt="Jury member"
+                                            width={400}
+                                            height={480}
+                                            className="object-cover"
+                                            style={{ objectPosition: "center 20%", transform: "scale(1.0)" }}
+                                        />
+                                    </div>
+                                    <div className="absolute bg-[#F5E6D3] px-3 py-2 md:px-4 md:py-3 z-30 flex flex-col items-center justify-center" style={{ bottom: "8%", left: "8%", right: "8%", height: "17%" }}>
+                                        <p className="font-bebas text-black font-bold text-center uppercase text-xs md:text-xl" style={{ letterSpacing: "1px", lineHeight: "1.2" }}>ANNOUNCING SOON</p>
+                                    </div>
+                                </div>
+                                <div className="frame-flip-back">
+                                    <Image src="/assets/frame.png" alt="" width={300} height={340} className="relative z-10 w-full h-auto" />
+                                    {/* Yellow background box inside the frame */}
+                                    <div className="absolute bg-[#FFCE21] z-15" style={{ top: "8%", bottom: "25%", left: "8%", right: "8%" }}></div>
+                                    <div className="absolute inset-0 flex items-center justify-center z-20 overflow-hidden" style={{ top: "8%", bottom: "25%", left: "8%", right: "8%" }}>
+                                        <Image
+                                            src="/assets/jurry 3.png"
+                                            alt="Jury member"
+                                            width={400}
+                                            height={480}
+                                            className="object-cover"
+                                            style={{ objectPosition: "center 20%", transform: "scale(1.0) scaleX(-1)" }}
+                                        />
+                                    </div>
+                                    <div className="absolute bg-[#F5E6D3] px-3 py-2 md:px-4 md:py-3 z-30 flex flex-col items-center justify-center" style={{ bottom: "8%", left: "8%", right: "8%", height: "17%" }}>
+                                        <p className="font-bebas text-black font-bold text-center uppercase text-xs md:text-xl" style={{ letterSpacing: "1px", lineHeight: "1.2" }}>ANNOUNCING SOON</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -545,7 +629,7 @@ export default function MeetCrew() {
                         <div className="offerings-box p-5 md:p-0 bg-[#6A9139] md:bg-transparent rounded-md md:rounded-none shadow-none md:shadow-none relative">
 
                             {/* Title */}
-                            <h2 className="offerings-title font-bebas text-3xl sm:text-4xl md:text-5xl md:pb-8 text-[#111]">
+                            <h2 className="offerings-title font-bebas text-4xl sm:text-5xl md:text-6xl md:pb-8 text-[#111]">
                                 EVENT OFFERINGS
                             </h2>
 
@@ -560,7 +644,7 @@ export default function MeetCrew() {
                                 </div>
 
                                 {/* LIST */}
-                                <ul className="offerings-list font-texta flex flex-col text-[#000]  text-sm md:text-lg lg:text-xl sm:mt-0 sm:gap-14">
+                                <ul className="offerings-list font-texta flex flex-col text-[#000]  text-base md:text-xl lg:text-2xl sm:mt-0 sm:gap-14">
 
                                     <li className="pb-8 sm:pb-0">
                                         <b>Screenings</b>

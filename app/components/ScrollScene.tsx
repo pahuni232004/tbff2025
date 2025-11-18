@@ -448,23 +448,24 @@ export default function DogScroller() {
                         WHO WE ARE
                     </h2>
 
-                    <p className="about-text font-texta  text-[#091529] text-sm md:text-lg lg:text-xl">
-                        We are a collective of dreamers,<br /> doers and storytellers at the<br /> vibrant
-                        crossroads of Madhya Pradesh.<br/> We champion <br /> authentic narratives and <br /> connect
-                        them to the
-                        <span className="hidden md:inline">
-                            {" "}
-                            world—nurturing<br /> creative souls and building bridges between<br />
+                    <p className="about-text font-texta  text-[#091529] text-sm md:text-lg lg:text-xl md:-mt-5">
+                        <span className="md:hidden ">
+                            We are a collective of dreamers,<br /> doers and storytellers at the<br /> vibrant
+                            crossroads of Madhya Pradesh.<br/> We champion <br /> authentic narratives and <br /> connect
+                            them to the world—nurturing<br /> creative souls and building bridges between<br />
                             cinema, arts, literature and people.
                             Our<br /> festival thrives on real stories, shared <br /> laughter, creative ambition
                             and <br /> collective wisdom. <strong>Our heart beats <br />for cinema that digs deep
                                 into roots <br />and grows new ideas skyward.</strong>
                         </span>
+                        <span className="hidden md:inline">
+                            We are a collective of dreamers,<br/> doers, and storytellers at the vibrant<br/> crossroads of Madhya Pradesh. We<br/> champion authentic narratives and<br/> connect them to the world—nurturing<br/> creative souls, building bridges between<br/> cinema, arts, literature, and people. Our<br/> festival thrives on real stories, shared<br/> laughter, creative ambition, and<br/> collective wisdom. <strong>Our heart beats<br/> for cinema that digs deep into roots<br/> and grows new ideas skyward.</strong>
+                        </span>
                     </p>
 
                     <SafeLink
                         href="/about"
-                        className="read-more font-texta flex items-center md:text-lg lg:text-xl gap-0 text-sm mb-8 mt-0 pt-0 text-[#000] font-semibold"
+                        className="read-more font-texta flex items-center md:text-lg lg:text-xl gap-2 md:gap-0 text-sm mb-8 mt-0 md:mt-4 lg:mt-6 pt-0 text-[#000] font-semibold"
                     >
                         <img src="/assets/readmore.svg" className="w-8 h-8" />
                         Read More

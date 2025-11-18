@@ -143,6 +143,17 @@ export default function PassesPage() {
         />
       </div>
 
+      {/* Character - Half on Top Right Corner */}
+      <div className="absolute right-0 top-0 z-30 pointer-events-none overflow-hidden passes-top-right-character" style={{ transform: 'translateX(calc(50% - 90px)) translateY(0) scaleX(-1)' }}>
+        <Image
+          src="/assets/Copy of 11-01.png"
+          alt=""
+          width={200}
+          height={300}
+          className="w-[240px] sm:w-[280px] md:w-[320px] lg:w-[380px] xl:w-[420px] h-auto object-contain"
+        />
+      </div>
+
       {/* Bottom Characters - Left and Right Corners, Just Above Footer - 70% Visible */}
       <div className="absolute bottom-[80px] left-0 z-30 pointer-events-none overflow-hidden">
         <Image
@@ -172,7 +183,7 @@ export default function PassesPage() {
             {/* Content with padding to avoid large characters */}
             <div className="relative z-30 pl-16 sm:pl-20 md:pl-12 lg:pl-16 xl:pl-24 pr-16 sm:pr-20 md:pr-12 lg:pr-16 xl:pr-24 pt-20 md:pt-24 lg:pt-24 flex flex-col items-center justify-center min-h-[70vh] max-w-5xl mx-auto">
               {/* Coming Soon Title */}
-              <h1 className="font-bebas text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-[#091529] mb-6 md:mb-8 uppercase tracking-tight text-center">
+              <h1 className="font-bebas text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium text-[#091529] mb-6 md:mb-8 uppercase tracking-tight text-center">
                 Coming Soon
               </h1>
               
@@ -191,7 +202,7 @@ export default function PassesPage() {
               <div className="flex flex-col sm:flex-row gap-4 mt-6 md:mt-8">
                 <SafeLink
                   href="/"
-                  className="font-texta inline-flex items-center justify-center px-6 md:px-8 py-3 md:py-4 bg-[#091529] text-white rounded-md shadow-lg text-base md:text-lg font-semibold hover:bg-[#0a1a35] transition transform hover:scale-105"
+                  className="font-texta inline-flex items-center justify-center px-6 md:px-8 py-3 md:py-4 bg-[#091529] text-white rounded-md shadow-lg text-base md:text-lg font-medium hover:bg-[#0a1a35] transition transform hover:scale-105"
                 >
                   Back to Home
                 </SafeLink>
