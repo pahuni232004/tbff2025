@@ -238,6 +238,7 @@ export default function MeetCrew() {
                 const pauseDuration = 2000; // ms pause after each slide
 
                 function slideOnce() {
+                    if (!track) return; // Guard clause for TypeScript
                     const targetX = x - moveDistance;
 
                     track.style.transition = `transform ${slideDuration}ms ease-out`;
@@ -247,6 +248,7 @@ export default function MeetCrew() {
 
                     // after slide finishes
                     setTimeout(() => {
+                        if (!track) return; // Guard clause for TypeScript
 
                         // reset after 3 slides (full cycle)
                         if (Math.abs(x) >= moveDistance * totalSlides) {
