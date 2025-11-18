@@ -33,7 +33,7 @@ export default function Navbar() {
                 <div className="flex items-center justify-between py-4 md:py-[30px]">
                     <SafeLink href="/" aria-label="Home" className="flex items-center gap-2 md:gap-0">
                         <Image
-                            src="/assets/logo.svg"
+                            src="/assets/Logo.svg"
                             alt="Bhopal Film Festival Logo"
                             width={50}
                             height={50}
