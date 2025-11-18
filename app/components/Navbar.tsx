@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
-import Image from "next/image";
 import SafeLink from "./SafeLink";
 import { Menu, X } from "lucide-react";
 
@@ -32,12 +31,9 @@ export default function Navbar() {
             <div className="mx-auto px-6 lg:px-12">
                 <div className="flex items-center justify-between py-4 md:py-[30px]">
                     <SafeLink href="/" aria-label="Home" className="flex items-center gap-2 md:gap-0">
-                        <Image
+                        <img
                             src="/assets/Logo.svg"
                             alt="Bhopal Film Festival Logo"
-                            width={50}
-                            height={50}
-                            priority
                             className="object-contain h-10 md:h-12 w-auto"
                             style={{ filter: 'brightness(0) saturate(100%) invert(73%) sepia(98%) saturate(1352%) hue-rotate(0deg) brightness(102%) contrast(101%)' }}
                         />
