@@ -324,7 +324,6 @@ export default function MeetCrew() {
                                             className="relative z-10 w-full h-auto"
                                         />
 
-<<<<<<< HEAD
                                         {/* Yellow bg */}
                                         <div
                                             className="absolute bg-[#FFCE21] z-15"
