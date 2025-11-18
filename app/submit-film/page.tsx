@@ -615,8 +615,8 @@ export default function SubmitFilmPage() {
                 <p>When ready, click the button below to officially submit your film to TBFF 2025</p>
               </div>
 
-              {/* Submit Button */}
-              <div className="pt-4">
+              {/* Submit Button and Download Guideline Button */}
+              <div className="pt-4 flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <button
                   type="submit"
                   disabled={isSubmitting}
@@ -634,6 +634,16 @@ export default function SubmitFilmPage() {
                     "Submit Film"
                   )}
                 </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    // TODO: Add PDF link when available
+                    // window.open('/path/to/submission-guidelines.pdf', '_blank');
+                  }}
+                  className="font-texta w-full md:w-auto px-12 py-3 bg-[#091529] text-white rounded-md text-base md:text-lg uppercase tracking-wide hover:bg-[#0a1a35] transition-all duration-200 shadow-md hover:shadow-lg"
+                >
+                  Download Submission Guideline
+                </button>
               </div>
             </form>
           </div>
@@ -646,7 +656,7 @@ export default function SubmitFilmPage() {
       <div className="relative w-full overflow-hidden z-20 mt-8 sm:mt-12 md:mt-16 -mb-[50px] sm:mb-0" style={{ transform: 'translateY(-60px)' }}>
         <div className="translate-x-0 sm:translate-x-0">
         <Image
-            src="/element above footer .png"
+            src="/assets/element above footer .png"
           alt=""
             width={1200}
           height={400}

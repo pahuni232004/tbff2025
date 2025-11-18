@@ -59,7 +59,7 @@ export default function MeetCrew() {
             if (leaf1 && typeof window !== 'undefined') {
                 const isMobile = window.innerWidth <= 1068;
                 if (isMobile) {
-                    leaf1.style.setProperty('top', 'calc(25vh - 150px)', 'important');
+                    leaf1.style.setProperty('top', 'calc(25vh - 300px)', 'important');
                 } else {
                     leaf1.style.setProperty('top', '25vh', 'important');
                 }
@@ -101,8 +101,8 @@ export default function MeetCrew() {
             const isMobile = typeof window !== 'undefined' && window.innerWidth <= 1068;
 
             if (isMobile) {
-                sLeft = -80; // Start from very left (slightly off-screen for effect), moved right by 50px from -130
-                sTop = 20; // Start position moved up by 50px more (from 70)
+                sLeft = -230; // Start from very left (slightly off-screen for effect), moved left by 50px for mobile
+                sTop = -20; // Start position moved up by 20px for mobile
 
                 fLeft = Math.round(Math.min(wrapperRect.width * 0.82 - eleRect.width * 0.5, wrapperRect.width * 0.75)) -20;
                 fTop = Math.round(sec2Rect.top - wrapperRect.top + (sec2Rect.height - eleRect.height) * 0.45) + 170;
@@ -161,11 +161,12 @@ export default function MeetCrew() {
 
             // Middle -> Final (40%) — arrive with a larger scale (1.5)
             // Note: we scale the wrapper so the element grows uniformly
+            const finalScale = isMobile ? 0.75 : 1.0; // Reduced by 25% in second frame on mobile
             tl.to(
                 eleWrap,
                 {
                     duration: move2,
-                    scale: 1.0, // arrives at 1.5x the starting size
+                    scale: finalScale, // arrives at final scale (0.75x on mobile, 1.0x on desktop)
                     x: dxFinal,
                     y: dyFinal,
                 },
@@ -174,12 +175,13 @@ export default function MeetCrew() {
 
             // Move DOWN + zoom with scroll after reaching position 2
             const additionalY = isMobile ? 100 : 30; // minimal downward movement on desktop to keep legs visible in orange section
+            const zoomScale = isMobile ? 1.05 : 1.4; // Reduced by 25% on mobile (1.4 * 0.75 = 1.05)
             tl.to(
                 eleWrap,
                 {
                     duration: zoomDur,
                     y: dyFinal + 100, // reduced downward movement to keep legs visible
-                    scale: 1.4,       // zoom to 1.2x (reduced to prevent leg cutoff)
+                    scale: zoomScale, // zoom scale (reduced by 25% on mobile)
                     ease: "power1.out",
                 },
                 ">"
@@ -211,7 +213,7 @@ export default function MeetCrew() {
             if (leaf1 && typeof window !== 'undefined') {
                 const isMobile = window.innerWidth <= 1068;
                 if (isMobile) {
-                    leaf1.style.setProperty('top', 'calc(25vh - 150px)', 'important');
+                    leaf1.style.setProperty('top', 'calc(25vh - 300px)', 'important');
                 } else {
                     leaf1.style.setProperty('top', '25vh', 'important');
                 }
@@ -475,7 +477,7 @@ export default function MeetCrew() {
                         className="leaf1 absolute pointer-events-none"
                         style={{
                             left: "0vw",
-                            top: typeof window !== 'undefined' && window.innerWidth <= 1068 ? "calc(25vh - 150px)" : "25vh",
+                            top: typeof window !== 'undefined' && window.innerWidth <= 1068 ? "calc(25vh - 300px)" : "25vh",
                             width: "80vw",
                             bottom: "-30",
                             zIndex: 1,
@@ -512,7 +514,7 @@ export default function MeetCrew() {
                             // responsive heights: smaller on mobile, larger on desktop
                             className="block w-auto pointer-events-none"
                             style={{
-                                height: typeof window !== 'undefined' && window.innerWidth <= 1068 ? "75vh" : "120vh",
+                                height: typeof window !== 'undefined' && window.innerWidth <= 1068 ? "60vh" : "120vh",
                                 objectFit: "contain",
                                 objectPosition: "bottom center",
                             }}

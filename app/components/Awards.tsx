@@ -85,7 +85,7 @@ export default function Awards() {
                     </div>
 
                     {/* Categories + vertical strip */}
-                    <div className="relative flex items-start gap-4 md:gap-6 mt-6 md:mt-12 justify-center md:justify-center pl-0 md:pl-0">
+                    <div className="relative flex items-start gap-4 md:gap-6 mt-6 md:mt-12 justify-center md:justify-center pl-0 md:pl-0 md:ml-[130px]">
 
                         {/* hhhh.png image on the right - flipped vertically */}
                         <div className="absolute top-1/2 w-[300px] md:w-[400px] lg:w-[500px] h-[300px] md:h-[400px] lg:h-[500px] z-10 pointer-events-none md:hidden" style={{
@@ -171,13 +171,13 @@ export default function Awards() {
                 <div
                     className="absolute w-full left-20 md:left-200 flex flex-col md:flex-row
                 items-center md:items-start justify-center md:justify-start 
-                gap-20 md:gap-10 z-30 mobile-award-container"
+                gap-20 md:gap-10 z-30 mobile-award-container desktop-award-frames"
                     style={{ top: "40px" }} // moved down by 40px
                 >
 
                     {/* Award 1 */}
                     <div
-                        className="award-item mobile-award md:mt-20 md:m-4 mt-[-160] mr-8"
+                        className="award-item mobile-award desktop-award-item md:mt-20 md:m-4 mt-[-160] mr-8"
                         style={{
                             width: "230px",
                             maxWidth: "300px"
@@ -200,7 +200,7 @@ export default function Awards() {
 
                     {/* Award 2 */}
                     <div
-                        className="award-item mobile-award md:mt-20 md:m-4 mb-40 mr-8"
+                        className="award-item mobile-award mobile-award-frame2 desktop-award-item md:mt-20 md:m-4 mb-40 mr-8"
                         style={{
                             width: "230px",
                             maxWidth: "300px"

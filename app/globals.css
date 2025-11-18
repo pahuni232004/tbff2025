@@ -335,7 +335,7 @@ div[style*="perspective"] {
   .mobile-movie {
     left: -17vh !important;
     height: 80vh !important; /* adjust as you need */
-    top: calc(100vh + 80px) !important;
+    top: calc(100vh + 25px) !important; /* moved up by 20px (was 45px, now 25px) */
     width: auto !important;
   }
 }
@@ -369,11 +369,29 @@ div[style*="perspective"] {
     text-align: left !important;
     list-style: none !important;
   }
+  
+  /* Change semi-circle to pale green on mobile */
+  .mobile-semicircle-green {
+    filter: 
+      brightness(0) 
+      saturate(100%) 
+      invert(42%) 
+      sepia(95%) 
+      saturate(600%) 
+      hue-rotate(95deg) 
+      brightness(0.95) 
+      contrast(0.85) !important;
+  }
 }
 
 @media (max-width: 768px) {
   .award-item {
     margin-bottom: 40px;
+  }
+  
+  /* Move award frame 2 down by 30px on mobile view */
+  .mobile-award-frame2 {
+    transform: translateY(30px) !important;
   }
 }
 
@@ -503,5 +521,16 @@ div[style*="perspective"] {
   .mobile-category-text {
     margin-left: -15px !important;
     margin-top: -3px !important;
+  }
+  
+  /* Move award frames 80px to the left on desktop */
+  .desktop-award-frames {
+    margin-left: -80px !important;
+  }
+  
+  /* Increase award frames size on desktop */
+  .desktop-award-item {
+    width: 350px !important;
+    max-width: 350px !important;
   }
 }
