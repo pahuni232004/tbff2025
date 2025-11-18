@@ -221,11 +221,9 @@ export default function MeetCrew() {
             window.addEventListener("resize", resizeHandler);
         }
 
-<<<<<<< HEAD
-
         // MOBILE INFINITE LOOP SLIDER// MOBILE SLIDER (Infinite Loop)
         // MOBILE SLIDER (Slide → Pause → Slide Loop)
-        if (window.innerWidth < 768) {
+        if (typeof window !== 'undefined' && window.innerWidth < 768) {
             const track = document.getElementById("juryMobileTrack");
             if (track) {
                 const slideWidth = 200; // each slide width
@@ -266,50 +264,12 @@ export default function MeetCrew() {
             }
         }
 
-
-
-        return () => {
-            window.removeEventListener("resize", resizeHandler);
-            ScrollTrigger.getAll().forEach((s) => s.kill());
-            tlRef.current?.kill();
-
-=======
-        // --- MOBILE SLIDER AUTO SCROLL ---
-        let sliderInterval: NodeJS.Timeout | null = null;
-        if (typeof window !== 'undefined' && window.innerWidth < 768) {
-            const slider = document.getElementById("jurySlider");
-            const dots = document.querySelectorAll(".slider-dots .dot");
-
-            let index = 0;
-            const slideWidth = 200; // must match w-[200px]
-
-            function updateDots() {
-                dots.forEach((d, i) => {
-                    d.classList.toggle("active", i === index);
-                });
-            }
->>>>>>> 7238443 (Fix window is not defined error during SSR prerendering)
-
-            function autoSlide() {
-                if (!slider) return;
-                index = (index + 1) % 3;
-                slider.style.transform = `translateX(-${index * slideWidth}px)`;
-                updateDots();
-            }
-
-            updateDots();
-            sliderInterval = setInterval(autoSlide, 1000);
-        }
-
         return () => {
             if (typeof window !== 'undefined') {
                 window.removeEventListener("resize", resizeHandler);
             }
             ScrollTrigger.getAll().forEach((s) => s.kill());
             tlRef.current?.kill();
-            if (sliderInterval) {
-                clearInterval(sliderInterval);
-            }
         };
     }, []);
 
@@ -405,110 +365,6 @@ export default function MeetCrew() {
                                     </div>
                                 </div>
                             ))}
-=======
-                                    <div
-                                        className="absolute bg-[#F5E6D3] z-30 flex flex-col items-center justify-center px-2 py-1"
-                                        style={{ bottom: "8%", left: "8%", right: "8%", height: "18%" }}
-                                    >
-                                        <p className="font-bebas text-black font-bold uppercase text-[10px]">ANNOUNCING SOON</p>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            {/* Slide 2 */}
-                            <div className="slide-item w-[200px] flex-shrink-0 snap-center px-1">
-                                <div className="relative w-[180px] mx-auto">
-                                    <Image
-                                        src="/assets/frame.png"
-                                        alt=""
-                                        width={300}
-                                        height={340}
-                                        className="relative z-10 w-full h-auto"
-                                    />
-
-                                    <div
-                                        className="absolute bg-[#FFCE21] z-15"
-                                        style={{ top: "8%", bottom: "25%", left: "8%", right: "8%" }}
-                                    ></div>
-
-                                    <div
-                                        className="absolute inset-0 flex items-center justify-center overflow-hidden z-20"
-                                        style={{ top: "8%", bottom: "25%", left: "8%", right: "8%" }}
-                                    >
-                                        <Image
-                                            src="/assets/jury char 2.png"
-                                            alt="Jury member"
-                                            width={400}
-                                            height={480}
-                                            className="w-full h-full object-cover"
-                                            style={{
-                                                objectPosition: "center top",
-                                                transform: "scale(1.35)"
-                                            }}
-                                        />
-                                    </div>
-
-                                    <div
-                                        className="absolute bg-[#F5E6D3] z-30 flex flex-col items-center justify-center px-2 py-1"
-                                        style={{ bottom: "8%", left: "8%", right: "8%", height: "18%" }}
-                                    >
-                                        <p className="font-bebas text-black font-bold uppercase text-[10px]">ANNOUNCING SOON</p>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            {/* Slide 3 */}
-                            <div className="slide-item w-[200px] flex-shrink-0 snap-center px-1">
-                                <div className="relative w-[180px] mx-auto">
-                                    <Image
-                                        src="/assets/frame.png"
-                                        alt=""
-                                        width={300}
-                                        height={340}
-                                        className="relative z-10 w-full h-auto"
-                                    />
-
-                                    <div
-                                        className="absolute bg-[#FFCE21] z-15"
-                                        style={{ top: "8%", bottom: "25%", left: "8%", right: "8%" }}
-                                    ></div>
-
-                                    <div
-                                        className="absolute inset-0 flex items-center justify-center overflow-hidden z-20"
-                                        style={{ top: "8%", bottom: "25%", left: "8%", right: "8%" }}
-                                    >
-                                        <Image
-                                            src="/assets/jurry 3.png"
-                                            alt="Jury member"
-                                            width={400}
-                                            height={480}
-                                            className="w-full h-full object-cover"
-                                            style={{
-                                                objectPosition: "center top",
-                                                transform: "scale(1.15)"
-                                            }}
-                                        />
-                                    </div>
-
-                                    <div
-                                        className="absolute bg-[#F5E6D3] z-30 flex flex-col items-center justify-center px-2 py-1"
-                                        style={{ bottom: "8%", left: "8%", right: "8%", height: "18%" }}
-                                    >
-                                        <p className="font-bebas text-black font-bold uppercase text-[10px]">ANNOUNCING SOON</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        {/* Dots */}
-                        <div className="slider-dots flex justify-center gap-2 mt-3">
-                            <span className="dot w-2 h-2 rounded-full bg-white opacity-40"></span>
-                            <span className="dot w-2 h-2 rounded-full bg-white opacity-40"></span>
-                            <span className="dot w-2 h-2 rounded-full bg-white opacity-40"></span>
->>>>>>> 7238443 (Fix window is not defined error during SSR prerendering)
                         </div>
                     </div>
 
@@ -622,12 +478,8 @@ export default function MeetCrew() {
                             left: "0vw",
                             top: typeof window !== 'undefined' && window.innerWidth <= 1068 ? "calc(25vh - 150px)" : "25vh",
                             width: "80vw",
-<<<<<<< HEAD
                             bottom: "-30",
                             zIndex: 1,
-=======
-                            zIndex: 0,
->>>>>>> 7238443 (Fix window is not defined error during SSR prerendering)
                             filter: "hue-rotate(120deg) saturate(0.8) brightness(0.7) contrast(1.2)",
                         }}
                     />
@@ -674,11 +526,6 @@ export default function MeetCrew() {
                 <section className="meet2 top-50 md:right-30 h-screen relative">
                     {/* LEFT STITCH STRIP */}
 
-<<<<<<< HEAD
-                    {/* TEXT CONTENT */}
-                    <div className="offerings-container absolute left-1/2 -translate-x-1/2 md:left-[30vw] top-[20vh]  md:top-[36vh] w-[92%] md:w-auto z-10">
-                        <div className="offerings-box p-5 md:p-0  bg-[#6A9139] md:bg-transparent rounded-md md:rounded-none shadow-none md:shadow-none relative">
-=======
                     {/* MOBILE: Event Section Image */}
                     <div className="md:hidden absolute left-1/2 -translate-x-1/2 w-[70%] z-10 mobile-offerings-top">
                         <Image
@@ -693,7 +540,6 @@ export default function MeetCrew() {
                     {/* DESKTOP: TEXT CONTENT */}
                     <div className="hidden md:block offerings-container absolute left-1/2 -translate-x-1/2 md:left-[30vw] w-[92%] md:w-auto z-10">
                         <div className="offerings-box p-5 md:p-0 bg-[#6A9139] md:bg-transparent rounded-md md:rounded-none shadow-none md:shadow-none relative">
->>>>>>> 7238443 (Fix window is not defined error during SSR prerendering)
 
                             {/* Title */}
                             <h2 className="offerings-title font-bebas text-3xl sm:text-4xl md:text-5xl md:pb-8 text-[#111]">
