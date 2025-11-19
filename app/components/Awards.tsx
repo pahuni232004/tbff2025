@@ -112,7 +112,7 @@ export default function Awards() {
                                 aria-hidden="true"
                                 className="pointer-events-none w-auto object-contain desktop-strip"
                                 style={{
-                                    height: "calc(2em + 60px + 2em + 60px + 2em + 60px + 2em)"
+                                    height: "calc(2em + 80px + 2em + 80px + 2em + 80px + 2em + 20px)"
                                 }}
                             />
                         </div>
@@ -121,7 +121,7 @@ export default function Awards() {
                         <ul
                             className="
     flex flex-col items-start right-0 md:right-0
-    md:items-start flex-shrink-0 relative z-20 gap-18 md:gap-15 pt-4 pl-0 mobile-category-list desktop-category-list
+    md:items-start flex-shrink-0 relative z-20 gap-[72px] md:gap-[60px] pt-4 pl-0 mobile-category-list desktop-category-list
   "
                         >
                             {[
@@ -129,19 +129,29 @@ export default function Awards() {
                                 "Non-Fiction (Under 10 Minutes)",
                                 "Women's Voices (Under 5 Minutes)",
                                 "Heart of India (Under 5 Minutes)"
-                            ].map((label) => (
-                                <li
-                                    key={label}
-                                    className="
-        text-[#111] font-bold
-        text-lg md:text-xl lg:text-2xl
-        leading-tight flex items-start mobile-category-text
-      "
-                                    style={{ lineHeight: "1.2", fontFamily: '"Texta Alt Heavy", sans-serif', marginLeft: '-40px', paddingLeft: 0, marginTop: '9px' }}
-                                >
-                                    {label}
-                                </li>
-                            ))}
+                            ].map((label) => {
+                                // Extract category text and bracket text
+                                const bracketMatch = label.match(/^(.+?)\s*\((.+?)\)$/);
+                                const categoryText = bracketMatch ? bracketMatch[1] : label;
+                                const bracketText = bracketMatch ? `(${bracketMatch[2]})` : '';
+                                
+                                return (
+                                    <li
+                                        key={label}
+                                        className="
+            text-[#111] font-bold
+            text-lg md:text-xl lg:text-2xl
+            leading-tight flex flex-col md:flex-row md:items-start mobile-category-text
+          "
+                                        style={{ lineHeight: "1.2", fontFamily: '"Texta Alt Heavy", sans-serif', marginLeft: '-40px', paddingLeft: 0, marginTop: '9px' }}
+                                    >
+                                        <span>{categoryText}</span>
+                                        {bracketText && (
+                                            <span className="md:ml-1">{bracketText}</span>
+                                        )}
+                                    </li>
+                                );
+                            })}
                         </ul>
 
                         {/* Mobile-only side leaf */}
@@ -150,7 +160,7 @@ export default function Awards() {
                             alt=""
                             className="sideleaf absolute md:hidden"
                             style={{
-                                right: "0px",
+                                right: "-10px",
                                 top: "20px",
                                 width: "140px",
                                 pointerEvents: "none",

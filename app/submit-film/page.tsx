@@ -193,7 +193,7 @@ export default function SubmitFilmPage() {
               <section className="mb-6 sm:mb-8 md:mb-10 lg:mb-12">
                 <h2 className="font-bebas text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-0 uppercase text-left">INTRODUCTION & FESTIVAL OVERVIEW</h2>
                 <p className="font-texta text-sm sm:text-base md:text-lg leading-normal text-left">
-                  The Bhopal Film Festival (TBFF) is a new independent short film competition taking place on <strong>21 February 2026</strong> at <strong>Ravindra Bhawan Auditorium, Bhopal</strong>, with the support of Madhya Pradesh Tourism (MPT). The festival celebrates the unique culture of Central India and provides a platform for <strong>emerging filmmakers</strong> to share local stories with pride and reach a wider audience.
+                  The Bhopal Film Festival (TBFF) is a new independent short film competition taking place on <strong>21 February 2026</strong> at <strong>Ravindra Bhawan Auditorium, Bhopal</strong>. The festival celebrates the unique culture of Central India and provides a platform for <strong>emerging filmmakers</strong> to share local stories with pride and reach a wider audience.
                 </p>
               </section>
 

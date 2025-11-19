@@ -358,7 +358,7 @@ div[style*="perspective"] {
 @media (max-width: 768px) {
   .sideleaf {
     left: auto !important;
-    right: 0 !important;
+    right: -15px !important;
     top: -50px !important;
     width: 130px !important;
     position: absolute !important;
