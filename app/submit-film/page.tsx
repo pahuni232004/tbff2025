@@ -81,15 +81,20 @@ export default function SubmitFilmPage() {
     setSubmitStatus("idle");
 
     try {
-      await fetch(scriptUrl, {
+      const response = await fetch(scriptUrl, {
         method: "POST",
         mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify({
           ...formData,
           submittedAt: new Date().toISOString(),
         }),
       });
       
+      // With no-cors mode, we can't read the response, but we assume success
+      // The data will be saved to Google Sheets by the Apps Script
       setSubmitStatus("success");
       setFormData({
         fullName: "",
@@ -110,7 +115,9 @@ export default function SubmitFilmPage() {
       // Reset success message after 5 seconds
       setTimeout(() => setSubmitStatus("idle"), 5000);
     } catch (error) {
+      console.error("Submission error:", error);
       setSubmitStatus("error");
+      alert("Failed to submit form. Please check your connection and try again.");
     } finally {
       setIsSubmitting(false);
     }

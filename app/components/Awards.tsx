@@ -29,12 +29,12 @@ export default function Awards() {
             {/* BIG CHARACTER: placed in root so it can overlap both viewports */}
 
             {/* BG CIRCLE behind the movie character */}
-            {/* Semi-circle background: behind character but in front of page background */}
+            {/* Semi-circle background: behind character but in front of page background - hidden on mobile */}
             <img
                 src="/assets/hhhh.png"
                 alt=""
                 aria-hidden="true"
-                className="pointer-events-none absolute select-none z-10 md:block mobile-hhhh"
+                className="hidden pointer-events-none absolute select-none z-10 md:block mobile-hhhh"
                 style={{
                     top: "calc(12vh + 50px)",
                     height: "160vh",
@@ -63,11 +63,11 @@ export default function Awards() {
 
                 {/* Content block (awardboard + categories + winner/runner up) - centered on mobile, vertical stack on desktop */}
                 <aside
-                    className="relative md:absolute md:left-1/2 md:right-auto md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 z-50 w-[calc(100%-2rem)] md:w-[48vw] max-w-[500px] px-4 md:px-0 desktop-awards-center flex flex-col md:flex-col items-center md:items-center gap-6 md:gap-[52px]"
+                    className="relative md:absolute md:left-auto md:right-0 md:top-1/2 md:-translate-y-1/2 z-50 w-[calc(100%-2rem)] md:w-[600px] max-w-[500px] md:max-w-[600px] px-4 md:px-0 desktop-awards-center flex flex-col md:flex-col items-center md:items-center gap-6 md:gap-[52px]"
                 >
                     {/* Section 1: Award board */}
                     <div className="flex justify-center md:ml-[90px]">
-                        <div className="w-full max-w-[240px] sm:max-w-[280px] md:w-[24vw] md:max-w-none mt-[-24] md:mt-0 md:mx-auto relative overflow-hidden">
+                        <div className="w-full max-w-[240px] sm:max-w-[280px] md:w-[280px] md:max-w-[280px] mt-[-24] md:mt-0 md:mx-auto relative overflow-hidden">
                             <img
                                 src="/assets/awardboard.png"
                                 alt="Awards and categories title"
@@ -85,10 +85,10 @@ export default function Awards() {
                     </div>
 
                     {/* Section 2: Categories + vertical strip */}
-                    <div className="relative flex items-start gap-4 md:gap-6 mt-6 md:mt-0 justify-center md:justify-center pl-0 md:pl-0 md:ml-[140px] md:mx-auto">
+                    <div className="relative flex items-start gap-4 md:gap-6 mt-6 md:mt-0 justify-center md:justify-center pl-0 md:pl-0 md:ml-[140px] md:mx-auto desktop-categories-container">
 
-                        {/* hhhh.png image on the right - flipped vertically */}
-                        <div className="absolute top-1/2 w-[300px] md:w-[400px] lg:w-[500px] h-[300px] md:h-[400px] lg:h-[500px] z-10 pointer-events-none md:hidden" style={{
+                        {/* hhhh.png image on the right - flipped vertically - hidden on mobile */}
+                        <div className="hidden absolute top-1/2 w-[300px] md:w-[400px] lg:w-[500px] h-[300px] md:h-[400px] lg:h-[500px] z-10 pointer-events-none md:hidden" style={{
                             right: '-300px',
                             transform: 'translateY(-50%)'
                         }}>
@@ -105,12 +105,12 @@ export default function Awards() {
                         </div>
 
                         {/* Strip - positioned to align symbols with text */}
-                        <div className="relative right-10 md:right-0 md:block flex-shrink-0 md:relative" style={{ paddingTop: "8px" }}>
+                        <div className="relative right-10 md:right-0 md:block flex-shrink-0 md:relative desktop-strip-container" style={{ paddingTop: "8px" }}>
                             <img
                                 src="/assets/strip.png"
                                 alt=""
                                 aria-hidden="true"
-                                className="pointer-events-none w-auto object-contain"
+                                className="pointer-events-none w-auto object-contain desktop-strip"
                                 style={{
                                     height: "calc(2em + 60px + 2em + 60px + 2em + 60px + 2em)"
                                 }}
@@ -121,7 +121,7 @@ export default function Awards() {
                         <ul
                             className="
     flex flex-col items-start right-0 md:right-0
-    md:items-start flex-shrink-0 relative z-20 gap-18 md:gap-15 pt-4 pl-0 mobile-category-list
+    md:items-start flex-shrink-0 relative z-20 gap-18 md:gap-15 pt-4 pl-0 mobile-category-list desktop-category-list
   "
                         >
                             {[
@@ -150,7 +150,7 @@ export default function Awards() {
                             alt=""
                             className="sideleaf absolute md:hidden"
                             style={{
-                                right: "-100px",
+                                right: "0px",
                                 top: "20px",
                                 width: "140px",
                                 pointerEvents: "none",
@@ -162,13 +162,13 @@ export default function Awards() {
                     </div>
 
                     {/* Section 3: Winner and Runner Up - Desktop only, vertical stack */}
-                    <div className="hidden md:flex md:flex-row md:items-center md:justify-center md:gap-10 z-30 mt-4 w-full md:ml-[135px]">
+                    <div className="hidden md:flex md:flex-row md:items-center md:justify-center md:gap-10 z-30 mt-4 w-full md:ml-[135px] desktop-award-frames-container">
                         {/* Award 1 - Winner */}
                         <div
                             className="award-item desktop-award-item md:mt-0 md:m-4"
                             style={{
                                 width: "230px",
-                                maxWidth: "300px"
+                                maxWidth: "230px"
                             }}
                         >
                             <div className="relative w-full overflow-hidden" style={{ aspectRatio: "1/1.2" }}>
@@ -191,7 +191,7 @@ export default function Awards() {
                             className="award-item desktop-award-item md:mt-0 md:m-4"
                             style={{
                                 width: "230px",
-                                maxWidth: "300px"
+                                maxWidth: "230px"
                             }}
                         >
                             <div className="relative w-full overflow-hidden" style={{ aspectRatio: "1/1.2" }}>

@@ -357,8 +357,12 @@ div[style*="perspective"] {
 
 @media (max-width: 768px) {
   .sideleaf {
-    top: -90px !important;
+    left: auto !important;
+    right: 0 !important;
+    top: -50px !important;
     width: 130px !important;
+    position: absolute !important;
+    transform: translateX(calc(50vw - 50%)) !important;
   }
   
   .mobile-award {
@@ -539,13 +543,43 @@ div[style*="perspective"] {
     z-index: 999 !important;
   }
   
-  .desktop-awards-center {
-    transform: translateX(calc(-50% + 290px)) translateY(calc(-50% + 660px)) !important;
-  }
-  
   .mobile-category-text {
     margin-left: -15px !important;
     margin-top: -3px !important;
+  }
+  
+  /* Desktop categories container - fixed positioning from right */
+  .desktop-categories-container {
+    margin-left: 140px !important;
+    margin-right: 0 !important;
+    width: auto !important;
+    position: relative !important;
+  }
+  
+  /* Desktop category list - fixed spacing */
+  .desktop-category-list {
+    gap: 60px !important;
+    padding-top: 16px !important;
+  }
+  
+  /* Desktop strip container - fixed positioning */
+  .desktop-strip-container {
+    position: relative !important;
+    padding-top: 8px !important;
+  }
+  
+  /* Desktop strip - fixed height for consistency */
+  .desktop-strip {
+    height: 280px !important;
+    width: auto !important;
+  }
+  
+  /* Desktop award frames container - fixed positioning from right */
+  .desktop-award-frames-container {
+    margin-left: 135px !important;
+    margin-right: 0 !important;
+    width: auto !important;
+    position: relative !important;
   }
   
   /* Move award frames 80px to the left on desktop */
@@ -553,10 +587,60 @@ div[style*="perspective"] {
     margin-left: -80px !important;
   }
   
-  /* Increase award frames size on desktop */
+  /* Fixed award frames size on desktop */
   .desktop-award-item {
-    width: 350px !important;
-    max-width: 350px !important;
+    width: 230px !important;
+    max-width: 230px !important;
+    min-width: 230px !important;
+  }
+}
+
+/* Normal laptops - 768px to 1439px */
+@media (min-width: 768px) and (max-width: 1439px) {
+  .desktop-awards-center {
+    left: auto !important;
+    right: 0 !important;
+    top: 50% !important;
+    transform: translateY(calc(-50% + 660px)) !important;
+    width: 600px !important;
+    max-width: 600px !important;
+    min-width: 600px !important;
+    padding-right: 150px !important;
+  }
+  
+  /* Desktop award board frame - fixed size */
+  .desktop-awards-center > div:first-child {
+    margin-left: 90px !important;
+  }
+  
+  .desktop-awards-center > div:first-child > div {
+    width: 280px !important;
+    max-width: 280px !important;
+    min-width: 280px !important;
+  }
+}
+
+/* Larger screens and MacBooks - 1440px and above */
+@media (min-width: 1440px) {
+  .desktop-awards-center {
+    left: 50% !important;
+    right: auto !important;
+    top: 50% !important;
+    transform: translateX(calc(-50% + 200px)) translateY(calc(-50% + 660px)) !important;
+    width: 600px !important;
+    max-width: 600px !important;
+    min-width: 600px !important;
+  }
+  
+  /* Desktop award board frame - fixed size */
+  .desktop-awards-center > div:first-child {
+    margin-left: 90px !important;
+  }
+  
+  .desktop-awards-center > div:first-child > div {
+    width: 280px !important;
+    max-width: 280px !important;
+    min-width: 280px !important;
   }
 }
 
