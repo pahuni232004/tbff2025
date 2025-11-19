@@ -190,7 +190,7 @@ export default function PassesPage() {
               <div className="w-24 md:w-28 lg:w-32 h-1 bg-[#091529] mb-6 md:mb-8"></div>
               
               <p className="font-texta text-[#091529] text-xl md:text-2xl lg:text-2xl mb-4 md:mb-6 text-center max-w-2xl leading-relaxed px-4 md:px-0">
-                Festival passes and tickets will be available soon!
+                <strong>Festival passes and tickets will be available soon!</strong>
               </p>
               
               <p className="font-texta text-[#091529] text-base md:text-lg lg:text-lg mb-8 md:mb-12 text-center max-w-xl leading-relaxed opacity-90 px-4 md:px-0">

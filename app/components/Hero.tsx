@@ -82,7 +82,7 @@ export default function Hero({ scrollProgress }: Props) {
 
           <p className="font-texta mt-6 text-[#091529] text-base md:text-lg">
             A day of celebrating films, voices, and live experiences —{" "}
-            <strong>1st February 2026, Bhopal</strong>
+            <strong>21st February 2026, Bhopal</strong>
           </p>
 
           <div className="mt-8 flex gap-4">

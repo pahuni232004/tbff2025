@@ -338,8 +338,19 @@ div[style*="perspective"] {
 @media (max-width: 768px) {
   .mobile-movie {
     left: -17vh !important;
-    height: 80vh !important; /* adjust as you need */
-    top: calc(100vh + 75px) !important; /* shifted down by 50px (was 25px, now 75px) */
+    height: 80vh !important;
+    /* Position centered in the gap between winner and runner up frames:
+       Section 2 at 100vh, container at 40px
+       Winner frame: mt-[-160], so top = 100vh + 40px - 160px = 100vh - 120px
+       Winner frame height ~276px, so bottom = 100vh - 120px + 276px = 100vh + 156px
+       Gap is 80px (gap-20)
+       Runner up frame top = 100vh + 156px + 80px = 100vh + 236px
+       Gap middle = 100vh + (156px + 236px) / 2 = 100vh + 196px
+       Position movie so its center aligns with gap middle
+       Since movie is 80vh tall, center is at top + 40vh
+       So: top + 40vh = 100vh + 196px, therefore top = 60vh + 196px
+       But to avoid overlap with winner frame, position it slightly lower */
+    top: calc(100vh + 340px - 40vh) !important;
     width: auto !important;
   }
 }

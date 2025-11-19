@@ -346,7 +346,7 @@ export default function DogScroller() {
     leading-[1.4]
   ">
                         A day of celebrating films, voices and live<br /> experiences
-                        <strong> - 1st February 2026, Bhopal</strong>
+                        <strong> - 21st February 2026, Bhopal</strong>
                     </p>
 
                     <div className="
