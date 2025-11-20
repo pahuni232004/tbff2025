@@ -264,11 +264,11 @@ export default function AboutPage() {
                       </div>
                       <div className="character-flip-card-back" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', height: '100%' }}>
                         <Image
-                          src="/assets/frame.png"
-                          alt="Frame"
+                          src="/crew/crew 1.png"
+                          alt="Crew Member 1"
                           width={300}
                           height={340}
-                          className="object-contain w-[120px] max-w-[120px] md:w-[250px] md:max-w-[250px] h-auto"
+                          className="object-contain w-[120px] max-w-[120px] md:w-[350px] md:max-w-[350px] h-auto"
                         />
                       </div>
                     </div>
@@ -290,11 +290,11 @@ export default function AboutPage() {
                       </div>
                       <div className="character-flip-card-back" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', height: '100%' }}>
                         <Image
-                          src="/assets/frame.png"
-                          alt="Frame"
+                          src="/crew/crew 2.png"
+                          alt="Crew Member 2"
                           width={300}
                           height={340}
-                          className="object-contain w-[120px] max-w-[120px] md:w-[250px] md:max-w-[250px] h-auto"
+                          className="object-contain w-[120px] max-w-[120px] md:w-[350px] md:max-w-[350px] h-auto"
                         />
                       </div>
                     </div>
@@ -317,11 +317,11 @@ export default function AboutPage() {
                       </div>
                       <div className="character-flip-card-back" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', height: '100%' }}>
                         <Image
-                          src="/assets/frame.png"
-                          alt="Frame"
+                          src="/crew/crew 3.png"
+                          alt="Crew Member 3"
                           width={300}
                           height={340}
-                          className="object-contain w-[120px] max-w-[120px] md:w-[250px] md:max-w-[250px] h-auto"
+                          className="object-contain w-[120px] max-w-[120px] md:w-[350px] md:max-w-[350px] h-auto"
                         />
                       </div>
                     </div>
@@ -343,11 +343,11 @@ export default function AboutPage() {
                       </div>
                       <div className="character-flip-card-back" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', height: '100%' }}>
                         <Image
-                          src="/assets/frame.png"
-                          alt="Frame"
+                          src="/crew/crew 4.png"
+                          alt="Crew Member 4"
                           width={300}
                           height={340}
-                          className="object-contain w-[120px] max-w-[120px] md:w-[250px] md:max-w-[250px] h-auto"
+                          className="object-contain w-[120px] max-w-[120px] md:w-[350px] md:max-w-[350px] h-auto"
                         />
                       </div>
                     </div>

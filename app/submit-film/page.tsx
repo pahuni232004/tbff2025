@@ -298,7 +298,7 @@ export default function SubmitFilmPage() {
                     <strong>Avoid Duplicate Submissions:</strong> Submit each film only once. If submitting multiple films, a separate form must be filled out for each.
                   </li>
                   <li>
-                    <strong>Queries and Support:</strong> For help or questions, contact the "official festival email" (to be shared on the website). The team will assist with submission or technical issues. There is no entry fee – your only effort is to make a great film and submit it correctly.
+                    <strong>Queries and Support:</strong> For help or questions, contact <strong>bhopalifilmfestival@gmail.com</strong>. The team will assist with submission or technical issues. There is no entry fee – your only effort is to make a great film and submit it correctly.
                   </li>
                 </ol>
               </section>
@@ -592,22 +592,14 @@ export default function SubmitFilmPage() {
                 </div>
 
               {/* Declaration */}
-              <div className="space-y-4 pt-4 border-t border-[#091529]/30">
+              <div className="pt-4 border-t border-[#091529]/30">
                 <label htmlFor="declaration" className="font-texta block text-[#091529] font-semibold text-sm md:text-base mb-1">
-                  Declaration <span className="text-[#091529]/60 text-xs font-normal">(Optional)</span>
+                  Declaration
                 </label>
-                <textarea
-                  id="declaration"
-                  name="declaration"
-                  value={formData.declaration}
-                  onChange={handleChange}
-                  rows={3}
-                  className="font-texta w-full px-3 py-2.5 rounded-md border border-[#091529]/40 bg-[#FFFEF0] text-[#091529] placeholder:text-[#091529]/50 focus:border-[#091529] focus:outline-none resize-none text-sm md:text-base"
-                />
                   </div>
 
               {/* Terms and Conditions */}
-              <div className="space-y-4 pt-4 border-t border-[#091529]/30">
+              <div className="space-y-4 -mt-3">
                 <label className="font-texta flex items-start gap-2 cursor-pointer">
                   <input
                     type="checkbox"

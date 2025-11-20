@@ -172,9 +172,9 @@ div[style*="perspective"] {
 
 @media (max-width: 1068px) {
   .about .content {
-    padding-left: 20px !important;
+    padding-left: 15px !important;
     padding-right: 110px !important;
-    margin-top: 50px !important;
+    margin-top: 35px !important;
     max-width: 90% !important;
   }
 
@@ -472,6 +472,13 @@ div[style*="perspective"] {
   .about-text {
     font-size: 12px !important;
     line-height: 1.1 !important;
+  }
+  
+  /* Force line breaks only at <br> tags on mobile - each segment is a block */
+  .about-text-mobile span {
+    display: block;
+    white-space: nowrap;
+    max-width: 100%;
   }
 }
 

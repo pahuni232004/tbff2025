@@ -318,9 +318,9 @@ export default function DogScroller() {
                     className="
     content flex flex-col 
     gap-3 md:gap-4
-    text-left left-10
+    text-left left-0 md:left-10
     md:ml-auto 
-    px-6 md:pr-[8vw]
+    pl-8 pr-6 md:px-6 md:pr-[8vw]
     max-w-full md:max-w-[700px]
     z-50 relative 
     w-full md:w-auto
@@ -351,13 +351,13 @@ export default function DogScroller() {
 
                     <div className="
     flex flex-row 
-    justify-center md:justify-start 
+    justify-start 
     gap-3 
     mt-4 md:mt-4 
     w-full md:w-auto
 
   ">
-                        <div className="flex gap-6 md:gap-8 mr-24 mt-[-10] ">
+                        <div className="flex gap-6 md:gap-8 mr-0 md:mr-24 mt-[-10] ">
                             <SafeLink
                                 href="/passes"
                                 className="font-texta px-6 py-2.5 bg-[#091529] text-white rounded-md  text-sm md:text-lg text-center hover:opacity-90 transition whitespace-nowrap"
@@ -448,15 +448,20 @@ export default function DogScroller() {
                         WHO WE ARE
                     </h2>
 
-                    <p className="about-text font-texta  text-[#091529] text-sm md:text-lg lg:text-xl md:-mt-5">
-                        <span className="md:hidden ">
-                            We are a collective of dreamers,<br /> doers and storytellers at the<br /> vibrant
-                            crossroads of Madhya Pradesh.<br/> We champion <br /> authentic narratives and <br /> connect
-                            them to the world—nurturing<br /> creative souls and building bridges between<br />
-                            cinema, arts, literature and people.
-                            Our<br /> festival thrives on real stories, shared <br /> laughter, creative ambition
-                            and <br /> collective wisdom. <strong>Our heart beats <br />for cinema that digs deep
-                                into roots <br />and grows new ideas skyward.</strong>
+                    <p className="about-text font-texta  text-[#091529] text-sm md:text-lg lg:text-xl -mt-4 md:-mt-5">
+                        <span className="md:hidden about-text-mobile">
+                            <span className="block">We are a collective of dreamers,</span>
+                            <span className="block">doers and storytellers at the</span>
+                            <span className="block">vibrant crossroads of Madhya Pradesh.</span>
+                            <span className="block">We champion authentic narratives and</span>
+                            <span className="block">connect them to the world—nurturing</span>
+                            <span className="block">creative souls and building bridges between</span>
+                            <span className="block">cinema, arts, literature and people.</span>
+                            <span className="block">Our festival thrives on real stories, shared</span>
+                            <span className="block">laughter, creative ambition</span>
+                            <span className="block">and collective wisdom. <strong>Our heart beats</strong></span>
+                            <span className="block"><strong>for cinema that digs deep</strong></span>
+                            <span className="block"><strong>into roots and grows new ideas skyward.</strong></span>
                         </span>
                         <span className="hidden md:inline">
                             We are a collective of dreamers,<br/> doers, and storytellers at the vibrant<br/> crossroads of Madhya Pradesh. We<br/> champion authentic narratives and<br/> connect them to the world—nurturing<br/> creative souls, building bridges between<br/> cinema, arts, literature, and people. Our<br/> festival thrives on real stories, shared<br/> laughter, creative ambition, and<br/> collective wisdom. <strong>Our heart beats<br/> for cinema that digs deep into roots<br/> and grows new ideas skyward.</strong>

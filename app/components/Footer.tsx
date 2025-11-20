@@ -67,7 +67,6 @@ export default function Footer() {
                             height={120}
                             className="object-contain"
                         />
-                        <h2 className="font-bebas text-xl font-medium">Bhopal Film Festival</h2>
                     </div>
                     <p className="font-texta text-sm text-white/90 leading-relaxed">
                         Celebrating films and voices from the heart of Madhya Pradesh. Showcasing stories that inspire and connect audiences.
