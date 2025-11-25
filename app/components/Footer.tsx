@@ -89,7 +89,7 @@ export default function Footer() {
                     <SafeLink href="/passes" className="font-texta text-white/90 hover:text-white transition">
                         Get Passes
                     </SafeLink>
-                    <a href="mailto:info@bhopalfilmfestival.com" className="font-texta text-white/90 hover:text-white transition">
+                    <a href="mailto:info@thebhopalfilmfestival.com" className="font-texta text-white/90 hover:text-white transition">
                         Email
                     </a>
                 </div>

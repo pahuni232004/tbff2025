@@ -292,13 +292,13 @@ export default function SubmitFilmPage() {
                     <strong>Keep the Link Active:</strong> The film link must remain active until <strong>February 2026</strong>. Avoid using links that expire (like WeTransfer). Google Drive or Vimeo are recommended. File size recommendations: under <strong>2GB for 10-minute films</strong> and under <strong>1GB for 5-minute films</strong> for easier viewing. The link will only be used by the jury. If the film is selected, a better-quality version and permission to use short clips for festival promotion may be requested.
                   </li>
                   <li>
-                    <strong>Submit Before the Deadline:</strong> The last date for submission is <strong>December 25, 2026 (11:59 PM IST)</strong>. Late or incomplete entries may not be accepted. A confirmation message or email will be received upon submission. Contact the festival team before the deadline if any issues arise.
+                    <strong>Submit Before the Deadline:</strong> The last date for submission is <strong>December 31, 2025 (11:59 PM IST)</strong>. Late or incomplete entries may not be accepted. A confirmation message or email will be received upon submission. Contact the festival team before the deadline if any issues arise.
                   </li>
                   <li>
                     <strong>Avoid Duplicate Submissions:</strong> Submit each film only once. If submitting multiple films, a separate form must be filled out for each.
                   </li>
                   <li>
-                    <strong>Queries and Support:</strong> For help or questions, contact <strong>bhopalifilmfestival@gmail.com</strong>. The team will assist with submission or technical issues. There is no entry fee – your only effort is to make a great film and submit it correctly.
+                    <strong>Queries and Support:</strong> For help or questions, contact <strong>info@thebhopalfilmfestival.com</strong>. The team will assist with submission or technical issues. There is no entry fee – your only effort is to make a great film and submit it correctly.
                   </li>
                 </ol>
               </section>
