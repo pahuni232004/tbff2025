@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { textaAlt } from "./fonts";
+import { LanguageProvider } from "./contexts/LanguageContext";
 
 export const metadata: Metadata = {
     title: {
@@ -57,27 +59,64 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <body
                 className={`${geistSans.variable} ${geistMono.variable} min-h-screen antialiased relative`}
             >
-                {/* PAPER TEXTURE */}
-                <div
-                    className="fixed inset-0 pointer-events-none z-[99]"
-                    style={{
-                        backgroundImage: 'url("/assets/pp.png")',
-                        backgroundRepeat: "no-repeat",
-                        backgroundSize: "cover",
-                        opacity: 0.65,
-                        mixBlendMode: "multiply",
-                        filter: "contrast(1.1) brightness(0.98)",
+                <Script
+                    id="google-translate-init"
+                    strategy="afterInteractive"
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                            window.googleTranslateElementInit = function() {
+                                if (typeof google !== 'undefined' && google.translate) {
+                                    var element = document.getElementById('google_translate_element');
+                                    if (!element) {
+                                        element = document.createElement('div');
+                                        element.id = 'google_translate_element';
+                                        element.style.cssText = 'position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;';
+                                        document.body.appendChild(element);
+                                    }
+                                    try {
+                                        new google.translate.TranslateElement({
+                                            pageLanguage: 'en',
+                                            includedLanguages: 'en,hi',
+                                            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                                            autoDisplay: false,
+                                        }, 'google_translate_element');
+                                        console.log('Google Translate widget initialized');
+                                    } catch(e) {
+                                        console.error('Error initializing Google Translate:', e);
+                                    }
+                                }
+                            };
+                        `,
                     }}
                 />
+                <Script
+                    id="google-translate-script"
+                    src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+                    strategy="lazyOnload"
+                />
+                <LanguageProvider>
+                    {/* PAPER TEXTURE */}
+                    <div
+                        className="fixed inset-0 pointer-events-none z-[99]"
+                        style={{
+                            backgroundImage: 'url("/assets/pp.png")',
+                            backgroundRepeat: "no-repeat",
+                            backgroundSize: "cover",
+                            opacity: 0.65,
+                            mixBlendMode: "multiply",
+                            filter: "contrast(1.1) brightness(0.98)",
+                        }}
+                    />
 
-                {/* NAVBAR */}
-                <Navbar />
+                    {/* NAVBAR */}
+                    <Navbar />
 
-                {/* PAGE CONTENT */}
-                <div className="relative z-[1]">{children}</div>
+                    {/* PAGE CONTENT */}
+                    <div className="relative z-[1]">{children}</div>
 
-                {/* FOOTER */}
-                <Footer />
+                    {/* FOOTER */}
+                    <Footer />
+                </LanguageProvider>
             </body>
         </html>
     );

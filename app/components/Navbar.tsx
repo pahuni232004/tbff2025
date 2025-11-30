@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import SafeLink from "./SafeLink";
 import { Menu, X } from "lucide-react";
+import LanguageToggle from "./LanguageToggle";
 
 export default function Navbar() {
     const [open, setOpen] = useState(false);
@@ -74,7 +75,9 @@ export default function Navbar() {
                                     GET PASSES
                                 </SafeLink>
                             </li>
-
+                            <li>
+                                <LanguageToggle />
+                            </li>
                         </ul>
                     </nav>
 
@@ -143,7 +146,9 @@ export default function Navbar() {
                             GET PASSES
                         </SafeLink>
 
-
+                        <div className="relative z-10 w-48">
+                            <LanguageToggle />
+                        </div>
                     </div>
                 </>,
                 document.body
