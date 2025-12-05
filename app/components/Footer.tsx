@@ -155,16 +155,7 @@ export default function Footer() {
             {/* Bottom Bar */}
             <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center mt-6 text-sm text-white/80">
                 <p className="font-texta">© {year} All rights reserved — Bhopal Film Festival</p>
-                <p className="font-texta">
-                    Built by ETWOT and assisted by{" "}
-                    <SafeLink
-                        href="https://www.devmanish.com/"
-                        target="_blank"
-                        className=" hover:text-white"
-                    >
-                        Manish
-                    </SafeLink>
-                </p>
+                <p className="font-texta">Built by ETWOT</p>
             </div>
         </footer>
     );
