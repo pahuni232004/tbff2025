@@ -13,6 +13,7 @@ export default function SubmitFilmPage() {
     phoneNumber: "",
     emailAddress: "",
     description: "",
+    filmCategory: "",
     filmTitle: "",
     synopsis: "",
     crewDetails: "",
@@ -25,7 +26,7 @@ export default function SubmitFilmPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target;
     setFormData({
       ...formData,
@@ -51,7 +52,7 @@ export default function SubmitFilmPage() {
     
     // Validation
     if (!formData.fullName || !formData.age || !formData.city || !formData.phoneNumber || 
-        !formData.emailAddress || !formData.filmTitle || !formData.synopsis || 
+        !formData.emailAddress || !formData.filmCategory || !formData.filmTitle || !formData.synopsis || 
         !formData.crewDetails || !formData.filmLink || !formData.termsAccepted) {
       setSubmitStatus("error");
       alert("Please fill in all required fields marked with *.");
@@ -103,6 +104,7 @@ export default function SubmitFilmPage() {
         phoneNumber: "",
         emailAddress: "",
         description: "",
+        filmCategory: "",
         filmTitle: "",
         synopsis: "",
         crewDetails: "",
@@ -471,6 +473,27 @@ export default function SubmitFilmPage() {
               <div className="space-y-4 pt-4 border-t border-[#091529]/30">
                 <h3 className="font-bebas text-base md:text-lg   text-[#091529] mb-4">Film Details</h3>
                 
+                {/* Film Category */}
+                <div className="space-y-1">
+                  <label htmlFor="filmCategory" className="font-texta block text-[#091529] font-semibold text-sm md:text-base mb-1">
+                    Film Category<span className="text-red-500">*</span>
+                  </label>
+                  <select
+                    id="filmCategory"
+                    name="filmCategory"
+                    value={formData.filmCategory}
+                    onChange={handleChange}
+                    required
+                    className="font-texta w-full px-3 py-2.5 rounded-md border border-[#091529]/40 bg-[#FFFEF0] text-[#091529] focus:border-[#091529] focus:outline-none text-sm md:text-base cursor-pointer"
+                  >
+                    <option value="">Select a category</option>
+                    <option value="Fiction (Under 10 Minutes)">Fiction (Under 10 Minutes)</option>
+                    <option value="Non-Fiction (Under 10 Minutes)">Non-Fiction (Under 10 Minutes)</option>
+                    <option value="Women's Voices (Under 5 Minutes)">Women&apos;s Voices (Under 5 Minutes)</option>
+                    <option value="Heart of India (Under 5 Minutes)">Heart of India (Under 5 Minutes)</option>
+                  </select>
+                </div>
+
                 {/* Description (Optional) */}
                 <div className="space-y-1">
                   <label htmlFor="description" className="font-texta block text-[#091529] font-semibold text-sm md:text-base mb-1">

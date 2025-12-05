@@ -97,6 +97,7 @@ New Film Submission Received:
 
 Name: ${data.fullName}
 Email: ${data.emailAddress}
+Film Category: ${data.filmCategory}
 Film Title: ${data.filmTitle}
 City: ${data.city}
 

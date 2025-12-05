@@ -54,6 +54,7 @@ function doPost(e) {
       data.phoneNumber || '',
       data.emailAddress || '',
       data.description || '',
+      data.filmCategory || '',
       data.filmTitle || '',
       data.synopsis || '',
       data.crewDetails || '',
@@ -96,6 +97,7 @@ function setupHeaders(sheet) {
     'Phone Number',
     'Email Address',
     'Description',
+    'Film Category',
     'Film Title',
     'Synopsis',
     'Crew Details',
@@ -121,13 +123,14 @@ function setupHeaders(sheet) {
   sheet.setColumnWidth(5, 130); // Phone Number
   sheet.setColumnWidth(6, 200); // Email Address
   sheet.setColumnWidth(7, 200); // Description
-  sheet.setColumnWidth(8, 200); // Film Title
-  sheet.setColumnWidth(9, 300); // Synopsis
-  sheet.setColumnWidth(10, 300); // Crew Details
-  sheet.setColumnWidth(11, 250); // Film Link
-  sheet.setColumnWidth(12, 120); // CBFC Certification
-  sheet.setColumnWidth(13, 300); // Declaration
-  sheet.setColumnWidth(14, 120); // Terms Accepted
+  sheet.setColumnWidth(8, 250); // Film Category
+  sheet.setColumnWidth(9, 200); // Film Title
+  sheet.setColumnWidth(10, 300); // Synopsis
+  sheet.setColumnWidth(11, 300); // Crew Details
+  sheet.setColumnWidth(12, 250); // Film Link
+  sheet.setColumnWidth(13, 120); // CBFC Certification
+  sheet.setColumnWidth(14, 300); // Declaration
+  sheet.setColumnWidth(15, 120); // Terms Accepted
 }
 
 /**
@@ -143,6 +146,7 @@ function testSubmission() {
     phoneNumber: '1234567890',
     emailAddress: 'test@example.com',
     description: 'Test description',
+    filmCategory: 'Fiction (Under 10 Minutes)',
     filmTitle: 'Test Film',
     synopsis: 'This is a test synopsis',
     crewDetails: 'Director: Test Director',
