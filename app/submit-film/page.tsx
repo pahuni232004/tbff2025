@@ -128,7 +128,7 @@ export default function SubmitFilmPage() {
   const handleDownloadGuideline = () => {
     // Create a temporary anchor element to trigger download
     const link = document.createElement('a');
-    link.href = '/submission-guidelines.pdf';
+    link.href = '/Submission guidlines 4.pdf';
     link.download = 'TBFF-2025-Submission-Guidelines.pdf';
     document.body.appendChild(link);
     link.click();
@@ -260,7 +260,7 @@ export default function SubmitFilmPage() {
                   <strong>Language & Subtitles:</strong> Films in any language are accepted. If your film isn't in English, please include <strong>English subtitles</strong>. Even if it's in Hindi or a regional language, English subtitles are strongly encouraged for wider understanding. Subtitles are your responsibility to prepare.
                   </li>
                   <li>
-                  <strong>Geographical Focus:</strong> The festival is for <strong>filmmakers from Madhya Pradesh</strong> or <strong>films connected to Madhya Pradesh</strong>. To be eligible, at least one of the following must be true: the filmmaker is from Madhya Pradesh, OR the film is shot in Madhya Pradesh, OR the story is based in Madhya Pradesh. Highlighting your MP connection is essential for your submission.
+                  <strong>Geographical Focus:</strong> Film submissions are open to all filmmakers, provided at least one of the following eligibility criteria is met: the filmmaker is from Madhya Pradesh; or the film has been shot in Madhya Pradesh; or the story is set in, or substantially based on, Madhya Pradesh. Meeting any one of the above conditions is sufficient for eligibility.
                   </li>
                   <li>
                   <strong>Prior Screenings:</strong> Films don't need to be premieres. You can submit films that have screened elsewhere or are online. However, showing something new or lesser known to local audiences adds excitement. If your film has won awards or been shown before, mention it in the form – it won't affect your eligibility.
