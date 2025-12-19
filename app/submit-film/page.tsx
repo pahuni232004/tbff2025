@@ -81,21 +81,48 @@ export default function SubmitFilmPage() {
     setIsSubmitting(true);
     setSubmitStatus("idle");
 
+    // Prepare submission data with timestamp
+    const submissionData = {
+      ...formData,
+      submittedAt: new Date().toISOString(),
+    };
+
     try {
+      // Step 1: Submit to Google Sheets via Apps Script
       const response = await fetch(scriptUrl, {
         method: "POST",
         mode: "no-cors",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          ...formData,
-          submittedAt: new Date().toISOString(),
-        }),
+        body: JSON.stringify(submissionData),
       });
       
       // With no-cors mode, we can't read the response, but we assume success
       // The data will be saved to Google Sheets by the Apps Script
+      
+      // Step 2: Send confirmation email (don't fail if this fails)
+      try {
+        const emailResponse = await fetch("/api/send-confirmation", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(submissionData),
+        });
+
+        if (!emailResponse.ok) {
+          console.warn("Failed to send confirmation email, but submission was successful");
+        } else {
+          console.log("Confirmation email sent successfully");
+        }
+      } catch (emailError) {
+        // Log email error but don't fail the submission
+        console.warn("Error sending confirmation email:", emailError);
+        // Submission is still successful even if email fails
+      }
+
+      // Mark submission as successful
       setSubmitStatus("success");
       setFormData({
         fullName: "",

@@ -2,6 +2,7 @@
  * Google Apps Script for TBFF 2025 Film Submission Form
  * 
  * This script receives form submissions and saves them to a Google Sheet.
+ * Email confirmations are handled by the Next.js API (Resend), not this script.
  * 
  * SETUP INSTRUCTIONS:
  * 1. Create a new Google Sheet (or use an existing one)
@@ -75,7 +76,7 @@ function doPost(e) {
     
   } catch (error) {
     // Log error for debugging
-    console.error('Error processing submission:', error);
+    Logger.log('Error processing submission: ' + error.toString());
     
     // Return error response
     return ContentService.createTextOutput(JSON.stringify({
@@ -165,4 +166,3 @@ function testSubmission() {
   const result = doPost(mockEvent);
   Logger.log(result.getContent());
 }
-
