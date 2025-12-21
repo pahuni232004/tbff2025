@@ -85,20 +85,35 @@ export default function Hero({ scrollProgress }: Props) {
             <strong>21st February 2026, Bhopal</strong>
           </p>
 
-          <div className="mt-8 flex gap-4 justify-start">
-            <SafeLink
-              href="/passes"
-              className="inline-flex items-center justify-center px-6 py-3 bg-[#091529] text-white rounded-md shadow-sm text-sm"
-            >
-              Book Tickets
-            </SafeLink>
+          <div className="mt-8 flex flex-col gap-3 justify-start">
+            <div className="flex gap-4">
+              <SafeLink
+                href="/passes"
+                className="inline-flex items-center justify-center px-6 py-2 border-[3px] border-[#091529] bg-transparent text-[#091529] rounded-md text-sm"
+              >
+                Book Tickets
+              </SafeLink>
 
-            <SafeLink
-              href="/submit-film"
-              className="inline-flex items-center justify-center px-5 py-3 border-2 border-[#091529] text-[#091529] rounded-md text-sm"
+              <SafeLink
+                href="/submit-film"
+                className="inline-flex items-center justify-center px-6 py-2 bg-[#091529] text-white rounded-md text-sm"
+              >
+                Submit Film
+              </SafeLink>
+            </div>
+
+            <a
+              href="https://filmfreeway.com/TheBhopalFilmFestival"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:opacity-90 transition w-fit"
             >
-              Submit Film
-            </SafeLink>
+              <img 
+                src="/assets/filmfreeway button.png" 
+                alt="Find us on FilmFreeway" 
+                className="h-10 w-auto"
+              />
+            </a>
           </div>
         </div>
       </div>

@@ -81,48 +81,21 @@ export default function SubmitFilmPage() {
     setIsSubmitting(true);
     setSubmitStatus("idle");
 
-    // Prepare submission data with timestamp
-    const submissionData = {
-      ...formData,
-      submittedAt: new Date().toISOString(),
-    };
-
     try {
-      // Step 1: Submit to Google Sheets via Apps Script
       const response = await fetch(scriptUrl, {
         method: "POST",
         mode: "no-cors",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(submissionData),
+        body: JSON.stringify({
+          ...formData,
+          submittedAt: new Date().toISOString(),
+        }),
       });
       
       // With no-cors mode, we can't read the response, but we assume success
       // The data will be saved to Google Sheets by the Apps Script
-      
-      // Step 2: Send confirmation email (don't fail if this fails)
-      try {
-        const emailResponse = await fetch("/api/send-confirmation", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(submissionData),
-        });
-
-        if (!emailResponse.ok) {
-          console.warn("Failed to send confirmation email, but submission was successful");
-        } else {
-          console.log("Confirmation email sent successfully");
-        }
-      } catch (emailError) {
-        // Log email error but don't fail the submission
-        console.warn("Error sending confirmation email:", emailError);
-        // Submission is still successful even if email fails
-      }
-
-      // Mark submission as successful
       setSubmitStatus("success");
       setFormData({
         fullName: "",
@@ -155,7 +128,7 @@ export default function SubmitFilmPage() {
   const handleDownloadGuideline = () => {
     // Create a temporary anchor element to trigger download
     const link = document.createElement('a');
-    link.href = '/Submission guidlines 4.pdf';
+    link.href = '/submission-guidelines.pdf';
     link.download = 'TBFF-2025-Submission-Guidelines.pdf';
     document.body.appendChild(link);
     link.click();
@@ -287,7 +260,7 @@ export default function SubmitFilmPage() {
                   <strong>Language & Subtitles:</strong> Films in any language are accepted. If your film isn't in English, please include <strong>English subtitles</strong>. Even if it's in Hindi or a regional language, English subtitles are strongly encouraged for wider understanding. Subtitles are your responsibility to prepare.
                   </li>
                   <li>
-                  <strong>Geographical Focus:</strong> Film submissions are open to all filmmakers, provided at least one of the following eligibility criteria is met: the filmmaker is from Madhya Pradesh; or the film has been shot in Madhya Pradesh; or the story is set in, or substantially based on, Madhya Pradesh. Meeting any one of the above conditions is sufficient for eligibility.
+                  <strong>Geographical Focus:</strong> The festival is open to everyone, but we especially encourage entries from <strong>filmmakers from Madhya Pradesh</strong> or films connected to <strong>Madhya Pradesh/Central India</strong> – whether through story, setting, or production. This includes films based in or shot in Madhya Pradesh or made by filmmakers from the state. Highlighting your MP connection can strengthen your submission.
                   </li>
                   <li>
                   <strong>Prior Screenings:</strong> Films don't need to be premieres. You can submit films that have screened elsewhere or are online. However, showing something new or lesser known to local audiences adds excitement. If your film has won awards or been shown before, mention it in the form – it won't affect your eligibility.
@@ -703,150 +676,6 @@ export default function SubmitFilmPage() {
           </div>
         </div>
       </div>
-      </div>
-
-      {/* FAQ Section */}
-      <div className="relative bg-[#FFCE21] pb-12 sm:pb-16 md:pb-20" style={{ marginLeft: '8px' }}>
-        <div className="relative px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
-          <div className="relative z-20 pl-4 sm:pl-6 md:pl-8 lg:pl-12 xl:pl-16 pr-4 sm:pr-6 md:pr-8 lg:pr-12 xl:pr-16 w-full max-w-[1600px] mx-auto">
-            <h2 className="font-bebas text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-[#091529] mb-6 sm:mb-8 md:mb-10 uppercase tracking-tight text-center md:text-left">
-              Frequently Asked Questions (FAQs)
-            </h2>
-
-            <div className="font-texta text-[#091529] space-y-2 sm:space-y-3">
-              {/* FAQ 1 */}
-              <div className="border-b border-[#091529]/20 pb-2">
-                <h3 className="font-semibold text-base sm:text-lg md:text-xl mb-1">1. What is the required duration for film submission?</h3>
-                <ul className="text-sm sm:text-base md:text-lg leading-relaxed list-disc pl-6 space-y-1">
-                  <li><strong>General Fiction:</strong> Under 10 minutes (live-action or animated)</li>
-                  <li><strong>General Non-Fiction:</strong> Under 10 minutes</li>
-                  <li><strong>Heart of India:</strong> Under 5 minutes</li>
-                  <li><strong>Women&apos;s Voices:</strong> Under 5 minutes</li>
-                </ul>
-                <p className="text-sm sm:text-base md:text-lg leading-relaxed mt-2">Films exceeding the limit — even by a few seconds — will not be accepted.</p>
-              </div>
-
-              {/* FAQ 2 */}
-              <div className="border-b border-[#091529]/20 pb-2">
-                <h3 className="font-semibold text-base sm:text-lg md:text-xl mb-1">2. If my film exceeds the time limit, can I still submit it?</h3>
-                <p className="text-sm sm:text-base md:text-lg leading-relaxed">No. Films longer than the specified time for their selected category will be disqualified.</p>
-              </div>
-
-              {/* FAQ 3 */}
-              <div className="border-b border-[#091529]/20 pb-2">
-                <h3 className="font-semibold text-base sm:text-lg md:text-xl mb-1">3. Are animated films allowed?</h3>
-                <p className="text-sm sm:text-base md:text-lg leading-relaxed">Yes, animated films are allowed in all categories.</p>
-              </div>
-
-              {/* FAQ 4 */}
-              <div className="border-b border-[#091529]/20 pb-2">
-                <h3 className="font-semibold text-base sm:text-lg md:text-xl mb-1">4. Who can participate in the Women&apos;s Voices category?</h3>
-                <p className="text-sm sm:text-base md:text-lg leading-relaxed">Only films directed by female filmmakers are eligible.</p>
-              </div>
-
-              {/* FAQ 5 */}
-              <div className="border-b border-[#091529]/20 pb-2">
-                <h3 className="font-semibold text-base sm:text-lg md:text-xl mb-1">5. Is there an age requirement?</h3>
-                <p className="text-sm sm:text-base md:text-lg leading-relaxed">Yes. Participants must be between 16 and 35 years old.</p>
-              </div>
-
-              {/* FAQ 6 */}
-              <div className="border-b border-[#091529]/20 pb-2">
-                <h3 className="font-semibold text-base sm:text-lg md:text-xl mb-1">6. Is the use of AI allowed?</h3>
-                <p className="text-sm sm:text-base md:text-lg leading-relaxed">Yes. Use of AI for scenes or shots is permitted.</p>
-              </div>
-
-              {/* FAQ 7 */}
-              <div className="border-b border-[#091529]/20 pb-2">
-                <h3 className="font-semibold text-base sm:text-lg md:text-xl mb-1">7. What is the last date to submit a film?</h3>
-                <p className="text-sm sm:text-base md:text-lg leading-relaxed">31 December 2025</p>
-              </div>
-
-              {/* FAQ 8 */}
-              <div className="border-b border-[#091529]/20 pb-2">
-                <h3 className="font-semibold text-base sm:text-lg md:text-xl mb-1">8. Is there a submission fee?</h3>
-                <p className="text-sm sm:text-base md:text-lg leading-relaxed">No. Submission is entirely free.</p>
-              </div>
-
-              {/* FAQ 9 */}
-              <div className="border-b border-[#091529]/20 pb-2">
-                <h3 className="font-semibold text-base sm:text-lg md:text-xl mb-1">9. How can I submit my film?</h3>
-                <ul className="text-sm sm:text-base md:text-lg leading-relaxed list-disc pl-6 space-y-1">
-                  <li>Through our official festival website, or</li>
-                  <li>On FilmFreeway</li>
-                </ul>
-                <p className="text-sm sm:text-base md:text-lg leading-relaxed mt-2">Both platforms are valid.</p>
-              </div>
-
-              {/* FAQ 10 */}
-              <div className="border-b border-[#091529]/20 pb-2">
-                <h3 className="font-semibold text-base sm:text-lg md:text-xl mb-1">10. Does the festival offer funding or financial support to create films?</h3>
-                <p className="text-sm sm:text-base md:text-lg leading-relaxed">No. Funding and production support are not provided.</p>
-              </div>
-
-              {/* FAQ 11 */}
-              <div className="border-b border-[#091529]/20 pb-2">
-                <h3 className="font-semibold text-base sm:text-lg md:text-xl mb-1">11. What is the eligible completion period for films?</h3>
-                <p className="text-sm sm:text-base md:text-lg leading-relaxed">Films must have been completed on or after 1 January 2023.</p>
-              </div>
-
-              {/* FAQ 12 */}
-              <div className="border-b border-[#091529]/20 pb-2">
-                <h3 className="font-semibold text-base sm:text-lg md:text-xl mb-1">12. Do I need to be from Madhya Pradesh to participate?</h3>
-                <p className="text-sm sm:text-base md:text-lg leading-relaxed mb-2">No. Filmmakers from anywhere can submit, provided at least one of the following is true:</p>
-                <ul className="text-sm sm:text-base md:text-lg leading-relaxed list-disc pl-6 space-y-1">
-                  <li>The filmmaker is from Madhya Pradesh, OR</li>
-                  <li>The film is shot in Madhya Pradesh, OR</li>
-                  <li>The story is based in Madhya Pradesh</li>
-                </ul>
-              </div>
-
-              {/* FAQ 13 */}
-              <div className="border-b border-[#091529]/20 pb-2">
-                <h3 className="font-semibold text-base sm:text-lg md:text-xl mb-1">13. Is this a competition? What do winners receive?</h3>
-                <p className="text-sm sm:text-base md:text-lg leading-relaxed">Yes. Each category will have two Winners.</p>
-                <p className="text-sm sm:text-base md:text-lg leading-relaxed">Winners receive a cash prize + certificate.</p>
-                <p className="text-sm sm:text-base md:text-lg leading-relaxed">Winning films will be screened throughout MP.</p>
-              </div>
-
-              {/* FAQ 14 */}
-              <div className="border-b border-[#091529]/20 pb-2">
-                <h3 className="font-semibold text-base sm:text-lg md:text-xl mb-1">14. Where will the festival take place?</h3>
-                <p className="text-sm sm:text-base md:text-lg leading-relaxed">Ravindra Bhavan, Bhopal</p>
-              </div>
-
-              {/* FAQ 15 */}
-              <div className="border-b border-[#091529]/20 pb-2">
-                <h3 className="font-semibold text-base sm:text-lg md:text-xl mb-1">15. Is it a short film festival?</h3>
-                <p className="text-sm sm:text-base md:text-lg leading-relaxed">Yes. This year the festival is accepting and screening short films only.</p>
-              </div>
-
-              {/* FAQ 16 */}
-              <div className="border-b border-[#091529]/20 pb-2">
-                <h3 className="font-semibold text-base sm:text-lg md:text-xl mb-1">16. Can I submit one film in multiple categories?</h3>
-                <p className="text-sm sm:text-base md:text-lg leading-relaxed">No. A film can be submitted to only one category.</p>
-              </div>
-
-              {/* FAQ 17 */}
-              <div className="border-b border-[#091529]/20 pb-2">
-                <h3 className="font-semibold text-base sm:text-lg md:text-xl mb-1">17. Can one filmmaker submit more than one film in the same category?</h3>
-                <p className="text-sm sm:text-base md:text-lg leading-relaxed">No. A filmmaker can submit only one film per category.</p>
-              </div>
-
-              {/* FAQ 18 (numbered as 19 in original) */}
-              <div className="border-b border-[#091529]/20 pb-2">
-                <h3 className="font-semibold text-base sm:text-lg md:text-xl mb-1">18. Is it mandatory for the filmmaker to attend the festival?</h3>
-                <p className="text-sm sm:text-base md:text-lg leading-relaxed">No, attendance is not mandatory — but it is highly appreciated as it enriches the festival experience.</p>
-              </div>
-
-              {/* FAQ 19 (numbered as 20 in original) */}
-              <div className="pb-4">
-                <h3 className="font-semibold text-base sm:text-lg md:text-xl mb-1">19. Can a filmmaker submit films in multiple categories?</h3>
-                <p className="text-sm sm:text-base md:text-lg leading-relaxed">Yes. A filmmaker can submit different films across multiple categories.</p>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
 
       {/* Decorative Elements - Element Above Footer */}

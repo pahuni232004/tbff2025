@@ -357,22 +357,52 @@ export default function DogScroller() {
     w-full md:w-auto
 
   ">
-                        <div className="flex gap-6 md:gap-8 mr-0 md:mr-24 mt-[-10] ">
-                            <SafeLink
-                                href="/passes"
-                                className="font-texta px-6 py-2.5 bg-[#091529] text-white rounded-md  text-sm md:text-lg text-center hover:opacity-90 transition whitespace-nowrap"
+                        <div className="flex flex-col gap-3 mr-0 md:mr-24 mt-[-10]">
+                            <div className="flex gap-4 md:gap-6">
+                                <SafeLink
+                                    href="/passes"
+                                    className="font-texta px-6 py-1.5 border-[3px] border-[#091529] bg-transparent text-[#091529] rounded-md text-sm md:text-base text-center hover:opacity-90 transition whitespace-nowrap"
+                                >
+                                    Book Tickets
+                                </SafeLink>
+                                <SafeLink
+                                    href="/submit-film"
+                                    className="font-texta px-6 py-1.5 bg-[#091529] text-white rounded-md text-sm md:text-base text-center hover:opacity-90 transition whitespace-nowrap"
+                                >
+                                    Submit Film
+                                </SafeLink>
+                            </div>
+                            {/* FilmFreeway button - hidden on mobile, shown on desktop */}
+                            <a
+                                href="https://filmfreeway.com/TheBhopalFilmFestival"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:opacity-90 transition w-fit hidden md:block"
                             >
-                                Book Tickets
-                            </SafeLink>
-                            <SafeLink
-                                href="/submit-film"
-                                className="font-texta px-6 py-2.5 border-2 border-[#091529] bg-[#FFCE21] text-[#091529] rounded-md  text-sm md:text-lg text-center hover:opacity-90 transition whitespace-nowrap"
-                            >
-                                Submit Film
-                            </SafeLink>
+                                <img 
+                                    src="/assets/filmfreeway button.png" 
+                                    alt="Find us on FilmFreeway" 
+                                    className="h-11 w-auto"
+                                />
+                            </a>
                         </div>
                     </div>
                 </motion.div>
+
+                {/* FilmFreeway button - Mobile only, positioned near the character's feet */}
+                <a
+                    href="https://filmfreeway.com/TheBhopalFilmFestival"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:opacity-90 transition absolute md:hidden z-40"
+                    style={{ bottom: "80px", right: "20px" }}
+                >
+                    <img 
+                        src="/assets/filmfreeway button.png" 
+                        alt="Find us on FilmFreeway" 
+                        className="h-10 w-auto"
+                    />
+                </a>
 
                 {/* Desktop animated character — hidden on mobile */}
                 <div
@@ -459,12 +489,12 @@ export default function DogScroller() {
                             <span className="block">cinema, arts, literature and people.</span>
                             <span className="block">Our festival thrives on real stories, shared</span>
                             <span className="block">laughter, creative ambition</span>
-                            <span className="block">and collective wisdom. <strong>Our heart beats</strong></span>
-                            <span className="block"><strong>for cinema that digs deep</strong></span>
-                            <span className="block"><strong>into roots and grows new ideas skyward.</strong></span>
+                            <span className="block">and collective wisdom. <strong className="text-black">Our heart beats</strong></span>
+                            <span className="block"><strong className="text-black">for cinema that digs deep</strong></span>
+                            <span className="block"><strong className="text-black">into roots and grows new ideas skyward.</strong></span>
                         </span>
                         <span className="hidden md:inline">
-                            We are a collective of dreamers,<br/> doers, and storytellers at the vibrant<br/> crossroads of Madhya Pradesh. We<br/> champion authentic narratives and<br/> connect them to the world—nurturing<br/> creative souls, building bridges between<br/> cinema, arts, literature, and people. Our<br/> festival thrives on real stories, shared<br/> laughter, creative ambition, and<br/> collective wisdom. <strong>Our heart beats<br/> for cinema that digs deep into roots<br/> and grows new ideas skyward.</strong>
+                            We are a collective of dreamers,<br/> doers, and storytellers at the vibrant<br/> crossroads of Madhya Pradesh. We<br/> champion authentic narratives and<br/> connect them to the world—nurturing<br/> creative souls, building bridges between<br/> cinema, arts, literature, and people. Our<br/> festival thrives on real stories, shared<br/> laughter, creative ambition, and<br/> collective wisdom. <strong className="text-black">Our heart beats<br/> for cinema that digs deep into roots<br/> and grows new ideas skyward.</strong>
                         </span>
                     </p>
 
