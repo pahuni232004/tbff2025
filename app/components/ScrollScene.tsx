@@ -374,7 +374,7 @@ export default function DogScroller() {
                             </div>
                             {/* FilmFreeway button - hidden on mobile, shown on desktop */}
                             <a
-                                href="https://filmfreeway.com/TheBhopalFilmFestival"
+                                href="https://filmfreeway.com/TheBhopalFilmFestival-1"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="hover:opacity-90 transition w-fit hidden md:block"
@@ -391,11 +391,11 @@ export default function DogScroller() {
 
                 {/* FilmFreeway button - Mobile only, positioned near the character's feet */}
                 <a
-                    href="https://filmfreeway.com/TheBhopalFilmFestival"
+                    href="https://filmfreeway.com/TheBhopalFilmFestival-1"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:opacity-90 transition absolute md:hidden z-40"
-                    style={{ bottom: "80px", right: "20px" }}
+                    style={{ bottom: "130px", right: "20px" }}
                 >
                     <img 
                         src="/assets/filmfreeway button.png" 

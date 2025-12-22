@@ -103,7 +103,7 @@ export default function Hero({ scrollProgress }: Props) {
             </div>
 
             <a
-              href="https://filmfreeway.com/TheBhopalFilmFestival"
+              href="https://filmfreeway.com/TheBhopalFilmFestival-1"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:opacity-90 transition w-fit"
