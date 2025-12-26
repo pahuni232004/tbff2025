@@ -97,8 +97,11 @@ export default function MeetCrew() {
             let sTop = startTop;
             let fLeft = finalLeft;
             let fTop = finalTop;
+            let mLeft = midLeft;
 
             const isMobile = typeof window !== 'undefined' && window.innerWidth <= 1068;
+            // Desktop: keep start aligned; apply a late shift to avoid overlapping awards/categories
+            const desktopEndShift = !isMobile ? wrapperRect.width * 0.12 : 0;
 
             if (isMobile) {
                 sLeft = -230; // Start from very left (slightly off-screen for effect), moved left by 50px for mobile
@@ -106,6 +109,7 @@ export default function MeetCrew() {
 
                 fLeft = Math.round(Math.min(wrapperRect.width * 0.82 - eleRect.width * 0.5, wrapperRect.width * 0.75)) -20;
                 fTop = Math.round(sec2Rect.top - wrapperRect.top + (sec2Rect.height - eleRect.height) * 0.45) + 170;
+                mLeft = midLeft;
             }
 
 
@@ -117,7 +121,7 @@ export default function MeetCrew() {
             gsap.set(eleWrap, { x: 0, y: 0, scale: 1, transformOrigin: "50% 50%" });
             gsap.set(eleImg, { scaleX: 1, transformOrigin: "50% 50%" });
 
-            const dxMid = midLeft - sLeft;
+            const dxMid = mLeft - sLeft;
             const dyMid = midTop - sTop;
             const dxFinal = fLeft - sLeft;
             const dyFinal = fTop - sTop;
@@ -172,6 +176,18 @@ export default function MeetCrew() {
                 },
                 ">"
             );
+
+            // Desktop: final nudge to the right after main move to avoid overlap
+            if (!isMobile && desktopEndShift !== 0) {
+                tl.to(
+                    eleWrap,
+                    {
+                        duration: 0.25,
+                        x: dxFinal + desktopEndShift,
+                    },
+                    ">"
+                );
+            }
 
             // Move DOWN + zoom with scroll after reaching position 2
             const additionalY = isMobile ? 100 : 30; // minimal downward movement on desktop to keep legs visible in orange section
@@ -229,7 +245,7 @@ export default function MeetCrew() {
             const track = document.getElementById("juryMobileTrack");
             if (track) {
                 const slideWidth = 200; // each slide width
-                const totalSlides = 3;  // real slides
+                const totalSlides = 8;  // real slides (3 jurors + 5 crew members)
                 const spacing = 2;
                 const moveDistance = (slideWidth + spacing); // one slide shift
                 let x = 0;
@@ -250,7 +266,7 @@ export default function MeetCrew() {
                     setTimeout(() => {
                         if (!track) return; // Guard clause for TypeScript
 
-                        // reset after 3 slides (full cycle)
+                        // reset after all slides (full cycle)
                         if (Math.abs(x) >= moveDistance * totalSlides) {
                             track.style.transition = "none";
                             x = 0;
@@ -317,7 +333,16 @@ export default function MeetCrew() {
                             className="flex"
                             style={{ width: "9999px" }} // track grows automatically
                         >
-                            {[1, 2, 3, 1, 2, 3].map((n, i) => (
+                            {[
+                                "/assets/Juror 1.png",
+                                "/assets/Juror 2.png",
+                                "/assets/Juror 3.png",
+                                "/assets/crew 1 (1).png",
+                                "/assets/crew 2 (1).png",
+                                "/assets/crew 3 (1).png",
+                                "/assets/crew 1 (1).png",
+                                "/assets/crew 2 (1).png",
+                            ].map((src, i) => (
                                 <div key={i} className="w-[200px] flex-shrink-0 px-1">
                                     <div className="relative w-[180px] mx-auto">
                                         <Image
@@ -340,13 +365,7 @@ export default function MeetCrew() {
                                             style={{ top: "8%", bottom: "8%", left: "8%", right: "8%" }}
                                         >
                                             <Image
-                                                src={
-                                                    n === 1
-                                                        ? "/assets/Juror 1.png"
-                                                        : n === 2
-                                                            ? "/assets/Juror 2.png"
-                                                            : "/assets/Juror 3.png"
-                                                }
+                                                src={src}
                                                 alt=""
                                                 width={400}
                                                 height={480}
@@ -370,149 +389,52 @@ export default function MeetCrew() {
                         top-32 sm:top-40 md:top-96
                         left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0
                         right-4 md:right-12
-
-                       
-                        grid md:grid-cols-3 gap-4 md:gap-6
+                        hidden md:grid
+                        grid-cols-2 lg:grid-cols-4 md:grid-rows-2
+                        gap-4 md:gap-6
                         justify-center md:justify-end
-
-                       
                     ">
-                        {/* Frame 1 */}
-                        <div className="frame-flip-container relative w-[160px] sm:w-[200px] md:w-[300px] mx-auto">
-                            <div className="frame-flip-inner">
-                                <div className="frame-flip-front">
-                                    {/* Frame */}
-                                    <Image
-                                        src="/assets/frame.png"
-                                        alt=""
-                                        width={300}
-                                        height={340}
-                                        className="relative z-10 w-full h-auto"
-                                    />
-
-                                    {/* Yellow Background */}
-                                    <div
-                                        className="absolute bg-[#FFCE21] z-15"
-                                        style={{ top: "8%", bottom: "8%", left: "8%", right: "8%" }}
-                                    ></div>
-
-                                    {/* Photo inside Frame */}
-                                    <div
-                                        className="absolute inset-0 flex items-center justify-center z-20 overflow-hidden"
-                                        style={{ top: "8%", bottom: "8%", left: "8%", right: "8%" }}
-                                    >
-                                        <Image
-                                            src="/assets/Juror 1.png"
-                                            alt="Jury member"
-                                            width={400}
-                                            height={480}
-                                            className="w-full h-full object-contain"
-                                        />
+                        {[
+                            "/assets/Juror 1.png",
+                            "/assets/Juror 2.png",
+                            "/assets/Juror 3.png",
+                            "/assets/crew 1 (1).png",
+                            "/assets/crew 2 (1).png",
+                            "/assets/crew 3 (1).png",
+                            "/assets/crew 1 (1).png",
+                            "/assets/crew 2 (1).png",
+                        ].map((src, idx) => (
+                            <div key={idx} className="frame-flip-container relative w-[150px] sm:w-[180px] md:w-[240px] mx-auto">
+                                <div className="frame-flip-inner">
+                                    <div className="frame-flip-front">
+                                        <Image src="/assets/frame.png" alt="" width={260} height={300} className="relative z-10 w-full h-auto" />
+                                        <div className="absolute bg-[#FFCE21] z-15" style={{ top: "8%", bottom: "8%", left: "8%", right: "8%" }}></div>
+                                        <div className="absolute inset-0 flex items-center justify-center z-20 overflow-hidden" style={{ top: "8%", bottom: "8%", left: "8%", right: "8%" }}>
+                                            <Image
+                                                src={src}
+                                                alt="Jury member"
+                                                width={360}
+                                                height={440}
+                                                className="w-full h-full object-contain"
+                                            />
+                                        </div>
                                     </div>
-
-                                </div>
-                                <div className="frame-flip-back">
-                                    {/* Frame */}
-                                    <Image
-                                        src="/assets/frame.png"
-                                        alt=""
-                                        width={300}
-                                        height={340}
-                                        className="relative z-10 w-full h-auto"
-                                    />
-
-                                    {/* Yellow Background */}
-                                    <div
-                                        className="absolute bg-[#FFCE21] z-15"
-                                        style={{ top: "8%", bottom: "8%", left: "8%", right: "8%" }}
-                                    ></div>
-
-                                    {/* Photo inside Frame */}
-                                    <div
-                                        className="absolute inset-0 flex items-center justify-center z-20 overflow-hidden"
-                                        style={{ top: "8%", bottom: "8%", left: "8%", right: "8%" }}
-                                    >
-                                        <Image
-                                            src="/assets/Juror 1.png"
-                                            alt="Jury member"
-                                            width={400}
-                                            height={480}
-                                            className="w-full h-full object-contain"
-                                        />
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-
-
-                        {/* Frame 2 */}
-                        <div className="frame-flip-container relative w-[160px] sm:w-[200px] md:w-[300px] mx-auto">
-                            <div className="frame-flip-inner">
-                                <div className="frame-flip-front">
-                                    <Image src="/assets/frame.png" alt="" width={300} height={340} className="relative z-10 w-full h-auto" />
-                                    {/* Yellow background box inside the frame */}
-                                    <div className="absolute bg-[#FFCE21] z-15" style={{ top: "8%", bottom: "8%", left: "8%", right: "8%" }}></div>
-                                    <div className="absolute inset-0 flex items-center justify-center z-20 overflow-hidden" style={{ top: "8%", bottom: "8%", left: "8%", right: "8%" }}>
-                                        <Image
-                                            src="/assets/Juror 2.png"
-                                            alt="Jury member"
-                                            width={400}
-                                            height={480}
-                                            className="w-full h-full object-contain"
-                                        />
-                                    </div>
-                                </div>
-                                <div className="frame-flip-back">
-                                    <Image src="/assets/frame.png" alt="" width={300} height={340} className="relative z-10 w-full h-auto" />
-                                    {/* Yellow background box inside the frame */}
-                                    <div className="absolute bg-[#FFCE21] z-15" style={{ top: "8%", bottom: "8%", left: "8%", right: "8%" }}></div>
-                                    <div className="absolute inset-0 flex items-center justify-center z-20 overflow-hidden" style={{ top: "8%", bottom: "8%", left: "8%", right: "8%" }}>
-                                        <Image
-                                            src="/assets/Juror 2.png"
-                                            alt="Jury member"
-                                            width={400}
-                                            height={480}
-                                            className="w-full h-full object-contain"
-                                        />
+                                    <div className="frame-flip-back">
+                                        <Image src="/assets/frame.png" alt="" width={260} height={300} className="relative z-10 w-full h-auto" />
+                                        <div className="absolute bg-[#FFCE21] z-15" style={{ top: "8%", bottom: "8%", left: "8%", right: "8%" }}></div>
+                                        <div className="absolute inset-0 flex items-center justify-center z-20 overflow-hidden" style={{ top: "8%", bottom: "8%", left: "8%", right: "8%" }}>
+                                            <Image
+                                                src={src}
+                                                alt="Jury member"
+                                                width={360}
+                                                height={440}
+                                                className="w-full h-full object-contain"
+                                            />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        {/* Frame 3 */}
-                        <div className="frame-flip-container relative w-[160px] sm:w-[200px] md:w-[300px] mx-auto">
-                            <div className="frame-flip-inner">
-                                <div className="frame-flip-front">
-                                    <Image src="/assets/frame.png" alt="" width={300} height={340} className="relative z-10 w-full h-auto" />
-                                    {/* Yellow background box inside the frame */}
-                                    <div className="absolute bg-[#FFCE21] z-15" style={{ top: "8%", bottom: "8%", left: "8%", right: "8%" }}></div>
-                                    <div className="absolute inset-0 flex items-center justify-center z-20 overflow-hidden" style={{ top: "8%", bottom: "8%", left: "8%", right: "8%" }}>
-                                        <Image
-                                            src="/assets/Juror 3.png"
-                                            alt="Jury member"
-                                            width={400}
-                                            height={480}
-                                            className="w-full h-full object-contain"
-                                        />
-                                    </div>
-                                </div>
-                                <div className="frame-flip-back">
-                                    <Image src="/assets/frame.png" alt="" width={300} height={340} className="relative z-10 w-full h-auto" />
-                                    {/* Yellow background box inside the frame */}
-                                    <div className="absolute bg-[#FFCE21] z-15" style={{ top: "8%", bottom: "8%", left: "8%", right: "8%" }}></div>
-                                    <div className="absolute inset-0 flex items-center justify-center z-20 overflow-hidden" style={{ top: "8%", bottom: "8%", left: "8%", right: "8%" }}>
-                                        <Image
-                                            src="/assets/Juror 3.png"
-                                            alt="Jury member"
-                                            width={400}
-                                            height={480}
-                                            className="w-full h-full object-contain"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        ))}
                     </div>
                     {/* ELEPHANT BACKGROUND LEAF-PATH */}
                     <img

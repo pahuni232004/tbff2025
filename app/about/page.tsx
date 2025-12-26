@@ -266,9 +266,9 @@ export default function AboutPage() {
                         <Image
                           src="/crew/crew 1.png"
                           alt="Crew Member 1"
-                          width={300}
-                          height={340}
-                          className="object-contain w-[120px] max-w-[120px] md:w-[350px] md:max-w-[350px] h-auto"
+                          width={320}
+                          height={360}
+                          className="object-contain w-[150px] max-w-[150px] md:w-[420px] md:max-w-[420px] h-auto"
                         />
                       </div>
                     </div>

@@ -95,19 +95,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     strategy="lazyOnload"
                 />
                 <LanguageProvider>
-                    {/* PAPER TEXTURE */}
-                    <div
-                        className="fixed inset-0 pointer-events-none z-[99]"
-                        style={{
-                            backgroundImage: 'url("/assets/pp.png")',
-                            backgroundRepeat: "no-repeat",
-                            backgroundSize: "cover",
-                            opacity: 0.65,
-                            mixBlendMode: "multiply",
-                            filter: "contrast(1.1) brightness(0.98)",
-                        }}
-                    />
-
                     {/* NAVBAR */}
                     <Navbar />
 

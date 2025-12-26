@@ -248,7 +248,7 @@ export default function SubmitFilmPage() {
                   <strong>Short Film Duration:</strong> Films must follow the time limits of their category (either 10 minutes or 5 minutes). There's no minimum length, but even very short films should fit meaningfully within a category.
                   </li>
                   <li>
-                  <strong>Completion Date:</strong> Films must have been completed between <strong>January 1, 2023, and December 30, 2025</strong>. Only finished films are accepted; works in progress are not eligible.
+                  <strong>Completion Date:</strong> Films must have been completed after <strong>January 1, 2023</strong>. Only finished films are accepted; works in progress are not eligible.
                   </li>
                   <li>
                   <strong>Production:</strong> The festival focuses on <strong>independent cinema</strong>. Your film should be made independently, not as a commercial studio production. Sponsors or grants are fine, but the creative control must remain with the filmmaker.
@@ -260,7 +260,18 @@ export default function SubmitFilmPage() {
                   <strong>Language & Subtitles:</strong> Films in any language are accepted. If your film isn't in English, please include <strong>English subtitles</strong>. Even if it's in Hindi or a regional language, English subtitles are strongly encouraged for wider understanding. Subtitles are your responsibility to prepare.
                   </li>
                   <li>
-                  <strong>Geographical Focus:</strong> The festival is open to everyone, but we especially encourage entries from <strong>filmmakers from Madhya Pradesh</strong> or films connected to <strong>Madhya Pradesh/Central India</strong> – whether through story, setting, or production. This includes films based in or shot in Madhya Pradesh or made by filmmakers from the state. Highlighting your MP connection can strengthen your submission.
+                  <strong>Geographical Focus:</strong> Film submissions are open to all filmmakers. However, the following eligibility criteria apply only to under 10 minute- General Fiction and General Non-Fiction categories:
+                  <br />
+                  At least one of the following must be met:
+                  <ul className="list-disc pl-6 sm:pl-8 mt-2 space-y-1">
+                    <li><strong>The filmmaker is from Madhya Pradesh; or</strong></li>
+                    <li><strong>The film has been shot in Madhya Pradesh; or</strong></li>
+                    <li><strong>The story is set in, or substantially based on, Madhya Pradesh.</strong></li>
+                  </ul>
+                  <br />
+                  Meeting any one of the above conditions is sufficient for eligibility in these categories.
+                  <br />
+                  The special categories- <strong>Heart of India</strong> and <strong>Women&apos;s Voices</strong> both are open to filmmakers from everywhere, with no regional restrictions.
                   </li>
                   <li>
                   <strong>Prior Screenings:</strong> Films don't need to be premieres. You can submit films that have screened elsewhere or are online. However, showing something new or lesser known to local audiences adds excitement. If your film has won awards or been shown before, mention it in the form – it won't affect your eligibility.
@@ -294,7 +305,7 @@ export default function SubmitFilmPage() {
                     <strong>Keep the Link Active:</strong> The film link must remain active until <strong>February 2026</strong>. Avoid using links that expire (like WeTransfer). Google Drive or Vimeo are recommended. File size recommendations: under <strong>2GB for 10-minute films</strong> and under <strong>1GB for 5-minute films</strong> for easier viewing. The link will only be used by the jury. If the film is selected, a better-quality version and permission to use short clips for festival promotion may be requested.
                   </li>
                   <li>
-                    <strong>Submit Before the Deadline:</strong> The last date for submission is <strong>December 31, 2025 (11:59 PM IST)</strong>. Late or incomplete entries may not be accepted. A confirmation message or email will be received upon submission. Contact the festival team before the deadline if any issues arise.
+                    <strong>Submit Before the Deadline:</strong> The last date for submission is <strong>January 7, 2026 (11:59 PM IST)</strong>. Late or incomplete entries may not be accepted. A confirmation message or email will be received upon submission. Contact the festival team before the deadline if any issues arise.
                   </li>
                   <li>
                     <strong>Avoid Duplicate Submissions:</strong> Submit each film only once. If submitting multiple films, a separate form must be filled out for each.

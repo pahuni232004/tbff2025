@@ -89,14 +89,14 @@ export default function Hero({ scrollProgress }: Props) {
             <div className="flex gap-4">
               <SafeLink
                 href="/passes"
-                className="inline-flex items-center justify-center px-6 py-2 border-[3px] border-[#091529] bg-transparent text-[#091529] rounded-md text-sm"
+                className="inline-flex items-center justify-center px-6 py-2 border-[3px] border-[#091529] bg-transparent text-[#091529] rounded-md text-sm font-bold"
               >
                 Book Tickets
               </SafeLink>
 
               <SafeLink
                 href="/submit-film"
-                className="inline-flex items-center justify-center px-6 py-2 bg-[#091529] text-white rounded-md text-sm"
+                className="inline-flex items-center justify-center px-6 py-2 bg-[#091529] text-white rounded-md text-sm font-bold"
               >
                 Submit Film
               </SafeLink>

@@ -37,12 +37,6 @@ body {
     "Helvetica Neue", Arial;
 }
 
-body {
-  background-image: url("/assets/paper.svg");
-  background-repeat: repeat; /* texture tiles naturally */
-  background-size: 400px; /* adjust based on real texture */
-  background-position: center;
-}
 
 /* top nav */
 
