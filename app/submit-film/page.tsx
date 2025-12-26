@@ -271,7 +271,7 @@ export default function SubmitFilmPage() {
                   <br />
                   Meeting any one of the above conditions is sufficient for eligibility in these categories.
                   <br />
-                  The special categories- <strong>Heart of India</strong> and <strong>Women&apos;s Voices</strong> both are open to filmmakers from everywhere, with no regional restrictions.
+                  <strong>The special categories- <strong>Heart of India</strong> and <strong>Women&apos;s Voices</strong> both are open to filmmakers from everywhere, with no regional restrictions.</strong>
                   </li>
                   <li>
                   <strong>Prior Screenings:</strong> Films don't need to be premieres. You can submit films that have screened elsewhere or are online. However, showing something new or lesser known to local audiences adds excitement. If your film has won awards or been shown before, mention it in the form – it won't affect your eligibility.

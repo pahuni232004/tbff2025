@@ -245,7 +245,7 @@ export default function MeetCrew() {
             const track = document.getElementById("juryMobileTrack");
             if (track) {
                 const slideWidth = 200; // each slide width
-                const totalSlides = 8;  // real slides (3 jurors + 5 crew members)
+                const totalSlides = 3;  // real slides (3 jurors only)
                 const spacing = 2;
                 const moveDistance = (slideWidth + spacing); // one slide shift
                 let x = 0;
@@ -334,45 +334,19 @@ export default function MeetCrew() {
                             style={{ width: "9999px" }} // track grows automatically
                         >
                             {[
-                                "/assets/Juror 1.png",
-                                "/assets/Juror 2.png",
-                                "/assets/Juror 3.png",
-                                "/assets/crew 1 (1).png",
-                                "/assets/crew 2 (1).png",
-                                "/assets/crew 3 (1).png",
-                                "/assets/crew 1 (1).png",
-                                "/assets/crew 2 (1).png",
+                                "/meet the jury/Juror 1.png",
+                                "/meet the jury/Juror 2.png",
+                                "/meet the jury/Juror 3.png",
                             ].map((src, i) => (
                                 <div key={i} className="w-[200px] flex-shrink-0 px-1">
                                     <div className="relative w-[180px] mx-auto">
                                         <Image
-                                            src="/assets/frame.png"
-                                            alt=""
-                                            width={300}
-                                            height={340}
-                                            className="relative z-10 w-full h-auto"
+                                            src={src}
+                                            alt="Jury member"
+                                            width={400}
+                                            height={480}
+                                            className="w-full h-auto object-contain"
                                         />
-
-                                        {/* Yellow bg */}
-                                        <div
-                                            className="absolute bg-[#FFCE21] z-15"
-                                            style={{ top: "8%", bottom: "8%", left: "8%", right: "8%" }}
-                                        ></div>
-
-                                        {/* Member image */}
-                                        <div
-                                            className="absolute inset-0 flex items-center justify-center z-20 overflow-hidden"
-                                            style={{ top: "8%", bottom: "8%", left: "8%", right: "8%" }}
-                                        >
-                                            <Image
-                                                src={src}
-                                                alt=""
-                                                width={400}
-                                                height={480}
-                                                className="w-full h-full object-contain"
-                                            />
-                                        </div>
-
                                     </div>
                                 </div>
                             ))}
@@ -395,44 +369,23 @@ export default function MeetCrew() {
                         justify-center md:justify-end
                     ">
                         {[
-                            "/assets/Juror 1.png",
-                            "/assets/Juror 2.png",
-                            "/assets/Juror 3.png",
-                            "/assets/crew 1 (1).png",
-                            "/assets/crew 2 (1).png",
-                            "/assets/crew 3 (1).png",
-                            "/assets/crew 1 (1).png",
-                            "/assets/crew 2 (1).png",
+                            "/meet the jury/Juror 1.png",
+                            "/meet the jury/Juror 2.png",
+                            "/meet the jury/Juror 3.png",
+                            "/meet the jury/Juror 4.png",
+                            "/meet the jury/Juror 5.png",
+                            "/meet the jury/Juror 6.png",
+                            "/meet the jury/Juror 7.png",
+                            "/meet the jury/Juror 8.png",
                         ].map((src, idx) => (
-                            <div key={idx} className="frame-flip-container relative w-[150px] sm:w-[180px] md:w-[240px] mx-auto">
-                                <div className="frame-flip-inner">
-                                    <div className="frame-flip-front">
-                                        <Image src="/assets/frame.png" alt="" width={260} height={300} className="relative z-10 w-full h-auto" />
-                                        <div className="absolute bg-[#FFCE21] z-15" style={{ top: "8%", bottom: "8%", left: "8%", right: "8%" }}></div>
-                                        <div className="absolute inset-0 flex items-center justify-center z-20 overflow-hidden" style={{ top: "8%", bottom: "8%", left: "8%", right: "8%" }}>
-                                            <Image
-                                                src={src}
-                                                alt="Jury member"
-                                                width={360}
-                                                height={440}
-                                                className="w-full h-full object-contain"
-                                            />
-                                        </div>
-                                    </div>
-                                    <div className="frame-flip-back">
-                                        <Image src="/assets/frame.png" alt="" width={260} height={300} className="relative z-10 w-full h-auto" />
-                                        <div className="absolute bg-[#FFCE21] z-15" style={{ top: "8%", bottom: "8%", left: "8%", right: "8%" }}></div>
-                                        <div className="absolute inset-0 flex items-center justify-center z-20 overflow-hidden" style={{ top: "8%", bottom: "8%", left: "8%", right: "8%" }}>
-                                            <Image
-                                                src={src}
-                                                alt="Jury member"
-                                                width={360}
-                                                height={440}
-                                                className="w-full h-full object-contain"
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
+                            <div key={idx} className="relative w-[150px] sm:w-[180px] md:w-[240px] mx-auto">
+                                <Image
+                                    src={src}
+                                    alt="Jury member"
+                                    width={360}
+                                    height={440}
+                                    className="w-full h-auto object-contain"
+                                />
                             </div>
                         ))}
                     </div>

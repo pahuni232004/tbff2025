@@ -6,6 +6,9 @@ import Image from "next/image";
 import { useEffect, useRef } from "react";
 
 export default function AboutPage() {
+  const slider1TrackRef = useRef<HTMLDivElement>(null);
+  const slider2TrackRef = useRef<HTMLDivElement>(null);
+
   // Scroll-based flip for mobile characters
   useEffect(() => {
     if (typeof window === 'undefined' || window.innerWidth > 767) return; // Only for mobile
@@ -37,6 +40,112 @@ export default function AboutPage() {
         observer.unobserve(card);
       });
     };
+  }, []);
+
+  // Auto-slide functionality for both sliders - similar to Meet the Jury mobile slider
+  useEffect(() => {
+    const track1 = slider1TrackRef.current;
+    const track2 = slider2TrackRef.current;
+
+    if (!track1 || !track2) return;
+
+    const getSlideWidth = () => {
+      if (typeof window === 'undefined') return 140;
+      const width = window.innerWidth;
+      if (width >= 1024) return 280; // lg
+      if (width >= 768) return 240; // md
+      if (width >= 640) return 220; // sm
+      return 140; // base (mobile - matches character card size)
+    };
+
+    const getSpacing = () => {
+      if (typeof window === 'undefined') return 16;
+      const width = window.innerWidth;
+      if (width >= 1024) return 32; // lg:gap-8
+      if (width >= 768) return 24; // md:gap-6
+      return 16; // gap-4
+    };
+
+    const slideWidth = getSlideWidth();
+    const spacing = getSpacing();
+    const moveDistance = slideWidth + spacing; // one slide shift
+    const totalSlides1 = 9; // Crew 1-9
+    const totalSlides2 = 9; // Crew 10-18
+    const slideDuration = 600; // ms (how long it moves)
+    const pauseDuration = 2000; // ms pause after each slide
+
+    let x1 = 0;
+    let x2 = 0;
+
+    function slideOnce1() {
+      if (!track1) return;
+      const currentSlideWidth = getSlideWidth();
+      const currentSpacing = getSpacing();
+      const currentMoveDistance = currentSlideWidth + currentSpacing;
+      const targetX = x1 - currentMoveDistance;
+
+      track1.style.transition = `transform ${slideDuration}ms ease-out`;
+      track1.style.transform = `translateX(${targetX}px)`;
+
+      x1 = targetX;
+
+      setTimeout(() => {
+        if (!track1) return;
+
+        // reset after showing all original slides once (halfway point since we duplicated)
+        const resetDistance = (getSlideWidth() + getSpacing()) * totalSlides1;
+        if (Math.abs(x1) >= resetDistance) {
+          track1.style.transition = "none";
+          x1 = 0;
+          track1.style.transform = `translateX(0px)`;
+          // Small delay to ensure reset is complete before next slide
+          setTimeout(() => {
+            slideOnce1();
+          }, 50);
+          return;
+        }
+
+        // pause then slide again
+        setTimeout(slideOnce1, pauseDuration);
+      }, slideDuration);
+    }
+
+    function slideOnce2() {
+      if (!track2) return;
+      const currentSlideWidth = getSlideWidth();
+      const currentSpacing = getSpacing();
+      const currentMoveDistance = currentSlideWidth + currentSpacing;
+      const targetX = x2 - currentMoveDistance;
+
+      track2.style.transition = `transform ${slideDuration}ms ease-out`;
+      track2.style.transform = `translateX(${targetX}px)`;
+
+      x2 = targetX;
+
+      setTimeout(() => {
+        if (!track2) return;
+
+        // reset after showing all original slides once (halfway point since we duplicated)
+        const resetDistance = (getSlideWidth() + getSpacing()) * totalSlides2;
+        if (Math.abs(x2) >= resetDistance) {
+          track2.style.transition = "none";
+          x2 = 0;
+          track2.style.transform = `translateX(0px)`;
+          // Small delay to ensure reset is complete before next slide
+          setTimeout(() => {
+            slideOnce2();
+          }, 50);
+          return;
+        }
+
+        // pause then slide again
+        setTimeout(slideOnce2, pauseDuration);
+      }, slideDuration);
+    }
+
+    // Start both sliders
+    slideOnce1();
+    slideOnce2();
   }, []);
 
   return (
@@ -214,7 +323,7 @@ export default function AboutPage() {
           </div>
 
           {/* Meet the Crew Section - Below About Us */}
-          <div className="relative z-30 w-screen mt-4 sm:mt-6 md:mt-8 lg:-mt-[200px] mb-0 pb-8 sm:pb-12 md:pb-16 lg:pb-20" style={{ marginLeft: 'calc(-50vw + 50%)', marginRight: 'calc(-50vw + 50%)', marginBottom: '0' }}>
+          <div className="relative z-30 w-screen mt-4 sm:mt-6 md:mt-8 lg:-mt-[200px] mb-0 pb-32 sm:pb-12 md:pb-16 lg:pb-20" style={{ marginLeft: 'calc(-50vw + 50%)', marginRight: 'calc(-50vw + 50%)', marginBottom: '0', backgroundImage: 'url("/assets/about us bg.png")', backgroundSize: 'cover', backgroundPosition: 'bottom', backgroundRepeat: 'no-repeat' }}>
             {/* MEET THE CREW Image - Above the section */}
             <div className="relative w-full flex justify-center mb-4" style={{ marginTop: '0' }}>
               <Image
@@ -228,7 +337,7 @@ export default function AboutPage() {
             </div>
             
             {/* Background Image Container - Full width edge to edge, no padding */}
-            <div className="relative w-full overflow-hidden mt-4 sm:mt-6 md:mt-8 lg:mt-10" style={{ marginBottom: '0' }}>
+            <div className="relative w-full overflow-hidden mt-4 sm:mt-6 md:mt-8 lg:mt-10 pb-[200px] sm:pb-0" style={{ marginBottom: '0', backgroundImage: 'url("/assets/about us bg.png")', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
               <div className="relative w-full" style={{ position: 'relative', aspectRatio: 'auto' }}>
                 {/* Background Image - Full height to show all segments */}
                 <Image
@@ -246,7 +355,7 @@ export default function AboutPage() {
                   priority
                 />
                 
-                {/* Character Overlays - 4 characters in sequence: 9-01, 10-01, dog, 1-01 */}
+                {/* Character Overlays - 3 characters in sequence: 9-01, 10-01, dog */}
                 <div className="absolute inset-0 w-full h-full" style={{ pointerEvents: 'none', top: 0, left: 0, right: 0, bottom: 0 }}>
                   {/* Character 1 - Copy of 9-01 */}
                   <div 
@@ -326,29 +435,70 @@ export default function AboutPage() {
                       </div>
                     </div>
                   </div>
+                </div>
 
-                  {/* Character 4 - Copy of 1-01 */}
-                  <div 
-                    className="absolute pointer-events-auto z-20 character-flip-card character-flip-scroll top-[65%] right-0 w-[65%] max-w-[320px] md:top-[70%] md:right-0 md:w-[90%] md:max-w-[1300px]"
-                  >
-                    <div className="character-flip-card-inner">
-                      <div className="character-flip-card-front">
-                        <Image
-                          src="/assets/Copy of 1-01.png"
-                          alt="Character 4"
-                          width={400}
-                          height={750}
-                          className="w-full h-auto object-contain"
-                        />
+                {/* Crew Sliders Section - Two sliders with crew frames - Positioned below third character */}
+                {/* Mobile: Character 3 at 45%, spacing 20% = slider at 65% */}
+                {/* Desktop: Character 3 at 48%, spacing 20% = slider at 68% */}
+                <div className="absolute bottom-0 left-0 right-0 z-30 w-full px-4 sm:px-6 md:px-8 lg:px-12 crew-sliders-container pb-[120px] sm:pb-0" style={{ top: '65%' }}>
+                  {/* First Slider - Crew 1 to Crew 9 */}
+                  <div className="mb-8 sm:mb-12 md:mb-16 overflow-hidden">
+                    <div className="overflow-x-hidden no-scrollbar pb-4 max-w-[calc(4*(140px+16px))] sm:max-w-[calc(4*(220px+16px))] md:max-w-[calc(4*(240px+24px))] lg:max-w-[calc(4*(280px+32px))] mx-auto" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+                      <div ref={slider1TrackRef} className="flex gap-4 md:gap-6 lg:gap-8" style={{ width: 'max-content' }}>
+                        {[...[1, 2, 3, 4, 5, 6, 7, 8, 9], ...[1, 2, 3, 4, 5, 6, 7, 8, 9]].map((num, index) => (
+                          <div key={`slider1-${index}`} className="flex-shrink-0 w-[140px] sm:w-[220px] md:w-[240px] lg:w-[280px]">
+                            <div className="relative">
+                              <Image
+                                src="/assets/frame.png"
+                                alt=""
+                                width={260}
+                                height={300}
+                                className="relative z-10 w-full h-auto"
+                              />
+                              <div className="absolute bg-[#FFCE21] z-15" style={{ top: "8%", bottom: "8%", left: "8%", right: "8%" }}></div>
+                              <div className="absolute inset-0 flex items-center justify-center z-20 overflow-hidden" style={{ top: "8%", bottom: "8%", left: "8%", right: "8%" }}>
+                                <Image
+                                  src={`/meet the crew/Crew ${num}.png`}
+                                  alt={`Crew Member ${num}`}
+                                  width={300}
+                                  height={340}
+                                  className="w-full h-full object-contain"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        ))}
                       </div>
-                      <div className="character-flip-card-back" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', height: '100%' }}>
-                        <Image
-                          src="/crew/crew 4.png"
-                          alt="Crew Member 4"
-                          width={300}
-                          height={340}
-                          className="object-contain w-[120px] max-w-[120px] md:w-[350px] md:max-w-[350px] h-auto"
-                        />
+                    </div>
+                  </div>
+
+                  {/* Second Slider - Crew 10 to Crew 18 */}
+                  <div className="overflow-hidden mb-20 sm:mb-0">
+                    <div className="overflow-x-hidden no-scrollbar pb-4 max-w-[calc(4*(140px+16px))] sm:max-w-[calc(4*(220px+16px))] md:max-w-[calc(4*(240px+24px))] lg:max-w-[calc(4*(280px+32px))] mx-auto" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+                      <div ref={slider2TrackRef} className="flex gap-4 md:gap-6 lg:gap-8" style={{ width: 'max-content' }}>
+                        {[...[10, 11, 12, 13, 14, 15, 16, 17, 18], ...[10, 11, 12, 13, 14, 15, 16, 17, 18]].map((num, index) => (
+                          <div key={`slider2-${index}`} className="flex-shrink-0 w-[140px] sm:w-[220px] md:w-[240px] lg:w-[280px]">
+                            <div className="relative">
+                              <Image
+                                src="/assets/frame.png"
+                                alt=""
+                                width={260}
+                                height={300}
+                                className="relative z-10 w-full h-auto"
+                              />
+                              <div className="absolute bg-[#FFCE21] z-15" style={{ top: "8%", bottom: "8%", left: "8%", right: "8%" }}></div>
+                              <div className="absolute inset-0 flex items-center justify-center z-20 overflow-hidden" style={{ top: "8%", bottom: "8%", left: "8%", right: "8%" }}>
+                                <Image
+                                  src={`/meet the crew/Crew ${num}.png`}
+                                  alt={`Crew Member ${num}`}
+                                  width={300}
+                                  height={340}
+                                  className="w-full h-full object-contain"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        ))}
                       </div>
                     </div>
                   </div>
@@ -356,7 +506,7 @@ export default function AboutPage() {
               </div>
             </div>
           </div>
-        </div>
+      </div>
       </div>
 
       {/* Footer */}

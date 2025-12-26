@@ -38,6 +38,17 @@ body {
 }
 
 
+/* Crew sliders positioning - consistent spacing with character frames */
+.crew-sliders-container {
+  top: 75% !important; /* Mobile: shifted down more */
+}
+
+@media (min-width: 768px) {
+  .crew-sliders-container {
+    top: 70% !important; /* Desktop: adjusted position */
+  }
+}
+
 /* top nav */
 
 .logo {
