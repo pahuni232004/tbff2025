@@ -447,24 +447,14 @@ export default function AboutPage() {
                       <div ref={slider1TrackRef} className="flex gap-4 md:gap-6 lg:gap-8" style={{ width: 'max-content' }}>
                         {[...[1, 2, 3, 4, 5, 6, 7, 8, 9], ...[1, 2, 3, 4, 5, 6, 7, 8, 9]].map((num, index) => (
                           <div key={`slider1-${index}`} className="flex-shrink-0 w-[140px] sm:w-[220px] md:w-[240px] lg:w-[280px]">
-                            <div className="relative">
+                            <div className="relative flex items-center justify-center">
                               <Image
-                                src="/assets/frame.png"
-                                alt=""
-                                width={260}
-                                height={300}
-                                className="relative z-10 w-full h-auto"
+                                src={`/meet the crew/Crew ${num}.png`}
+                                alt={`Crew Member ${num}`}
+                                width={300}
+                                height={340}
+                                className="w-full h-full object-contain"
                               />
-                              <div className="absolute bg-[#FFCE21] z-15" style={{ top: "8%", bottom: "8%", left: "8%", right: "8%" }}></div>
-                              <div className="absolute inset-0 flex items-center justify-center z-20 overflow-hidden" style={{ top: "8%", bottom: "8%", left: "8%", right: "8%" }}>
-                                <Image
-                                  src={`/meet the crew/Crew ${num}.png`}
-                                  alt={`Crew Member ${num}`}
-                                  width={300}
-                                  height={340}
-                                  className="w-full h-full object-contain"
-                                />
-                              </div>
                             </div>
                           </div>
                         ))}
@@ -478,24 +468,14 @@ export default function AboutPage() {
                       <div ref={slider2TrackRef} className="flex gap-4 md:gap-6 lg:gap-8" style={{ width: 'max-content' }}>
                         {[...[10, 11, 12, 13, 14, 15, 16, 17, 18], ...[10, 11, 12, 13, 14, 15, 16, 17, 18]].map((num, index) => (
                           <div key={`slider2-${index}`} className="flex-shrink-0 w-[140px] sm:w-[220px] md:w-[240px] lg:w-[280px]">
-                            <div className="relative">
+                            <div className="relative flex items-center justify-center">
                               <Image
-                                src="/assets/frame.png"
-                                alt=""
-                                width={260}
-                                height={300}
-                                className="relative z-10 w-full h-auto"
+                                src={`/meet the crew/Crew ${num}.png`}
+                                alt={`Crew Member ${num}`}
+                                width={300}
+                                height={340}
+                                className="w-full h-full object-contain"
                               />
-                              <div className="absolute bg-[#FFCE21] z-15" style={{ top: "8%", bottom: "8%", left: "8%", right: "8%" }}></div>
-                              <div className="absolute inset-0 flex items-center justify-center z-20 overflow-hidden" style={{ top: "8%", bottom: "8%", left: "8%", right: "8%" }}>
-                                <Image
-                                  src={`/meet the crew/Crew ${num}.png`}
-                                  alt={`Crew Member ${num}`}
-                                  width={300}
-                                  height={340}
-                                  className="w-full h-full object-contain"
-                                />
-                              </div>
                             </div>
                           </div>
                         ))}
