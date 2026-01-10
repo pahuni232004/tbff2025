@@ -284,34 +284,18 @@ export default function Awards() {
 
                 </div>
 
+            </section>
 
-                {/* Bottom wide small-halves that visually overlap */}
-                <div className="absolute left-0 bottom-0 w-full  z-10 md:block">
-                    <div className="relative w-full h-[55vh] md:h-[75vh] overflow-hidden pb-8 sm:pb-12 md:pb-16">
-                        <img
-                            src="/assets/smallalfr.png"
-                            alt=""
-                            aria-hidden="true"
-                            className="absolute left-0 bottom-0 
-                 w-[80%] md:w-[75%]
-                 h-[40vh] md:h-[60vh]
-                 object-cover object-top
-                 pointer-events-none"
-                        />
-
-                        <img
-                            src="/assets/smallalfl.png"
-                            alt=""
-                            aria-hidden="true"
-                            className="absolute right-0 bottom-0 
-                 w-[80%] md:w-[75%]
-                 h-[40vh] md:h-[60vh]
-                 object-cover object-top
-                 pointer-events-none"
-                        />
-                    </div>
+            {/* ---------- SVG SECTION ---------- */}
+            <section className="relative w-full flex items-center justify-center pt-0 pb-4 md:pb-8 svg-section-mobile md:-mt-72 z-30">
+                <div className="flex items-center justify-center w-full">
+                    <img
+                        src="/assets/Group 81 (1).svg"
+                        alt=""
+                        aria-hidden="true"
+                        className="w-full h-auto object-cover pointer-events-none"
+                    />
                 </div>
-
             </section>
         </main>
     );

@@ -406,6 +406,23 @@ div[style*="perspective"] {
       brightness(0.95) 
       contrast(0.85) !important;
   }
+  
+  /* SVG section consistent spacing on mobile */
+  .svg-section-mobile {
+    margin-top: calc(-8vh - 40px) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .svg-section-mobile {
+    margin-top: calc(-6vh - 30px) !important;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .svg-section-mobile {
+    margin-top: calc(-10vh - 50px) !important;
+  }
 }
 
 @media (max-width: 768px) {
