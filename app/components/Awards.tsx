@@ -19,12 +19,11 @@ export default function Awards() {
                 aria-hidden="true"
                 className="absolute pointer-events-none z-[5]"
                 style={{
-                    top: "-15px",
+                    top: "0",
                     left: "50%",
                     transform: "translateX(-50%)",
                     width: "100%",
                     height: "auto",
-                    filter: "brightness(0)" // 👈 turns line into black
                 }}
             />
             {/* BIG CHARACTER: placed in root so it can overlap both viewports */}

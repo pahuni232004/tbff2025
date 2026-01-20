@@ -3,15 +3,8 @@ export const runtime = 'nodejs';
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
-// Lazy initialization - Resend will be created when needed
-let resend: Resend | null = null;
-
-function getResend() {
-  if (!resend && process.env.RESEND_API_KEY) {
-    resend = new Resend(process.env.RESEND_API_KEY);
-  }
-  return resend;
-}
+// Initialize Resend with API key from environment variables
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 // Email configuration
 const FROM_EMAIL = process.env.CONFIRMATION_EMAIL_FROM || 'noreply@thebhopalfilmfestival.com';
@@ -146,7 +139,7 @@ export async function POST(request: NextRequest) {
                   <li>Our jury panel will review all submissions carefully</li>
                   <li>Official selections will be announced by <strong>January 30, 2026</strong></li>
                   <li>Selected filmmakers will be notified via email or phone</li>
-                  <li>The festival will take place on <strong>February 21, 2026</strong> at Ravindra Bhawan Auditorium, Bhopal</li>
+                  <li>The festival will take place on <strong>21 and 22 February 2026</strong> at Minto Hall, Bhopal</li>
                 </ul>
               </div>
               
@@ -227,7 +220,7 @@ What Happens Next?
 - Our jury panel will review all submissions carefully
 - Official selections will be announced by January 30, 2026
 - Selected filmmakers will be notified via email or phone
-- The festival will take place on February 21, 2026 at Ravindra Bhawan Auditorium, Bhopal
+- The festival will take place on 21 and 22 February 2026 at Minto Hall, Bhopal
 
 Important Reminders:
 - Please ensure your film link remains active until February 2026
@@ -248,15 +241,7 @@ This is an automated confirmation email. Please do not reply to this message.
     `;
 
     // Send email using Resend
-    const resendClient = getResend();
-    if (!resendClient) {
-      return NextResponse.json(
-        { success: false, error: 'Email service not configured' },
-        { status: 500 }
-      );
-    }
-    
-    const { data, error } = await resendClient.emails.send({
+    const { data, error } = await resend.emails.send({
       from: FROM_EMAIL,
       to: submissionData.emailAddress,
       subject: 'TBFF 2025 - Submission Confirmation',
@@ -294,3 +279,4 @@ This is an automated confirmation email. Please do not reply to this message.
     );
   }
 }
+
