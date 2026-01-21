@@ -19,11 +19,11 @@ export default function Popups() {
 
   return (
     <div 
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
+      className="fixed inset-0 z-[100] flex items-start justify-center bg-black/60 backdrop-blur-sm p-4 pt-24 md:pt-28 overflow-y-auto"
       onClick={() => setIsOpen(false)}
     >
       <div 
-        className="relative max-w-[90vw] max-h-[90vh] animate-fade-in"
+        className="relative max-w-[90vw] max-h-[80vh] animate-fade-in"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
@@ -41,7 +41,7 @@ export default function Popups() {
           alt="Venue - Minto Hall"
           width={800}
           height={600}
-          className="rounded-lg shadow-2xl max-w-full max-h-[85vh] w-auto h-auto object-contain"
+          className="rounded-lg shadow-2xl max-w-full max-h-[75vh] w-auto h-auto object-contain"
           priority
         />
       </div>
