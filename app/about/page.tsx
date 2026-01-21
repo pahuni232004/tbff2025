@@ -70,7 +70,7 @@ export default function AboutPage() {
     const spacing = getSpacing();
     const moveDistance = slideWidth + spacing; // one slide shift
     const totalSlides1 = 9; // Crew 1-9
-    const totalSlides2 = 9; // Crew 10-18
+    const totalSlides2 = 10; // Crew 10-19
     const slideDuration = 600; // ms (how long it moves)
     const pauseDuration = 2000; // ms pause after each slide
 
@@ -462,11 +462,11 @@ export default function AboutPage() {
                     </div>
                   </div>
 
-                  {/* Second Slider - Crew 10 to Crew 18 */}
+                  {/* Second Slider - Crew 10 to Crew 19 */}
                   <div className="overflow-hidden mb-20 sm:mb-0">
                     <div className="overflow-x-hidden no-scrollbar pb-4 max-w-[calc(4*(140px+16px))] sm:max-w-[calc(4*(220px+16px))] md:max-w-[calc(4*(240px+24px))] lg:max-w-[calc(4*(280px+32px))] mx-auto" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
                       <div ref={slider2TrackRef} className="flex gap-4 md:gap-6 lg:gap-8" style={{ width: 'max-content' }}>
-                        {[...[10, 11, 12, 13, 14, 15, 16, 17, 18], ...[10, 11, 12, 13, 14, 15, 16, 17, 18]].map((num, index) => (
+                        {[...[10, 11, 12, 13, 14, 15, 16, 17, 18, 19], ...[10, 11, 12, 13, 14, 15, 16, 17, 18, 19]].map((num, index) => (
                           <div key={`slider2-${index}`} className="flex-shrink-0 w-[140px] sm:w-[220px] md:w-[240px] lg:w-[280px]">
                             <div className="relative flex items-center justify-center">
                               <Image
