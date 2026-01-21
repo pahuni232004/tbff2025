@@ -223,49 +223,80 @@ export default function MeetCrew() {
             window.addEventListener("resize", resizeHandler);
         }
 
-        // MOBILE INFINITE LOOP SLIDER// MOBILE SLIDER (Infinite Loop)
-        // MOBILE SLIDER (Slide → Pause → Slide Loop)
-        if (typeof window !== 'undefined' && window.innerWidth < 768) {
-            const track = document.getElementById("juryMobileTrack");
-            if (track) {
-                const slideWidth = 200; // each slide width
-                const totalSlides = 3;  // real slides
-                const spacing = 2;
-                const moveDistance = (slideWidth + spacing); // one slide shift
-                let x = 0;
+        // JURY SLIDER (Slide → Pause → Slide Loop) - Both Mobile and Desktop
+        const mobileTrack = document.getElementById("juryMobileTrack");
+        const desktopTrack = document.getElementById("juryDesktopTrack");
+        
+        // Mobile slider
+        if (typeof window !== 'undefined' && window.innerWidth < 768 && mobileTrack) {
+            const slideWidth = 200;
+            const totalSlides = 5;
+            const spacing = 2;
+            const moveDistance = slideWidth + spacing;
+            let x = 0;
 
-                const slideDuration = 600;  // ms (how long it moves)
-                const pauseDuration = 2000; // ms pause after each slide
+            const slideDuration = 600;
+            const pauseDuration = 2000;
 
-                function slideOnce() {
-                    if (!track) return; // Guard clause for TypeScript
-                    const targetX = x - moveDistance;
+            function slideOnceMobile() {
+                if (!mobileTrack) return;
+                const targetX = x - moveDistance;
 
-                    track.style.transition = `transform ${slideDuration}ms ease-out`;
-                    track.style.transform = `translateX(${targetX}px)`;
+                mobileTrack.style.transition = `transform ${slideDuration}ms ease-out`;
+                mobileTrack.style.transform = `translateX(${targetX}px)`;
 
-                    x = targetX;
+                x = targetX;
 
-                    // after slide finishes
-                    setTimeout(() => {
-                        if (!track) return; // Guard clause for TypeScript
+                setTimeout(() => {
+                    if (!mobileTrack) return;
 
-                        // reset after 3 slides (full cycle)
-                        if (Math.abs(x) >= moveDistance * totalSlides) {
-                            track.style.transition = "none";
-                            x = 0;
-                            track.style.transform = `translateX(0px)`;
-                        }
+                    if (Math.abs(x) >= moveDistance * totalSlides) {
+                        mobileTrack.style.transition = "none";
+                        x = 0;
+                        mobileTrack.style.transform = `translateX(0px)`;
+                    }
 
-                        // pause then slide again
-                        setTimeout(slideOnce, pauseDuration);
-
-                    }, slideDuration);
-                }
-
-                // start the cycle
-                slideOnce();
+                    setTimeout(slideOnceMobile, pauseDuration);
+                }, slideDuration);
             }
+
+            slideOnceMobile();
+        }
+        
+        // Desktop slider
+        if (typeof window !== 'undefined' && window.innerWidth >= 768 && desktopTrack) {
+            const slideWidth = window.innerWidth >= 1024 ? 280 : window.innerWidth >= 640 ? 200 : 160;
+            const totalSlides = 5;
+            const spacing = window.innerWidth >= 1024 ? 24 : 16;
+            const moveDistance = slideWidth + spacing;
+            let xDesktop = 0;
+
+            const slideDuration = 600;
+            const pauseDuration = 2000;
+
+            function slideOnceDesktop() {
+                if (!desktopTrack) return;
+                const targetX = xDesktop - moveDistance;
+
+                desktopTrack.style.transition = `transform ${slideDuration}ms ease-out`;
+                desktopTrack.style.transform = `translateX(${targetX}px)`;
+
+                xDesktop = targetX;
+
+                setTimeout(() => {
+                    if (!desktopTrack) return;
+
+                    if (Math.abs(xDesktop) >= moveDistance * totalSlides) {
+                        desktopTrack.style.transition = "none";
+                        xDesktop = 0;
+                        desktopTrack.style.transform = `translateX(0px)`;
+                    }
+
+                    setTimeout(slideOnceDesktop, pauseDuration);
+                }, slideDuration);
+            }
+
+            slideOnceDesktop();
         }
 
         return () => {
@@ -310,249 +341,58 @@ export default function MeetCrew() {
                     <div className="absolute top-28 md:right-112  md:top-20   right-[-8] -translate-x-1/2 z-10">
                         <Image src="/assets/jurymeet.png" alt="meet" width={280} height={100} className="w-[140px] sm:w-[180px] md:w-[240px] h-auto" />
                     </div>
-                    {/* MOBILE SLIDER */}
+                    {/* MOBILE SLIDER - Juror 1-5 */}
                     <div className="md:hidden absolute right-6 bottom-30 w-[200px] overflow-hidden z-20">
                         <div
                             id="juryMobileTrack"
                             className="flex"
-                            style={{ width: "9999px" }} // track grows automatically
+                            style={{ width: "9999px" }}
                         >
-                            {[1, 2, 3, 1, 2, 3].map((n, i) => (
+                            {[1, 2, 3, 4, 5, 1, 2, 3, 4, 5].map((n, i) => (
                                 <div key={i} className="w-[200px] flex-shrink-0 px-1">
                                     <div className="relative w-[180px] mx-auto">
                                         <Image
-                                            src="/assets/frame.png"
-                                            alt=""
+                                            src={`/meet the jury/Juror ${n}.png`}
+                                            alt={`Juror ${n}`}
                                             width={300}
                                             height={340}
-                                            className="relative z-10 w-full h-auto"
+                                            className="w-full h-auto object-contain"
                                         />
-
-                                        {/* Yellow bg */}
-                                        <div
-                                            className="absolute bg-[#FFCE21] z-15"
-                                            style={{ top: "8%", bottom: "25%", left: "8%", right: "8%" }}
-                                        ></div>
-
-                                        {/* Member image */}
-                                        <div
-                                            className="absolute inset-0 flex items-center justify-center z-20 overflow-hidden"
-                                            style={{ top: "8%", bottom: "25%", left: "8%", right: "8%" }}
-                                        >
-                                            <Image
-                                                src={
-                                                    n === 1
-                                                        ? "/assets/jurry1.png"
-                                                        : n === 2
-                                                            ? "/assets/jury char 2.png"
-                                                            : "/assets/jurry 3.png"
-                                                }
-                                                alt=""
-                                                width={400}
-                                                height={480}
-                                                className="w-full h-full object-cover"
-                                                style={{ objectPosition: "center top", transform: "scale(1.2)" }}
-                                            />
-                                        </div>
-
-                                        {/* Label */}
-                                        <div
-                                            className="absolute bg-[#F5E6D3] z-30 flex flex-col items-center justify-center px-2 py-1"
-                                            style={{ bottom: "8%", left: "8%", right: "8%", height: "18%" }}
-                                        >
-                                            <p className="font-bebas text-black font-bold uppercase text-[16px]">
-                                                ANNOUNCING SOON
-                                            </p>
-                                        </div>
                                     </div>
                                 </div>
                             ))}
                         </div>
                     </div>
 
-
-
+                    {/* DESKTOP SLIDER - Juror 1-5 */}
                     <div
                         ref={g1Ref}
                         className="
-                         mobileghost
-                        frames1 absolute
-                        top-32 sm:top-40 md:top-96
-                        left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0
-                        right-4 md:right-12
-
-                       
-                        grid md:grid-cols-3 gap-4 md:gap-6
-                        justify-center md:justify-end
-
-                       
-                    ">
-                        {/* Frame 1 */}
-                        <div className="frame-flip-container relative w-[160px] sm:w-[200px] md:w-[300px] mx-auto">
-                            <div className="frame-flip-inner">
-                                <div className="frame-flip-front">
-                                    {/* Frame */}
+                            mobileghost
+                            frames1 absolute
+                            top-32 sm:top-40 md:top-80
+                            right-4 md:right-12
+                            w-[calc(100%-2rem)] md:w-[900px]
+                            overflow-hidden
+                            z-20
+                        "
+                    >
+                        <div 
+                            id="juryDesktopTrack"
+                            className="flex gap-4 md:gap-6"
+                            style={{ width: "max-content" }}
+                        >
+                            {[1, 2, 3, 4, 5, 1, 2, 3, 4, 5].map((n, i) => (
+                                <div key={i} className="flex-shrink-0 w-[160px] sm:w-[200px] md:w-[280px]">
                                     <Image
-                                        src="/assets/frame.png"
-                                        alt=""
+                                        src={`/meet the jury/Juror ${n}.png`}
+                                        alt={`Juror ${n}`}
                                         width={300}
                                         height={340}
-                                        className="relative z-10 w-full h-auto"
+                                        className="w-full h-auto object-contain"
                                     />
-
-                                    {/* Yellow Background */}
-                                    <div
-                                        className="absolute bg-[#FFCE21] z-15"
-                                        style={{ top: "8%", bottom: "25%", left: "8%", right: "8%" }}
-                                    ></div>
-
-                                    {/* Photo inside Frame */}
-                                    <div
-                                        className="absolute inset-0 flex items-center justify-center z-20 overflow-hidden"
-                                        style={{ top: "8%", bottom: "25%", left: "8%", right: "8%" }}
-                                    >
-                                        <Image
-                                            src="/assets/jurry1.png"
-                                            alt="Jury member"
-                                            width={400}
-                                            height={480}
-                                            className="w-full h-full object-cover object-top"
-                                        />
-                                    </div>
-
-                                    {/* Text Box */}
-                                    <div
-                                        className="absolute bg-[#F5E6D3] px-3 py-2 md:px-4 md:py-3 z-30 flex flex-col items-center justify-center"
-                                        style={{ bottom: "8%", left: "8%", right: "8%", height: "17%" }}
-                                    >
-                                        <p className="font-bebas text-black font-bold text-center uppercase text-xs md:text-xl" style={{ letterSpacing: "1px", lineHeight: "1.2" }}>ANNOUNCING SOON</p>
-                                    </div>
                                 </div>
-                                <div className="frame-flip-back">
-                                    {/* Frame */}
-                                    <Image
-                                        src="/assets/frame.png"
-                                        alt=""
-                                        width={300}
-                                        height={340}
-                                        className="relative z-10 w-full h-auto"
-                                    />
-
-                                    {/* Yellow Background */}
-                                    <div
-                                        className="absolute bg-[#FFCE21] z-15"
-                                        style={{ top: "8%", bottom: "25%", left: "8%", right: "8%" }}
-                                    ></div>
-
-                                    {/* Photo inside Frame */}
-                                    <div
-                                        className="absolute inset-0 flex items-center justify-center z-20 overflow-hidden"
-                                        style={{ top: "8%", bottom: "25%", left: "8%", right: "8%" }}
-                                    >
-                                        <Image
-                                            src="/assets/jurry1.png"
-                                            alt="Jury member"
-                                            width={400}
-                                            height={480}
-                                            className="w-full h-full object-cover object-top"
-                                            style={{ transform: "scaleX(-1)" }}
-                                        />
-                                    </div>
-
-                                    {/* Text Box */}
-                                    <div
-                                        className="absolute bg-[#F5E6D3] px-3 py-2 md:px-4 md:py-3 z-30 flex flex-col items-center justify-center"
-                                        style={{ bottom: "8%", left: "8%", right: "8%", height: "17%" }}
-                                    >
-                                        <p className="font-bebas text-black font-bold text-center uppercase text-xs md:text-xl" style={{ letterSpacing: "1px", lineHeight: "1.2" }}>ANNOUNCING SOON</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        {/* Frame 2 */}
-                        <div className="frame-flip-container relative w-[160px] sm:w-[200px] md:w-[300px] mx-auto">
-                            <div className="frame-flip-inner">
-                                <div className="frame-flip-front">
-                                    <Image src="/assets/frame.png" alt="" width={300} height={340} className="relative z-10 w-full h-auto" />
-                                    {/* Yellow background box inside the frame */}
-                                    <div className="absolute bg-[#FFCE21] z-15" style={{ top: "8%", bottom: "25%", left: "8%", right: "8%" }}></div>
-                                    <div className="absolute inset-0 flex items-center justify-center z-20 overflow-hidden" style={{ top: "8%", bottom: "25%", left: "8%", right: "8%" }}>
-                                        <Image
-                                            src="/assets/jury char 2.png"
-                                            alt="Jury member"
-                                            width={400}
-                                            height={480}
-                                            className="object-cover"
-                                            style={{ objectPosition: "center 20%", transform: "scale(1.6)" }}
-                                        />
-                                    </div>
-                                    <div className="absolute bg-[#F5E6D3] px-3 py-2 md:px-4 md:py-3 z-30 flex flex-col items-center justify-center" style={{ bottom: "8%", left: "8%", right: "8%", height: "17%" }}>
-                                        <p className="font-bebas text-black font-bold text-center uppercase text-xs md:text-xl" style={{ letterSpacing: "1px", lineHeight: "1.2" }}>ANNOUNCING SOON</p>
-                                    </div>
-                                </div>
-                                <div className="frame-flip-back">
-                                    <Image src="/assets/frame.png" alt="" width={300} height={340} className="relative z-10 w-full h-auto" />
-                                    {/* Yellow background box inside the frame */}
-                                    <div className="absolute bg-[#FFCE21] z-15" style={{ top: "8%", bottom: "25%", left: "8%", right: "8%" }}></div>
-                                    <div className="absolute inset-0 flex items-center justify-center z-20 overflow-hidden" style={{ top: "8%", bottom: "25%", left: "8%", right: "8%" }}>
-                                        <Image
-                                            src="/assets/jury char 2.png"
-                                            alt="Jury member"
-                                            width={400}
-                                            height={480}
-                                            className="object-cover"
-                                            style={{ objectPosition: "center 20%", transform: "scale(1.6) scaleX(-1)" }}
-                                        />
-                                    </div>
-                                    <div className="absolute bg-[#F5E6D3] px-3 py-2 md:px-4 md:py-3 z-30 flex flex-col items-center justify-center" style={{ bottom: "8%", left: "8%", right: "8%", height: "17%" }}>
-                                        <p className="font-bebas text-black font-bold text-center uppercase text-xs md:text-xl" style={{ letterSpacing: "1px", lineHeight: "1.2" }}>ANNOUNCING SOON</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Frame 3 */}
-                        <div className="frame-flip-container relative w-[160px] sm:w-[200px] md:w-[300px] mx-auto">
-                            <div className="frame-flip-inner">
-                                <div className="frame-flip-front">
-                                    <Image src="/assets/frame.png" alt="" width={300} height={340} className="relative z-10 w-full h-auto" />
-                                    {/* Yellow background box inside the frame */}
-                                    <div className="absolute bg-[#FFCE21] z-15" style={{ top: "8%", bottom: "25%", left: "8%", right: "8%" }}></div>
-                                    <div className="absolute inset-0 flex items-center justify-center z-20 overflow-hidden" style={{ top: "8%", bottom: "25%", left: "8%", right: "8%" }}>
-                                        <Image
-                                            src="/assets/jurry 3.png"
-                                            alt="Jury member"
-                                            width={400}
-                                            height={480}
-                                            className="object-cover"
-                                            style={{ objectPosition: "center 20%", transform: "scale(1.0)" }}
-                                        />
-                                    </div>
-                                    <div className="absolute bg-[#F5E6D3] px-3 py-2 md:px-4 md:py-3 z-30 flex flex-col items-center justify-center" style={{ bottom: "8%", left: "8%", right: "8%", height: "17%" }}>
-                                        <p className="font-bebas text-black font-bold text-center uppercase text-xs md:text-xl" style={{ letterSpacing: "1px", lineHeight: "1.2" }}>ANNOUNCING SOON</p>
-                                    </div>
-                                </div>
-                                <div className="frame-flip-back">
-                                    <Image src="/assets/frame.png" alt="" width={300} height={340} className="relative z-10 w-full h-auto" />
-                                    {/* Yellow background box inside the frame */}
-                                    <div className="absolute bg-[#FFCE21] z-15" style={{ top: "8%", bottom: "25%", left: "8%", right: "8%" }}></div>
-                                    <div className="absolute inset-0 flex items-center justify-center z-20 overflow-hidden" style={{ top: "8%", bottom: "25%", left: "8%", right: "8%" }}>
-                                        <Image
-                                            src="/assets/jurry 3.png"
-                                            alt="Jury member"
-                                            width={400}
-                                            height={480}
-                                            className="object-cover"
-                                            style={{ objectPosition: "center 20%", transform: "scale(1.0) scaleX(-1)" }}
-                                        />
-                                    </div>
-                                    <div className="absolute bg-[#F5E6D3] px-3 py-2 md:px-4 md:py-3 z-30 flex flex-col items-center justify-center" style={{ bottom: "8%", left: "8%", right: "8%", height: "17%" }}>
-                                        <p className="font-bebas text-black font-bold text-center uppercase text-xs md:text-xl" style={{ letterSpacing: "1px", lineHeight: "1.2" }}>ANNOUNCING SOON</p>
-                                    </div>
-                                </div>
-                            </div>
+                            ))}
                         </div>
                     </div>
                     {/* ELEPHANT BACKGROUND LEAF-PATH */}
