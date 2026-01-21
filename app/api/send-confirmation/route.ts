@@ -3,13 +3,6 @@ export const runtime = 'nodejs';
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
-// Initialize Resend with API key from environment variables
-const resend = new Resend(process.env.RESEND_API_KEY);
-
-// Email configuration
-const FROM_EMAIL = process.env.CONFIRMATION_EMAIL_FROM || 'noreply@thebhopalfilmfestival.com';
-const FESTIVAL_EMAIL = process.env.FESTIVAL_CONTACT_EMAIL || 'info@thebhopalfilmfestival.com';
-
 /**
  * API Route to send confirmation email to film submission users
  * 
@@ -48,6 +41,13 @@ export async function POST(request: NextRequest) {
         { status: 500 }
       );
     }
+
+    // Initialize Resend with API key (inside function to avoid build-time errors)
+    const resend = new Resend(process.env.RESEND_API_KEY);
+    
+    // Email configuration
+    const FROM_EMAIL = process.env.CONFIRMATION_EMAIL_FROM || 'noreply@thebhopalfilmfestival.com';
+    const FESTIVAL_EMAIL = process.env.FESTIVAL_CONTACT_EMAIL || 'info@thebhopalfilmfestival.com';
 
     // Create email HTML template
     const emailHtml = `
