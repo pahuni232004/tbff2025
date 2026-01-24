@@ -289,7 +289,7 @@ export default function Awards() {
             <section className="relative w-full flex items-center justify-center pt-0 pb-4 md:pb-8 svg-section-mobile md:-mt-72 z-30">
                 <div className="flex items-center justify-center w-full">
                     <img
-                        src="/assets/Group 81 (1).svg"
+                        src="/assets/Group 81.png"
                         alt=""
                         aria-hidden="true"
                         className="w-full h-auto object-cover pointer-events-none"
