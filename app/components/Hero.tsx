@@ -95,12 +95,6 @@ export default function Hero({ scrollProgress }: Props) {
               Book Tickets
             </a>
 
-            <SafeLink
-              href="/submit-film"
-              className="inline-flex items-center justify-center px-5 py-3 border-2 border-[#091529] text-[#091529] rounded-md text-sm"
-            >
-              Submit Film
-            </SafeLink>
           </div>
         </div>
       </div>

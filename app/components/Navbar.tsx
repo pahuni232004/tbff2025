@@ -60,14 +60,6 @@ export default function Navbar() {
                                 </SafeLink>
                             </li>
                             <li>
-                                <SafeLink
-                                    href="/submit-film"
-                                    className="font-texta bg-[#FFCE21] text-[#091529] font-bold text-sm uppercase px-4 py-2 rounded-md hover:opacity-90 transition"
-                                >
-                                    Submit Film
-                                </SafeLink>
-                            </li>
-                            <li>
                                 <a
                                     href="https://konfhub.com/the-bhopal-film-festival-2026"
                                     target="_blank"
@@ -132,13 +124,6 @@ export default function Navbar() {
                             T&C
                         </SafeLink>
 
-                        <SafeLink
-                            href="/submit-film"
-                            className="font-texta bg-[#FFCE21] text-[#091529] font-bold text-lg uppercase px-6 py-3 rounded-md hover:opacity-90 transition w-48 text-center relative z-10"
-                            onClick={() => setOpen(false)}
-                        >
-                            SUBMIT FILM
-                        </SafeLink>
 
                         <a
                             href="https://konfhub.com/the-bhopal-film-festival-2026"

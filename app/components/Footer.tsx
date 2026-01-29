@@ -80,9 +80,6 @@ export default function Footer() {
                 {/* Middle - Links */}
                 <div className="flex flex-col space-y-3">
                     <h3 className="font-bebas text-lg font-medium mb-3">Quick Links</h3>
-                    <SafeLink href="/submit-film" className="font-texta text-white/90 hover:text-white transition">
-                        Submit Film
-                    </SafeLink>
                     <SafeLink href="/about" className="font-texta text-white/90 hover:text-white transition">
                         About
                     </SafeLink>
