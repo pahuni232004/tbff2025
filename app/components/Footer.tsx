@@ -86,9 +86,9 @@ export default function Footer() {
                     <SafeLink href="/about" className="font-texta text-white/90 hover:text-white transition">
                         About
                     </SafeLink>
-                    <SafeLink href="/passes" className="font-texta text-white/90 hover:text-white transition">
+                    <a href="https://konfhub.com/the-bhopal-film-festival-2026" target="_blank" rel="noopener noreferrer" className="font-texta text-white/90 hover:text-white transition">
                         Get Passes
-                    </SafeLink>
+                    </a>
                     <a href="mailto:info@thebhopalfilmfestival.com" className="font-texta text-white/90 hover:text-white transition">
                         Email
                     </a>

@@ -86,12 +86,14 @@ export default function Hero({ scrollProgress }: Props) {
           </p>
 
           <div className="mt-8 flex gap-4 justify-start">
-            <SafeLink
-              href="/passes"
+            <a
+              href="https://konfhub.com/the-bhopal-film-festival-2026"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-6 py-3 bg-[#091529] text-white rounded-md shadow-sm text-sm"
             >
               Book Tickets
-            </SafeLink>
+            </a>
 
             <SafeLink
               href="/submit-film"
