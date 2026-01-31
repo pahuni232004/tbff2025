@@ -345,7 +345,7 @@ export default function DogScroller() {
     mt-[-6] md:mt-[-16] 
     leading-[1.4]
   ">
-                        A day of celebrating films, voices and live<br /> experiences
+                        A celebration of films, voices and community
                         <strong> - 21st & 22nd February 2026, Minto Hall, Bhopal</strong>
                     </p>
 

@@ -81,7 +81,7 @@ export default function Hero({ scrollProgress }: Props) {
           </h1>
 
           <p className="font-texta mt-6 text-[#091529] text-base md:text-lg text-left">
-            A day of celebrating films, voices, and live experiences —{" "}
+            A celebration of films, voices and community —{" "}
             <strong>21st & 22nd February 2026, Minto Hall, Bhopal</strong>
           </p>
 
