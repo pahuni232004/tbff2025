@@ -10,7 +10,7 @@ export default function DetailsPage() {
       {/* Section 1 */}
       <section className="w-full">
         <Image 
-          src="/event 2026/section 1 .png" 
+          src="/Event 2026/section 1 .png" 
           alt="TBFF 2026 - Section 1" 
           width={1920} 
           height={1080} 
@@ -24,7 +24,7 @@ export default function DetailsPage() {
       {/* Section 2 */}
       <section className="w-full">
         <Image 
-          src="/event 2026/section 2 .png" 
+          src="/Event 2026/section 2 .png" 
           alt="TBFF 2026 - Section 2" 
           width={1920} 
           height={1080} 
@@ -37,7 +37,7 @@ export default function DetailsPage() {
       {/* Section 3 */}
       <section className="w-full">
         <Image 
-          src="/event 2026/Section 3.png" 
+          src="/Event 2026/Section 3.png" 
           alt="TBFF 2026 - Section 3" 
           width={1920} 
           height={1080} 
@@ -50,7 +50,7 @@ export default function DetailsPage() {
       {/* Section 4 */}
       <section className="w-full">
         <Image 
-          src="/event 2026/section 4.png" 
+          src="/Event 2026/section 4.png" 
           alt="TBFF 2026 - Section 4" 
           width={1920} 
           height={1080} 
@@ -63,7 +63,7 @@ export default function DetailsPage() {
       {/* Section 5 */}
       <section className="w-full">
         <Image 
-          src="/event 2026/section 5.png" 
+          src="/Event 2026/section 5.png" 
           alt="TBFF 2026 - Section 5" 
           width={1920} 
           height={1080} 
@@ -76,7 +76,7 @@ export default function DetailsPage() {
       {/* Section 6 */}
       <section className="w-full">
         <Image 
-          src="/event 2026/section 6.png" 
+          src="/Event 2026/section 6.png" 
           alt="TBFF 2026 - Section 6" 
           width={1920} 
           height={1080} 
@@ -89,7 +89,7 @@ export default function DetailsPage() {
       {/* Section 7 */}
       <section className="w-full">
         <Image 
-          src="/event 2026/section 7.png" 
+          src="/Event 2026/section 7.png" 
           alt="TBFF 2026 - Section 7" 
           width={1920} 
           height={1080} 
@@ -102,7 +102,7 @@ export default function DetailsPage() {
       {/* Section 8 */}
       <section className="w-full">
         <Image 
-          src="/event 2026/section 8.png" 
+          src="/Event 2026/section 8.png" 
           alt="TBFF 2026 - Section 8" 
           width={1920} 
           height={1080} 
@@ -115,7 +115,7 @@ export default function DetailsPage() {
       {/* Section 9 */}
       <section className="w-full">
         <Image 
-          src="/event 2026/section 9.png" 
+          src="/Event 2026/section 9.png" 
           alt="TBFF 2026 - Section 9" 
           width={1920} 
           height={1080} 
@@ -128,7 +128,7 @@ export default function DetailsPage() {
       {/* Section 10 */}
       <section className="w-full">
         <Image 
-          src="/event 2026/section 10.png" 
+          src="/Event 2026/section 10.png" 
           alt="TBFF 2026 - Section 10" 
           width={1920} 
           height={1080} 
@@ -141,7 +141,7 @@ export default function DetailsPage() {
       {/* Section 11 */}
       <section className="w-full">
         <Image 
-          src="/event 2026/section 11.png" 
+          src="/Event 2026/section 11.png" 
           alt="TBFF 2026 - Section 11" 
           width={1920} 
           height={1080} 
@@ -154,7 +154,7 @@ export default function DetailsPage() {
       {/* Section 12 */}
       <section className="w-full">
         <Image 
-          src="/event 2026/section 12.png" 
+          src="/Event 2026/section 12.png" 
           alt="TBFF 2026 - Section 12" 
           width={1920} 
           height={1080} 
@@ -167,7 +167,7 @@ export default function DetailsPage() {
       {/* Section 13 */}
       <section className="w-full pb-16 md:pb-0">
         <Image 
-          src="/event 2026/section 13.png" 
+          src="/Event 2026/section 13.png" 
           alt="TBFF 2026 - Section 13" 
           width={1920} 
           height={1080} 
