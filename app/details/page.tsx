@@ -165,7 +165,7 @@ export default function DetailsPage() {
       </section>
 
       {/* Section 13 */}
-      <section className="w-full">
+      <section className="w-full pb-16 md:pb-0">
         <Image 
           src="/event 2026/section 13.png" 
           alt="TBFF 2026 - Section 13" 
@@ -177,8 +177,11 @@ export default function DetailsPage() {
         />
       </section>
 
-      {/* Bottom Navigation */}
-      <div className="w-full bg-[#FFCE21] px-4 md:px-8 lg:px-16 py-12 flex justify-center gap-4">
+      {/* Spacer for mobile to prevent footer overlap */}
+      <div className="h-20 md:hidden bg-[#FFCE21]"></div>
+
+      {/* Bottom Navigation - Hidden on mobile */}
+      <div className="hidden md:flex w-full bg-[#FFCE21] px-4 md:px-8 lg:px-16 py-12 justify-center gap-4">
         <SafeLink
           href="/"
           className="font-texta inline-flex items-center justify-center px-8 py-3 bg-[#091529] text-white rounded-md text-lg font-medium hover:bg-[#0a1a35] transition"
