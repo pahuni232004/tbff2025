@@ -165,10 +165,23 @@ export default function DetailsPage() {
       </section>
 
       {/* Section 13 */}
-      <section className="w-full pb-16 md:pb-0">
+      <section className="w-full">
         <Image 
           src="/Event 2026/section 13.png" 
           alt="TBFF 2026 - Section 13" 
+          width={1920} 
+          height={1080} 
+          className="w-full h-auto"
+          quality={100}
+          unoptimized
+        />
+      </section>
+
+      {/* Section 14 */}
+      <section className="w-full pb-16 md:pb-0">
+        <Image 
+          src="/Event 2026/section 14.png" 
+          alt="TBFF 2026 - Section 14" 
           width={1920} 
           height={1080} 
           className="w-full h-auto"
