@@ -63,8 +63,8 @@ export default function Footer() {
                         <Image
                             src="/assets/new footer logo .png"
                             alt="Bhopal Film Festival"
-                            width={110}
-                            height={120}
+                            width={180}
+                            height={200}
                             className="object-contain"
                         />
                     </div>
