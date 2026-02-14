@@ -61,7 +61,7 @@ export default function Footer() {
                 <div className="space-y-4">
                     <div className="flex items-center gap-3">
                         <Image
-                            src="/assets/black vertical logo_page-0001 - Edited.png"
+                            src="/assets/new footer logo .png"
                             alt="Bhopal Film Festival"
                             width={110}
                             height={120}

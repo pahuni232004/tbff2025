@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import SponsorBand from "./components/SponsorBand";
 import { textaAlt } from "./fonts";
 import { LanguageProvider } from "./contexts/LanguageContext";
 
@@ -123,6 +124,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
                     {/* PAGE CONTENT */}
                     <div className="relative z-[1]">{children}</div>
+
+                    {/* SPONSOR BAND */}
+                    <SponsorBand />
 
                     {/* FOOTER */}
                     <Footer />

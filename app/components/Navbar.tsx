@@ -33,10 +33,9 @@ export default function Navbar() {
                 <div className="flex items-center justify-between py-4 md:py-[30px]">
                     <SafeLink href="/" aria-label="Home" className="flex items-center gap-2 md:gap-0">
                         <img
-                            src="/assets/Logo.svg"
+                            src="/assets/Nav bar logo .png"
                             alt="Bhopal Film Festival Logo"
                             className="object-contain h-10 md:h-12 w-auto"
-                            style={{ filter: 'brightness(0) saturate(100%) invert(73%) sepia(98%) saturate(1352%) hue-rotate(0deg) brightness(102%) contrast(101%)' }}
                         />
                     </SafeLink>
 
