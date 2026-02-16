@@ -143,12 +143,6 @@ export default function Footer() {
                         <span className="font-texta">+91 90399 15389</span>
                     </div>
 
-                    <div className="flex items-center gap-2 text-sm text-white/90">
-                        <FaPhone className="text-white/80" size={18} />
-                        <span className="font-texta">+91 88783 76408</span>
-                    </div>
-
-
                 </div>
             </div>
 
