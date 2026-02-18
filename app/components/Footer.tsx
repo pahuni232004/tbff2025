@@ -54,29 +54,17 @@ export default function Footer() {
     };
 
     return (
-        <footer className="relative z-40 -mt-[50px] md:-mt-[150px] overflow-visible">
-            {/* Sponsor band - shifted up to cover red gap; full image shown, no cropping */}
-            <div className="w-full translate-y-[-4rem] md:translate-y-[-6rem]">
-                <Image
-                    src="/assets/Sponsor band.png"
-                    alt="Festival partners and sponsors"
-                    width={1400}
-                    height={200}
-                    className="w-full h-auto object-contain object-center"
-                    priority={false}
-                />
-            </div>
-            {/* Main Footer Content - pulled up to sit flush under sponsor band */}
-            <div className="bg-[#500E1E] text-white pt-16 pb-8 px-6 md:px-12 -mt-16 md:-mt-24">
+        <footer className="bg-[#500E1E] text-white pt-16 pb-8 px-6 md:px-12 relative z-40 -mt-[50px] md:-mt-[150px]">
+            {/* Main Footer Content */}
             <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 border-b border-white/20 pb-10">
                 {/* Left - Logo & Info */}
                 <div className="space-y-4">
                     <div className="flex items-center gap-3">
                         <Image
-                            src="/assets/black vertical logo_page-0001 - Edited.png"
+                            src="/assets/new footer logo .png"
                             alt="Bhopal Film Festival"
-                            width={110}
-                            height={120}
+                            width={180}
+                            height={200}
                             className="object-contain"
                         />
                     </div>
@@ -94,6 +82,9 @@ export default function Footer() {
                     <h3 className="font-bebas text-lg font-medium mb-3">Quick Links</h3>
                     <SafeLink href="/about" className="font-texta text-white/90 hover:text-white transition">
                         About
+                    </SafeLink>
+                    <SafeLink href="/details" className="font-texta text-white/90 hover:text-white transition">
+                        Event Details
                     </SafeLink>
                     <a href="https://konfhub.com/the-bhopal-film-festival-2026" target="_blank" rel="noopener noreferrer" className="font-texta text-white/90 hover:text-white transition">
                         Get Passes
@@ -152,12 +143,6 @@ export default function Footer() {
                         <span className="font-texta">+91 90399 15389</span>
                     </div>
 
-                    <div className="flex items-center gap-2 text-sm text-white/90">
-                        <FaPhone className="text-white/80" size={18} />
-                        <span className="font-texta">+91 88783 76408</span>
-                    </div>
-
-
                 </div>
             </div>
 
@@ -165,7 +150,6 @@ export default function Footer() {
             <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center mt-6 text-sm text-white/80">
                 <p className="font-texta">© {year} All rights reserved — Bhopal Film Festival</p>
                 <p className="font-texta">Built by ETWOT</p>
-            </div>
             </div>
         </footer>
     );

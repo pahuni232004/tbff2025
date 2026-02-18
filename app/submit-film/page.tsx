@@ -48,14 +48,14 @@ export default function SubmitFilmPage() {
             </h1>
 
           <div className="w-24 md:w-32 h-1 bg-[#091529] mx-auto mb-8"></div>
-          
+
           <p className="font-texta text-[#091529] text-lg md:text-xl mb-6 leading-relaxed">
             Thank you for your interest in The Bhopal Film Festival 2026!
           </p>
           
           <p className="font-texta text-[#091529] text-base md:text-lg mb-8 leading-relaxed opacity-80">
             Film submissions for this edition are now closed. Stay tuned for announcements about selected films and future submission windows.
-          </p>
+                </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
             <SafeLink

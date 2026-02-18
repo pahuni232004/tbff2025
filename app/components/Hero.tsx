@@ -81,8 +81,8 @@ export default function Hero({ scrollProgress }: Props) {
           </h1>
 
           <p className="font-texta mt-6 text-[#091529] text-base md:text-lg text-left">
-            A day of celebrating films, voices, and live experiences —{" "}
-            <strong>21st & 22nd February 2026, Minto Hall, Bhopal</strong>
+            A celebration of films, voices and community —{" "}
+            <strong>21st & 22nd February 2026, <a href="https://www.google.com/maps/search/Minto+Hall+Bhopal" target="_blank" rel="noopener noreferrer" className="underline hover:opacity-80">Minto Hall</a>, Bhopal</strong>
           </p>
 
           <div className="mt-8 flex gap-4 justify-start">

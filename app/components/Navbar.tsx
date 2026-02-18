@@ -33,10 +33,9 @@ export default function Navbar() {
                 <div className="flex items-center justify-between py-4 md:py-[30px]">
                     <SafeLink href="/" aria-label="Home" className="flex items-center gap-2 md:gap-0">
                         <img
-                            src="/assets/Logo.svg"
+                            src="/assets/Nav bar logo .png"
                             alt="Bhopal Film Festival Logo"
                             className="object-contain h-10 md:h-12 w-auto"
-                            style={{ filter: 'brightness(0) saturate(100%) invert(73%) sepia(98%) saturate(1352%) hue-rotate(0deg) brightness(102%) contrast(101%)' }}
                         />
                     </SafeLink>
 
@@ -57,6 +56,14 @@ export default function Navbar() {
                                     className="font-texta bg-[#FFCE21] text-[#091529] font-bold text-sm uppercase px-4 py-2 rounded-md hover:opacity-90 transition"
                                 >
                                     T&C
+                                </SafeLink>
+                            </li>
+                            <li>
+                                <SafeLink
+                                    href="/details"
+                                    className="font-texta bg-[#FFCE21] text-[#091529] font-bold text-sm uppercase px-4 py-2 rounded-md hover:opacity-90 transition"
+                                >
+                                    EVENT DETAILS
                                 </SafeLink>
                             </li>
                             <li>
@@ -124,6 +131,14 @@ export default function Navbar() {
                             T&C
                         </SafeLink>
 
+
+                        <SafeLink
+                            href="/details"
+                            className="font-texta bg-[#FFCE21] text-[#091529] font-bold text-lg uppercase px-6 py-3 rounded-md hover:opacity-90 transition w-48 text-center relative z-10"
+                            onClick={() => setOpen(false)}
+                        >
+                            EVENT DETAILS
+                        </SafeLink>
 
                         <a
                             href="https://konfhub.com/the-bhopal-film-festival-2026"

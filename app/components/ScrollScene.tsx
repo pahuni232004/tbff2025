@@ -345,8 +345,8 @@ export default function DogScroller() {
     mt-[-6] md:mt-[-16] 
     leading-[1.4]
   ">
-                        A day of celebrating films, voices and live<br /> experiences
-                        <strong> - 21st & 22nd February 2026, Minto Hall, Bhopal</strong>
+                        A celebration of films, voices and community
+                        <strong> - 21st & 22nd February 2026, <a href="https://www.google.com/maps/search/Minto+Hall+Bhopal" target="_blank" rel="noopener noreferrer" className="underline hover:opacity-80">Minto Hall</a>, Bhopal</strong>
                     </p>
 
                     <div className="
@@ -357,12 +357,18 @@ export default function DogScroller() {
     w-full md:w-auto
 
   ">
-                        <div className="flex gap-6 md:gap-8 mr-0 md:mr-24 mt-[-10] ">
+                        <div className="flex gap-4 md:gap-6 mr-0 md:mr-24 mt-[-10] ">
+                            <SafeLink
+                                href="/details"
+                                className="font-texta px-6 py-2.5 border-2 border-[#091529] bg-[#FFCE21] text-[#091529] rounded-md text-sm md:text-lg text-center hover:opacity-90 transition whitespace-nowrap"
+                            >
+                                Event Details
+                            </SafeLink>
                             <a
                                 href="https://konfhub.com/the-bhopal-film-festival-2026"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="font-texta px-6 py-2.5 bg-[#091529] text-white rounded-md  text-sm md:text-lg text-center hover:opacity-90 transition whitespace-nowrap"
+                                className="font-texta px-6 py-2.5 bg-[#091529] text-white rounded-md text-sm md:text-lg text-center hover:opacity-90 transition whitespace-nowrap"
                             >
                                 Book Tickets
                             </a>
