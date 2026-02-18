@@ -54,8 +54,20 @@ export default function Footer() {
     };
 
     return (
-        <footer className="bg-[#500E1E] text-white pt-16 pb-8 px-6 md:px-12 relative z-40 -mt-[50px] md:-mt-[150px]">
-            {/* Main Footer Content */}
+        <footer className="relative z-40 -mt-[50px] md:-mt-[150px] overflow-visible">
+            {/* Sponsor band - shifted up to cover red gap; full image shown, no cropping */}
+            <div className="w-full translate-y-[-4rem] md:translate-y-[-6rem]">
+                <Image
+                    src="/assets/Sponsor band.png"
+                    alt="Festival partners and sponsors"
+                    width={1400}
+                    height={200}
+                    className="w-full h-auto object-contain object-center"
+                    priority={false}
+                />
+            </div>
+            {/* Main Footer Content - pulled up to sit flush under sponsor band */}
+            <div className="bg-[#500E1E] text-white pt-16 pb-8 px-6 md:px-12 -mt-16 md:-mt-24">
             <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 border-b border-white/20 pb-10">
                 {/* Left - Logo & Info */}
                 <div className="space-y-4">
@@ -153,6 +165,7 @@ export default function Footer() {
             <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center mt-6 text-sm text-white/80">
                 <p className="font-texta">© {year} All rights reserved — Bhopal Film Festival</p>
                 <p className="font-texta">Built by ETWOT</p>
+            </div>
             </div>
         </footer>
     );
