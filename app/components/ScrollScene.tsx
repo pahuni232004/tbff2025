@@ -358,12 +358,6 @@ export default function DogScroller() {
 
   ">
                         <div className="flex gap-4 md:gap-6 mr-0 md:mr-24 mt-[-10] ">
-                            <SafeLink
-                                href="/details"
-                                className="font-texta px-6 py-2.5 border-2 border-[#091529] bg-[#FFCE21] text-[#091529] rounded-md text-sm md:text-lg text-center hover:opacity-90 transition whitespace-nowrap"
-                            >
-                                Event Details
-                            </SafeLink>
                             <a
                                 href="https://konfhub.com/the-bhopal-film-festival-2026"
                                 target="_blank"
